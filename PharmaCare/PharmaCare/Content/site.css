@@ -1,0 +1,16 @@
+﻿.container {
+    margin-top: 0em;
+    margin-left: 0em;
+    height: 100vh;
+    width: 30vh;
+}
+
+.button {
+    height: 6vh;
+    width: 20vh;
+}
+
+.mainLabel {
+    font-size: 2.8vh;
+    color: white;
+}
