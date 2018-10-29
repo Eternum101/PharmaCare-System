@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="PharmaCare.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewPrescriptions.aspx.cs" Inherits="PharmaCare.ViewPrescriptions" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+   <title></title>
     <meta name="viewport" content="width=device-width" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
@@ -27,14 +27,15 @@
         }
         </style>
 </head>
-<body>
+<body class="body1" >
+    <%-- <asp:Label ID="Label2" runat="server">test</asp:Label> --%>
     <div class="container">
         <form id="form1" runat="server" class="form-vertical">
             <div>
             </div>
             <asp:Panel ID="Panel1" runat="server" CssClass="container">
-
-                <div class="header" onclick="index.aspx">
+                
+                <div class="header" onclick="window.location = 'index.aspx'">
                 <asp:Label ID="lblPharmaCare" runat="server" CssClass="mainLabel">PharmaCare</asp:Label>
                 </div>
 
@@ -42,7 +43,7 @@
                     <label class="docLabel">Doctor</label>
 
                         <asp:Button ID="btnViewPrescription" runat="server" Text="View Prescription" CssClass="button" 
-                        content="width=device-width" PostBackUrl="ViewPrescriptions.aspx" BorderStyle="None" />
+                        content="width=device-width" OnClientClick="btnCheckOut_Click" BorderStyle="None" />
                         <asp:Button ID="Button2" runat="server" Text="NO Click Me" CssClass="button" 
                         OnClientClick="btnCheckOut_Click" BorderStyle="None" />
                         <asp:Button ID="Button3" runat="server" Text="Click ME not him ^" CssClass="button" 
@@ -63,7 +64,7 @@
                 </div>
 
                  <div class="pharmacist">
-                    <label class="pharmacistLabel">Pharmacist</label>
+                    <label class="pharmacistLabel">Pharmacist2</label>
 
                         <asp:Button ID="Button6" runat="server" Text="View Prescription" CssClass="button" 
                         content="width=device-width" OnClientClick="btnCheckOut_Click" BorderStyle="None" />

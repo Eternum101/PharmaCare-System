@@ -10,7 +10,7 @@
 namespace PharmaCare {
     
     
-    public partial class login {
+    public partial class ViewPrescriptions {
         
         /// <summary>
         /// form1 control.
