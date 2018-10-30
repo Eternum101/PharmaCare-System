@@ -3,79 +3,79 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head runat="server">
-    <title></title>
+    <title>PharmaCare</title>
     <meta name="viewport" content="width=device-width" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-    <style type="text/css">
-        .auto-style2 {
-            
-            
-            /*display: block;
-            width: 100%;
-            font-size: 1rem;
-            color: #495057;
-            
-            transition: none; 
-            border: 1px solid #ced4da;
-            margin-left: 0px;
-            background-color: #fff;
-            margin-top: 0px; */
-        }
-        </style>
 </head>
+
 <body>
+    <!-- Site Container -->
     <div class="container">
-        <form id="form1" runat="server" class="form-vertical">
-            <div>
-            </div>
-            <asp:Panel ID="Panel1" runat="server" CssClass="container">
+        <form id="form1" runat="server" class="form-horizontal">
 
-                <div class="header" onclick="index.aspx">
-                <asp:Label ID="lblPharmaCare" runat="server" CssClass="mainLabel">PharmaCare</asp:Label>
+            <!-- Navigation Panel -->
+            <asp:Panel ID="navPanel" runat="server" CssClass="mainNavbar">
+
+                <!-- PharmaCare Label -->
+                <div class="navLabelContainer" onclick="index.aspx">
+                    <asp:Label ID="lblPharmaCare" runat="server" CssClass="navLabel">PharmaCare</asp:Label>
                 </div>
 
-                <div class="doctor">
-                    <label class="docLabel">Doctor</label>
+                <div class="navButtons">
+                    <nav role="navigation">
+                    <ul>
+                        <!-- Doctor List -->
+                        <li>
+                            <a href="#">Doctor</a>
+                            <ul class="dropdown"> 
+                                <li class="smallList"><a href="#">View Prescription</a></li>
+                                <li class="smallList"><a href="#">Edit Prescription</a></li>
+                                <li><a href="#">Link 3</a></li>
+                            </ul>
+                        </li>
 
-                        <asp:Button ID="btnViewPrescription" runat="server" Text="View Prescription" CssClass="button" 
-                        content="width=device-width" PostBackUrl="ViewPrescriptions.aspx" BorderStyle="None" />
-                        <asp:Button ID="Button2" runat="server" Text="NO Click Me" CssClass="button" 
-                        OnClientClick="btnCheckOut_Click" BorderStyle="None" />
-                        <asp:Button ID="Button3" runat="server" Text="Click ME not him ^" CssClass="button" 
-                        OnClientClick="btnCheckOut_Click" BorderStyle="None" />
+                        <!-- Staff List -->
+                        <li>
+                            <a href="#">Staff</a>
+                            <ul class="dropdown"> 
+                                <li><a href="#">Link 1</a></li>
+                                <li><a href="#">Link 2</a></li>
+                                <li><a href="#">Link 3</a></li>
+                            </ul>
+                        </li>
 
-                </div>
-
-                <div class="staff">
-                    <label class="staffLabel">Staff</label>
-
-                        <asp:Button ID="Button1" runat="server" Text="View Prescription" CssClass="button" 
-                        content="width=device-width" OnClientClick="btnCheckOut_Click" BorderStyle="None" />
-                        <asp:Button ID="Button4" runat="server" Text="NO Click Me" CssClass="button" 
-                        OnClientClick="btnCheckOut_Click" BorderStyle="None" />
-                        <asp:Button ID="Button5" runat="server" Text="Click ME not him ^" CssClass="button" 
-                        OnClientClick="btnCheckOut_Click" BorderStyle="None" />
-
-                </div>
-
-                 <div class="pharmacist">
-                    <label class="pharmacistLabel">Pharmacist</label>
-
-                        <asp:Button ID="Button6" runat="server" Text="View Prescription" CssClass="button" 
-                        content="width=device-width" OnClientClick="btnCheckOut_Click" BorderStyle="None" />
-                        <asp:Button ID="Button7" runat="server" Text="NO Click Me" CssClass="button" 
-                        OnClientClick="btnCheckOut_Click" BorderStyle="None" />
-                        <asp:Button ID="Button8" runat="server" Text="Click ME not him ^" CssClass="button" 
-                        OnClientClick="btnCheckOut_Click" BorderStyle="None" />
-
-                </div>
- 
+                        <!-- Pharmacist List -->
+                        <li>
+                            <a href="#">Pharmacist</a>
+                            <ul class="dropdown"> 
+                                <li><a href="#">Link 1</a></li>
+                                <li><a href="#">Link 2</a></li>
+                                <li><a href="#">Link 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    </nav>
+                </div> 
             </asp:Panel>
+            <!-- END Navigation Panel -->
+
+            <!-- Red bar -->
+            <asp:Panel ID="redBar" runat="server" CssClass="redBar">
+            </asp:Panel>
+
+            <!-- Content Panel --> 
+            <asp:Panel ID="Panel2" runat="server" CssClass="contentContainer">
+            </asp:Panel>
+            <!-- END Content Panel -->
+
         </form>
     </div>
+
+   
 </body>
 </html>
