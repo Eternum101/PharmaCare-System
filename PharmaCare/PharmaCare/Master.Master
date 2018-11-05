@@ -89,10 +89,12 @@
             <asp:Panel ID="redBar" runat="server" CssClass="redBar">
             </asp:Panel>
 
-            <!-- Content Panel --> 
-            <asp:Panel ID="Panel2" runat="server" CssClass="contentContainer">
-                
-            </asp:Panel>
+            <!-- Content Container --> 
+            <div class="contentContainer">
+                <asp:ContentPlaceHolder ID="contentContainer" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
             <!-- END Content Panel -->
 
         
