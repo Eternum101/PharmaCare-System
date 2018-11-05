@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace PharmaCare
 {
-    public partial class ViewPrescriptions : System.Web.UI.Page
+    public partial class Master : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void lblPharmaCare_Load(object sender, EventArgs e)
         {
 
         }
