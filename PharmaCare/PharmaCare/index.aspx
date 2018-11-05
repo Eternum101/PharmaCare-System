@@ -8,7 +8,9 @@
     <title>PharmaCare</title>
     <meta name="viewport" content="width=device-width" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/navigation.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
 </head>
@@ -19,49 +21,54 @@
         <form id="form1" runat="server" class="form-horizontal">
 
             <!-- Navigation Panel -->
-            <asp:Panel ID="navPanel" runat="server" CssClass="mainNavbar">
-
+            <nav>
                 <!-- PharmaCare Label -->
-                <div class="navLabelContainer" onclick="index.aspx">
-                    <asp:Label ID="lblPharmaCare" runat="server" CssClass="navLabel">PharmaCare</asp:Label>
+                <div class="topnav" id="myTopnav">
+                    <a href="#home" class="logo">PharmaCare</a>
+
+                    <div class="dropdown2">
+                    <button class="dropbtn">Doctor</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown2">
+                    <button class="dropbtn">Staff</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                        </div>
+                    <div class="dropdown2">
+                    <button class="dropbtn">Pharmacist</button>
+                        <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                        </div>
+                        </div>
+
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                    </a>
+
                 </div>
+            </nav>
 
-                <div class="navButtons">
-                    <nav role="navigation">
-                    <ul>
-                        <!-- Doctor List -->
-                        <li>
-                            <a href="#">Doctor</a>
-                            <ul class="dropdown"> 
-                                <li class="smallList"><a href="#">View Prescription</a></li>
-                                <li class="smallList"><a href="#">Edit Prescription</a></li>
-                                <li><a href="#">Link 3</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Staff List -->
-                        <li>
-                            <a href="#">Staff</a>
-                            <ul class="dropdown"> 
-                                <li><a href="#">Link 1</a></li>
-                                <li><a href="#">Link 2</a></li>
-                                <li><a href="#">Link 3</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Pharmacist List -->
-                        <li>
-                            <a href="#">Pharmacist</a>
-                            <ul class="dropdown"> 
-                                <li><a href="#">Link 1</a></li>
-                                <li><a href="#">Link 2</a></li>
-                                <li><a href="#">Link 3</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    </nav>
-                </div> 
-            </asp:Panel>
+            <script>
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+            
             <!-- END Navigation Panel -->
 
             <!-- Red bar -->
@@ -70,6 +77,7 @@
 
             <!-- Content Panel --> 
             <asp:Panel ID="Panel2" runat="server" CssClass="contentContainer">
+
             </asp:Panel>
             <!-- END Content Panel -->
 
