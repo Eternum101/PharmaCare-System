@@ -22,10 +22,12 @@
 
             <!-- Navigation Panel -->
             <nav>
-                <!-- PharmaCare Label -->
+                
                 <div class="topnav" id="myTopnav">
+                    <!-- PharmaCare Label -->
                     <a href="#home" class="logo">PharmaCare</a>
 
+                    <!-- Doctor Button -->
                     <div class="dropdown2">
                     <button class="dropbtn">Doctor</button>
                         <div class="dropdown-content">
@@ -34,6 +36,8 @@
                           <a href="#">Link 3</a>
                         </div>
                     </div>
+
+                    <!-- Staff Button -->
                     <div class="dropdown2">
                     <button class="dropbtn">Staff</button>
                         <div class="dropdown-content">
@@ -42,6 +46,8 @@
                           <a href="#">Link 3</a>
                         </div>
                         </div>
+
+                    <!-- Pharmacist Button -->
                     <div class="dropdown2">
                     <button class="dropbtn">Pharmacist</button>
                         <div class="dropdown-content">
@@ -57,17 +63,16 @@
 
                 </div>
             </nav>
-
-            <script>
-function myFunction() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
-</script>
+        <script>
+            function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+            }
+        </script>
             
             <!-- END Navigation Panel -->
 
@@ -77,13 +82,11 @@ function myFunction() {
 
             <!-- Content Panel --> 
             <asp:Panel ID="Panel2" runat="server" CssClass="contentContainer">
-
+                
             </asp:Panel>
             <!-- END Content Panel -->
 
         </form>
     </div>
-
-   
 </body>
 </html>

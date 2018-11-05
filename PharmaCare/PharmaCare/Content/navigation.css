@@ -1,6 +1,6 @@
 ﻿.topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: rgb(60, 60, 60);
 }
 
     .topnav a {
@@ -33,11 +33,23 @@
     color: white;
 }
 
+@media screen and (max-width: 770px) {
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 15px;
+        text-decoration: none;
+        font-size: 20px;
+    }
+}
+
 .topnav .icon {
     display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .topnav a:not(:first-child) {
         display: none;
     }
@@ -50,7 +62,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .topnav.responsive {
         position: relative;
     }
@@ -68,11 +80,13 @@
         }
 }
 
-
-
-
-
-
+.redBar {
+    /* Rectangle */
+    width: 100%;
+    height: 0.5vh;
+    top: 0px;
+    background: rgb(255, 84, 84);
+}
 
 /* The dropdown container */
 .dropdown2 {
@@ -92,6 +106,19 @@
         margin: 0; /* Important for vertical align on mobile phones */
     }
 
+@media screen and (max-width: 770px) {
+    .dropdown2 .dropbtn {
+        font-size: 20px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 20px;
+        background-color: inherit;
+        font-family: inherit; /* Important for vertical align on mobile phones */
+        margin: 0; /* Important for vertical align on mobile phones */
+    }
+}
+
     /* Add a red background color to navbar links on hover */
     .navbar a:hover, .dropdown2:hover .dropbtn {
         background-color: rgb(30, 30, 30);
@@ -101,7 +128,8 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgba(0, 0, 0, 0.2);
     min-width: 160px;
     z-index: 1;
 }
