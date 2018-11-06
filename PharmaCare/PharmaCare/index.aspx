@@ -6,10 +6,12 @@
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
+<asp:Content ID="Container" ContentPlaceHolderID="contentContainer" runat="server"> 
+    <h1>Home</h1>
+</asp:Content>
+
 <asp:Content ID="Body" ContentPlaceHolderID="body" runat="server"> 
 </asp:Content>
 
-<asp:Content ID="Container" ContentPlaceHolderID="contentContainer" runat="server"> 
-    <h1>Hi</h1>
-</asp:Content>
+
 

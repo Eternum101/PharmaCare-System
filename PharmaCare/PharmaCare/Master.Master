@@ -34,37 +34,64 @@
                 
                 <div class="topnav" id="myTopnav">
                     <!-- PharmaCare Label -->
-                    <a href="#home" class="logo">PharmaCare</a>
+                    <a href="index.aspx" class="logo">PharmaCare</a>
 
                     <!-- Doctor Button -->
-                    <div class="dropdown2">
+                    <div class="dropdownMain">
                     <button class="dropbtn">Doctor</button>
                         <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
+                          <a href="writePrescription.aspx">Write Prescriptions</a>
+                          <a href="modifyPrescription.aspx">Modify Prescriptions</a>
+                          <a href="cancelPrescription.aspx">Cancel Prescriptions</a>
                         </div>
                     </div>
 
                     <!-- Staff Button -->
-                    <div class="dropdown2">
+                    <div class="dropdownMain">
                     <button class="dropbtn">Staff</button>
                         <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
+                          <a href="#">View OPD Prescription</a>
                         </div>
                         </div>
 
                     <!-- Pharmacist Button -->
-                    <div class="dropdown2">
+                    <div class="dropdownMain">
                     <button class="dropbtn">Pharmacist</button>
                         <div class="dropdown-content">
-                          <a href="#">Link 1</a>
-                          <a href="#">Link 2</a>
-                          <a href="#">Link 3</a>
+                          <a href="#">View Prescription</a>
+                          <a href="#">Print Indoor Medication Labels</a>
+                          <a href="#">View Preparation List</a>
+                          <a href="#">View Distribution Schedule</a>
+                          <a href="#">View List for Nursing Station</a>
                         </div>
+                    </div>
+
+                    <!-- Nurse Button -->
+                    <div class="dropdownMain">
+                    <button class="dropbtn">Nurse</button>
+                        <div class="dropdown-content">
+                          <a href="#">View Prescription</a>
+                          <a href="#">View Distribution Schedule</a>
+                          <a href="#">View List for Nursing Station</a>
                         </div>
+                    </div>
+
+                    <!-- HPCDS Button -->
+                    <div class="dropdownMain">
+                    <button class="dropbtn">HPCDS</button>
+                        <div class="dropdown-content">
+                          <a href="#">Cancel Standing Orders</a>
+                          <a href="#">Transfer Patient Prescription</a>
+                        </div>
+                    </div>
+
+                    <!-- CAS Button -->
+                    <div class="dropdownMain">
+                    <button class="dropbtn">CAS</button>
+                        <div class="dropdown-content">
+                          <a href="#">Get Drugs Administered</a>
+                        </div>
+                    </div>
 
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>

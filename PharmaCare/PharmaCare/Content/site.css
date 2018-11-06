@@ -21,3 +21,63 @@
     /* Light Theme */
     background-color: white;
 }
+
+h1 {
+    font-family: Arial;
+    padding: 30px 40px;
+}
+
+h4 {
+    font-size: 23px;
+    padding-top: 40px;
+    color: black;
+}
+
+.leftTextboxDiv {
+    padding: 0px 30px;
+    float: left;
+
+}
+.rightTextboxDiv {
+    padding: 20px 500px;
+    float: right;
+
+}
+
+.dropDown {
+    width: 200px;
+    height: 30px;
+    text-align: left;
+}
+
+.submitButton {
+    top: 800px;
+
+    position: absolute;
+}
+
+.submitButtonDirect {
+    background-color: rgb(60, 60, 60); /* Green */
+    border: none;
+    color: white;
+    padding: 13px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.submitButtonDirect:hover {
+    background-color: rgb(90, 90, 90); /* Green */
+    
+}
+
+.borderTest {
+    /**/
+    margin-right: 0px;
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-bottom: 60px;
+    background-color: rgb(240, 240, 240);
+    overflow: hidden;
+}

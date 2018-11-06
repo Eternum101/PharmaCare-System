@@ -69,6 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cancelPrescription.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -78,6 +79,7 @@
     <Content Include="Content\navigation.css" />
     <Content Include="Content\site.css" />
     <Content Include="index.aspx" />
+    <Content Include="modifyPrescription.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -101,6 +103,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Master.Master" />
+    <Content Include="writePrescription.aspx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -126,6 +129,13 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cancelPrescription.aspx.cs">
+      <DependentUpon>cancelPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cancelPrescription.aspx.designer.cs">
+      <DependentUpon>cancelPrescription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -140,7 +150,21 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="modifyPrescription.aspx.cs">
+      <DependentUpon>modifyPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modifyPrescription.aspx.designer.cs">
+      <DependentUpon>modifyPrescription.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="writePrescription.aspx.cs">
+      <DependentUpon>writePrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="writePrescription.aspx.designer.cs">
+      <DependentUpon>writePrescription.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
