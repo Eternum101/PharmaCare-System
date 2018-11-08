@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
-    <h1>Modify Prescription</h1>
+    <h1 class="modifyPrescriptionHeader">Modify Prescription</h1>
         <div class="borderTest">
 
         <!-- Left Div -->
@@ -45,7 +45,7 @@
            </div>
 
         <!-- Right Div -->
-        <div class="leftTextboxDiv">
+        <div class="">
         <h4>Perscription Details: </h4>
         <asp:listbox ID="listbox1" runat="server" />
         <asp:Button ID="Button1" Text="Delete line" runat="server" />
@@ -54,10 +54,11 @@
         </div>
                 
     </div>
-
+    <!--
     <div class="submitButton">
     <asp:Button ID="submit" CssClass="submitButtonDirect" Text="Submit" runat="server" />
     </div>
+    -->
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">

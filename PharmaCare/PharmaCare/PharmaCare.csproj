@@ -78,6 +78,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\navigation.css" />
     <Content Include="Content\site.css" />
+    <Content Include="doctor.aspx" />
     <Content Include="index.aspx" />
     <Content Include="modifyPrescription.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -135,6 +136,13 @@
     </Compile>
     <Compile Include="cancelPrescription.aspx.designer.cs">
       <DependentUpon>cancelPrescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="doctor.aspx.cs">
+      <DependentUpon>doctor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="doctor.aspx.designer.cs">
+      <DependentUpon>doctor.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

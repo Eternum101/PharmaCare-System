@@ -3,13 +3,33 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server"> Write Prescriptions
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
     
     <div>
-        <h1>Write Prescription</h1>
+        <!-- Page Heading -->
+        <h1 class="writePrescriptionHeading">Write Prescription</h1>
+
+        <!-- Patient Name lbl and txt -->
+        <h3>Patient Name: </h3>
+        <div class="txtPatientName">
+            <asp:TextBox ID="TextBox6" Text="" runat="server" />
+        </div>
+
+        <!-- Top Buttons -->
+        <div class="cocktailButton">
+            <input type=button class="buttonDirect" onClick="parent.location=''" value='Check Cocktail'>
+        </div>
+
+        <div class="submitButton">
+            <input type=button class="buttonDirect" onClick="parent.location=''" value='Submit'>
+        </div>
+        <!-- END Top Buttons -->
+
     </div>
 
+    <!-- Bordered div -->
     <div class="borderTest">
 
         <!-- Left Div -->
@@ -20,6 +40,9 @@
             <h4>Patient ID: </h4>
             <asp:TextBox ID="patientID" Text="" runat="server" />
 
+            <h4>Doctor ID: </h4>
+            <asp:TextBox ID="TextBox3" Text="" runat="server" />
+
             <h4>Drug Name: </h4>
             <asp:DropDownList CssClass="dropDown" ID="TextBox4" runat="server">
                 <asp:ListItem Enabled="true" Text="Drug 1" Value="-1"></asp:ListItem>
@@ -28,21 +51,55 @@
             </asp:DropDownList>
         </div>
 
-        <!-- Right Div -->
-        <div class="leftTextboxDiv">
-        <h4>Patient Name: </h4>
-        <asp:TextBox ID="TextBox1" Text="" runat="server" />
+        <!-- Middle Div -->
 
-        <h4>Doctor Name: </h4>
-        <asp:TextBox ID="TextBox2" Text="" runat="server" />
+        <div class="leftTextboxDiv">
+            <h4>Date: </h4>
+            <asp:TextBox ID="TextBox8" Text="" runat="server" />
+
+            <h4>Patient Name: </h4>
+            <asp:TextBox ID="TextBox13" Text="" runat="server" />
+
+            <h4>Patient Type: </h4>
+            <asp:TextBox ID="TextBox14" Text="" runat="server" />
+
+            <h4>Dose: </h4>
+            <asp:TextBox ID="TextBox1" Text="" runat="server" />
         </div>
 
-    </div>
+        <!-- Right Div -->
+        <div class="leftTextboxDiv">
+            <h4>Frequency: </h4>
+            <asp:TextBox ID="TextBox2" Text="" runat="server" />
 
-    <div class="submitButton">
-    <asp:Button ID="submit" CssClass="submitButtonDirect" Text="Submit" runat="server" />
-    </div>
+            <h4>Start Date: </h4>
+            <asp:TextBox ID="TextBox5" Text="" runat="server" />
 
+            <h4>End Date: </h4>
+            <asp:TextBox ID="TextBox15" Text="" runat="server" />
+        </div>
+    </div>
+    <!-- END Bordered div -->
+
+    <!-- Bottom Div -->
+    <div class="leftTextboxDiv">
+        <div class="left">
+            <h4>Prescription Details: </h4>
+        </div>
+        <!-- Bottom Buttons -->
+        <div class="prescriptionDetailButtons">
+            <div>
+                <input type=button class="buttonDirect" onClick="parent.location=''" value='Delete Line'>
+                <input type=button class="buttonDirectDark" onClick="parent.location=''" value='Modify Line'>
+                <input type=button class="buttonDirect" onClick="parent.location=''" value='Add Line'>
+            </div>
+        </div>
+        <!-- END Bottom Buttons -->
+
+        <!-- Bottom Textbox -->
+        <asp:TextBox ID="TextBox9" class="bigTextBox" Text="" runat="server" />
+    </div>
+    <!-- END Bottom Div -->
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">

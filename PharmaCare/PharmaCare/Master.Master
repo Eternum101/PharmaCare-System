@@ -38,12 +38,12 @@
 
                     <!-- Doctor Button -->
                     <div class="dropdownMain">
-                    <button class="dropbtn">Doctor</button>
-                        <div class="dropdown-content">
-                          <a href="writePrescription.aspx">Write Prescriptions</a>
-                          <a href="modifyPrescription.aspx">Modify Prescriptions</a>
-                          <a href="cancelPrescription.aspx">Cancel Prescriptions</a>
-                        </div>
+                        <input type=button class="dropbtn" onClick="parent.location='doctor.aspx'" value='Doctor'>              
+                            <div class="dropdown-content">
+                              <a href="writePrescription.aspx">Write Prescriptions</a>
+                              <a href="modifyPrescription.aspx">Modify Prescriptions</a>
+                              <a href="cancelPrescription.aspx">Cancel Prescriptions</a>
+                            </div>
                     </div>
 
                     <!-- Staff Button -->
