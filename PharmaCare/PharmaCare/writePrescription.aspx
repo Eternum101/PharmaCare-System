@@ -19,18 +19,18 @@
 
         <!-- Top Buttons -->
         <div class="cocktailButton">
-            <input type=button class="buttonDirect" onClick="parent.location=''" value='Check Cocktail'>
+            <input type=button class="buttonVisuals" onClick="parent.location=''" value='Check Cocktail'>
         </div>
 
         <div class="submitButton">
-            <input type=button class="buttonDirect" onClick="parent.location=''" value='Submit'>
+            <input type=button class="buttonVisuals" onClick="parent.location=''" value='Submit'>
         </div>
         <!-- END Top Buttons -->
 
     </div>
 
     <!-- Bordered div -->
-    <div class="borderTest">
+    <div class="globalBorder">
 
         <!-- Left Div -->
         <div class="leftTextboxDiv">
@@ -89,9 +89,9 @@
         <!-- Bottom Buttons -->
         <div class="prescriptionDetailButtons">
             <div>
-                <input type=button class="buttonDirect" onClick="parent.location=''" value='Delete Line'>
-                <input type=button class="buttonDirectDark" onClick="parent.location=''" value='Modify Line'>
-                <input type=button class="buttonDirect" onClick="parent.location=''" value='Add Line'>
+                <input type=button class="buttonVisuals" onClick="parent.location=''" value='Delete Line'>
+                <input type=button class="buttonVisualsDark" onClick="parent.location=''" value='Modify Line'>
+                <input type=button class="buttonVisuals" onClick="parent.location=''" value='Add Line'>
             </div>
         </div>
         <!-- END Bottom Buttons -->

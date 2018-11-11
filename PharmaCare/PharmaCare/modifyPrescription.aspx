@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
     <h1 class="modifyPrescriptionHeader">Modify Prescription</h1>
-        <div class="borderTest">
+        <div class="globalBorder">
 
         <!-- Left Div -->
         <div class="leftTextboxDiv">
@@ -26,14 +26,14 @@
 
         <!-- First Middle Div -->
         <div class="leftTextboxDiv">
-        <h4>Prescription ID: </h4>
-        <asp:TextBox ID="TextBox6" Text="" runat="server" />
-        <h4>Patient Name: </h4>
-        <asp:TextBox ID="TextBox1" Text="" runat="server" />
-        <h4>Patient ID: </h4>
-        <asp:TextBox ID="TextBox3" Text="" runat="server" />
-        <h4>Patient Type: </h4>
-        <asp:TextBox ID="TextBox9" Text="" runat="server" />
+            <h4>Prescription ID: </h4>
+            <asp:TextBox ID="TextBox6" Text="" runat="server" />
+            <h4>Patient Name: </h4>
+            <asp:TextBox ID="TextBox1" Text="" runat="server" />
+            <h4>Patient ID: </h4>
+            <asp:TextBox ID="TextBox3" Text="" runat="server" />
+            <h4>Patient Type: </h4>
+            <asp:TextBox ID="TextBox9" Text="" runat="server" />
         </div>
 
          <!-- Second Middle Div -->
@@ -46,11 +46,11 @@
 
         <!-- Right Div -->
         <div class="">
-        <h4>Perscription Details: </h4>
-        <asp:listbox ID="listbox1" runat="server" />
-        <asp:Button ID="Button1" Text="Delete line" runat="server" />
-        <asp:Button ID="Button2" Text="Modify Line" runat="server" />
-        <asp:Button ID="Button3" Text="Add Line" runat="server" />
+            <h4>Perscription Details: </h4>
+            <asp:listbox ID="listbox1" runat="server" />
+            <asp:Button ID="Button1" Text="Delete line" runat="server" />
+            <asp:Button ID="Button2" Text="Modify Line" runat="server" />
+            <asp:Button ID="Button3" Text="Add Line" runat="server" />
         </div>
                 
     </div>
