@@ -40,9 +40,9 @@
                     <div class="dropdownMain">
                         <input type=button class="dropbtn" onClick="parent.location='doctor.aspx'" value='Doctor'>              
                             <div class="dropdown-content">
-                              <a href="writePrescription.aspx">Write Prescriptions</a>
-                              <a href="modifyPrescription.aspx">Modify Prescriptions</a>
-                              <a href="cancelPrescription.aspx">Cancel Prescriptions</a>
+                              <a href="doctor_writePrescription.aspx">Write Prescriptions</a>
+                              <a href="doctor_modifyPrescription.aspx">Modify Prescriptions</a>
+                              <a href="doctor_cancelPrescription.aspx">Cancel Prescriptions</a>
                             </div>
                     </div>
 
@@ -50,7 +50,7 @@
                     <div class="dropdownMain">
                     <button class="dropbtn">Staff</button>
                         <div class="dropdown-content">
-                          <a href="#">View OPD Prescription</a>
+                          <a href="staff_ViewPrescription.aspx">View OPD Prescription</a>
                         </div>
                         </div>
 
