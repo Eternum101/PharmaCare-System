@@ -72,5 +72,10 @@ namespace PharmaCare
                 lblErrorMessage.Text = ex.Message;
             }
         }
+
+        protected void gvCancelPrescription_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

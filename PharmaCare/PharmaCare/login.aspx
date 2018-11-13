@@ -51,10 +51,13 @@
                 <div class="login_contentContainer">
                     <div class="login_credentialsContainer">
                         <h4>Username: </h4>
-                        <asp:TextBox ID="prescriptionID" Text="" runat="server" />
+                        <asp:TextBox ID="txtUsername" Text="" runat="server" />
+
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" ErrorMessage="Please Enter Username" ForeColor="#CC0000"></asp:RequiredFieldValidator>
 
                         <h4>Password: </h4>
-                        <asp:TextBox ID="patientID" Text="" runat="server" />
+                        <asp:TextBox ID="txtPassword" Text="" runat="server" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please Enter Password" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </div>
                     
                     <div class="btnLogin">
