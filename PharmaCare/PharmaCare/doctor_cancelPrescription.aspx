@@ -91,5 +91,19 @@
         <asp:Label ID="lblErrorMessage" runat="server" ForeColor="Red"></asp:Label>
     </div>
 </asp:Content>
+
+<asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+    <div class="float_center">
+        <ul class="child">
+          <li><p>DATE HERE</p></li>
+          
+          <li><p>NAME HERE</p></li>
+          <li><p>STUDENT NUMBER HERE</p></li>
+          
+        </ul>
+        <div class="clear"></div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">
 </asp:Content>

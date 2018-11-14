@@ -14,11 +14,15 @@
 
 .contentContainer {
     width: 100%;
-    height: 85vh;
+    height: 820px;
     /* Dark Theme 
     background: rgb(50, 50, 50);*/
     /* Light Theme */
     background-color: white;
+}
+
+.footerContainer{
+    background-color: #9d9d9d;
 }
 
 h1 {
@@ -43,6 +47,7 @@ h4 {
 .leftTextboxDiv {
     padding: 0px 30px;
     float: left;
+   
 }
 .rightTextboxDiv {
     padding: 20px 500px;
@@ -50,7 +55,7 @@ h4 {
 }
 
 .dropDown {
-    width: 200px;
+    width: 180px;
     height: 30px;
     text-align: left;
 }
@@ -85,7 +90,7 @@ h4 {
     background-color: rgb(60, 60, 60); /* Green */
     border: none;
     color: white;
-    height: 30px;
+    height: 30px !important;
     width: 100px;
     text-align: center;
     text-decoration: none;
@@ -120,7 +125,22 @@ h4 {
     padding-bottom: 50px;
     background-color: rgb(240, 240, 240);
     overflow: hidden;
-    position:static;
+    position: static;
+}
+
+.globalBorderRound {
+    margin-top: -10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+    padding-bottom: 50px;
+    padding-top: 10px;
+    background-color: rgb(240, 240, 240);
+    overflow: hidden;
+    position: static;
+    border-radius: 35px;
+    
 }
 
 .left {
@@ -130,6 +150,51 @@ h4 {
 .right {
     float: right;
 }
+
+.footer{
+    background-color: rgb(60, 60, 60);
+}
+
+.float_center {
+    float: right;
+    position: relative;
+    left: -50%; /* or right 50% */
+    text-align: left;
+}
+
+    .float_center > .child {
+        position: relative;
+        left: 50%;
+    }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 12px 0;
+}
+
+    ul li {
+        float: left;
+        list-style-type: none;
+        margin: 0 10px;
+    }
+
+    ul p {
+        display: block;
+        height: 26px;
+        line-height: 26px;
+        text-decoration: none;
+        color: rgb(90, 90, 90);
+        font-weight: bold;
+        
+        padding: 0px 10px;
+        background-color: white;
+        font-size: 13px;
+        border-radius: 15px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+    }
+
+
 
 /* INDIVIDUAL PAGE CSS */
 
@@ -149,8 +214,14 @@ h4 {
     margin-left: auto;
     margin-right: auto;
     width: 200px;
-    margin-top: 80px;
+    margin-top: 60px;
     
+}
+
+.login_textboxes {
+    width: 100%;
+    border-style: none;
+    border-bottom: 1px solid black;
 }
 
 .btnLoginVisuals {
@@ -186,6 +257,7 @@ h4 {
     margin: auto;
     width: 450px;
     margin-top: 100px;
+
 }
 
 .login_redBar {
@@ -252,15 +324,20 @@ h4 {
 }
 
 .doctor_ButtonAlign {
-    top: 130px;
+    top: 150px;
     text-align: center;
     position: absolute;
     margin-left: 800px;
 }
 
+.extraSpace{
+    margin-left: 5px;
+
+}
+
 .prescriptionDetailButtons {
-    margin-right: 14px;
-    padding-top: 12px;
+    margin-right: 9px;
+    padding-top: 16px;
     float: right;
 }
 
@@ -286,8 +363,9 @@ h4 {
 
 /* Staff Prescription */
 .staffPrescription_TextBox {
-    width: 1036px;
+    width: 1000px;
     height: 562px;
+
 }
 
 .staff_ButtonAlign {

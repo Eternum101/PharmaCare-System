@@ -124,6 +124,11 @@
             </div>
             <!-- END Content Panel -->
 
+            <div class="footerContainer">
+                <asp:ContentPlaceHolder ID="footerContainer" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
         
             <asp:ContentPlaceHolder ID="body" runat="server">
 

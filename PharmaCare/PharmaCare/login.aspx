@@ -51,13 +51,14 @@
                 <div class="login_contentContainer">
                     <div class="login_credentialsContainer">
                         <h4>Username: </h4>
-                        <asp:TextBox ID="txtUsername" Text="" runat="server" />
-
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" ErrorMessage="Please Enter Username" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" 
+                            ErrorMessage="Please Enter Username" ForeColor="#CC0000"></asp:RequiredFieldValidator>
 
                         <h4>Password: </h4>
-                        <asp:TextBox ID="txtPassword" Text="" runat="server" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Please Enter Password" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtPassword" class="login_textboxes" Text="" runat="server" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" 
+                            ErrorMessage="Please Enter Password" ForeColor="#CC0000"></asp:RequiredFieldValidator>
                     </div>
                     
                     <div class="btnLogin">
@@ -68,7 +69,18 @@
 
             
                 <!-- END Content Panel -->
-        
+                
+                <div class="float_center">
+                    <ul class="child">
+                      <li><p>14/11/18</p></li>
+          
+                      <li><p>Jakob Farrow</p></li>
+                      <li><p>455089250</p></li>
+          
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
             </form>
         </div>
     

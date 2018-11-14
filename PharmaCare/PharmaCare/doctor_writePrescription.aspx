@@ -32,25 +32,20 @@
     </div>
 
     <!-- Bordered div -->
-    <div class="globalBorder">
+    <div class="globalBorderRound">
 
         <!-- Left Div -->
         <div class="leftTextboxDiv">
             <h4>Prescription ID: </h4>
-            <asp:TextBox ID="prescriptionID" Text="" runat="server" />
+            <asp:TextBox ID="txtPrescription" Text="" runat="server" />
 
             <h4>Patient ID: </h4>
-            <asp:TextBox ID="patientID" Text="" runat="server" />
+            <asp:TextBox ID="txtPatent" Text="" runat="server" />
 
             <h4>Doctor ID: </h4>
             <asp:TextBox ID="TextBox3" Text="" runat="server" />
 
-            <h4>Drug Name: </h4>
-            <asp:DropDownList CssClass="dropDown" ID="TextBox4" runat="server">
-                <asp:ListItem Enabled="true" Text="Drug 1" Value="-1"></asp:ListItem>
-                <asp:ListItem Text="Drug 2" Value="1"></asp:ListItem>
-                <asp:ListItem Text="Drug 3" Value="2"></asp:ListItem>
-            </asp:DropDownList>
+            
         </div>
 
         <!-- Middle Div -->
@@ -65,8 +60,7 @@
             <h4>Patient Type: </h4>
             <asp:TextBox ID="TextBox14" Text="" runat="server" />
 
-            <h4>Dose: </h4>
-            <asp:TextBox ID="TextBox1" Text="" runat="server" />
+            
         </div>
 
         <!-- Right Div -->
@@ -80,29 +74,57 @@
             <h4>End Date: </h4>
             <asp:TextBox ID="TextBox15" Text="" runat="server" />
         </div>
+
+        <div class="leftTextboxDiv">
+            <h4>Drug Name: </h4>
+            <asp:DropDownList CssClass="dropDown" ID="TextBox4" runat="server">
+                <asp:ListItem Enabled="true" Text="Drug 1" Value="-1"></asp:ListItem>
+                <asp:ListItem Text="Drug 2" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Drug 3" Value="2"></asp:ListItem>
+            </asp:DropDownList>
+
+            <h4>Dose: </h4>
+            <asp:TextBox ID="txtDose" Text="" runat="server" />
+        </div>
     </div>
     <!-- END Bordered div -->
 
     <!-- Bottom Div -->
-    <div class="leftTextboxDiv">
-        <div class="left">
-            <h4>Prescription Details: </h4>
-        </div>
-        <!-- Bottom Buttons -->
-        <div class="prescriptionDetailButtons">
-            <div>
-                <input type=button class="buttonVisuals" onClick="parent.location=''" value='Delete Line'>
-                <input type=button class="buttonVisualsDark" onClick="parent.location=''" value='Modify Line'>
-                <input type=button class="buttonVisuals" onClick="parent.location=''" value='Add Line'>
+    <div class="extraSpace">
+        <div class="leftTextboxDiv">
+            <div class="left">
+                <h4>Prescription Details: </h4>
             </div>
-        </div>
-        <!-- END Bottom Buttons -->
+            <!-- Bottom Buttons -->
+            <div class="prescriptionDetailButtons">
+                <div>
+                    <input type=button class="buttonVisuals" onClick="parent.location=''" value='Delete Line'>
+                    <input type=button class="buttonVisualsDark" onClick="parent.location=''" value='Modify Line'>
+                    <input type=button class="buttonVisuals" onClick="parent.location=''" value='Add Line'>
+                </div>
+            </div>
+            <!-- END Bottom Buttons -->
 
-        <!-- Bottom Textbox -->
-        <asp:TextBox ID="TextBox9" class="bigTextBox" Text="" runat="server" />
+            <!-- Bottom Textbox -->
+            <asp:TextBox ID="TextBox9" class="bigTextBox" Text="" runat="server" />
+        </div>
     </div>
     <!-- END Bottom Div -->
 
 </asp:Content>
+
+<asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+    <div class="float_center">
+        <ul class="child">
+          <li><p>14/11/18</p></li>
+          
+          <li><p>Jakob Farrow</p></li>
+          <li><p>455089250</p></li>
+          
+        </ul>
+        <div class="clear"></div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">
 </asp:Content>

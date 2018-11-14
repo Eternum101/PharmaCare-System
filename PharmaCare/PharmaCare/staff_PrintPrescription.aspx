@@ -10,5 +10,19 @@
     </div>
 
 </asp:Content>
+
+<asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+    <div class="float_center">
+        <ul class="child">
+          <li><p>14/11/18</p></li>
+          
+          <li><p>Jakob Farrow</p></li>
+          <li><p>455089250</p></li>
+          
+        </ul>
+        <div class="clear"></div>
+    </div>
+</asp:Content>
+
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">
 </asp:Content>
