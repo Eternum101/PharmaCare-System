@@ -25,12 +25,15 @@
 
 .logo {
     background-color: rgb(255, 84, 84);
-    color: white;
-}
-
-.logo:hover {
-    background-color: rgb(255, 84, 84) !important;
-    color: white;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 30px;
+    text-decoration: none;
+    font-size: 20px;
+    margin-top: 0px;
+    margin-bottom: 0;
 }
 
 @media screen and (max-width: 770px) {

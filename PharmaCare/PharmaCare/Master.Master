@@ -34,7 +34,7 @@
                 
                 <div class="topnav" id="myTopnav">
                     <!-- PharmaCare Label -->
-                    <a href="index.aspx" class="logo">PharmaCare</a>
+                    <p class="logo">PharmaCare</p>
 
                     <!-- Doctor Button -->
                     <div class="dropdownMain">
