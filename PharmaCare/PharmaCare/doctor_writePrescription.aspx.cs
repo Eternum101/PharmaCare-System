@@ -20,10 +20,7 @@ namespace PharmaCare
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-            if (!IsPostBack) ddlDrugName.DataBind();
 
-            drugName = this.GetDrugName();
-            ddlDrugName.Text = drugName.DrugName;
 
             //prescriptionInfo = this.GetPrescription();
 

@@ -11,7 +11,7 @@
         <!-- Patient Name lbl and txt -->
         <h3>Patient Name: </h3>
         <div class="txtPatientName">
-            <asp:TextBox ID="TextBox6" Text="" runat="server" />
+            <asp:TextBox ID="TextBox6" class="search_textboxes" Text="" runat="server" />
 
             <div class="staff_SearchButtonAlign">
                 <input type=button class="searchButtonVisuals" onClick="parent.location=''" value='Search'>
@@ -19,10 +19,7 @@
         </div>
 
         <!-- Top Buttons -->
-        <div class="staff_ButtonAlign">
-            <input type=button class="buttonVisuals_Spacing" onClick="parent.location='staff_PrintPrescription.aspx'" value='Print'>
-            <input type=button class="buttonVisuals_Spacing" onClick="parent.location=''" value='Submit'>
-        </div>
+        
         <!-- END Top Buttons -->
 
     </div>
@@ -41,6 +38,13 @@
     </div>
     <!-- END Bordered div -->
 
+    <div class="float_center">
+        <ul class="child">
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Print" runat="server" ID="btnPrint" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit3"/></li>
+        </ul>
+    </div>
+
     <!-- Bottom Div -->
     
     <!-- END Bottom Div -->
@@ -50,12 +54,10 @@
     <div class="float_center">
         <ul class="child">
           <li><p>14/11/18</p></li>
-          
-          <li><p>Jakob Farrow</p></li>
-          <li><p>455089250</p></li>
-          
+          <li><p>Billy Bob</p></li>
+          <li><p>John Doe</p></li>
+          <li><p>Silly Sam</p></li>
         </ul>
-        <div class="clear"></div>
     </div>
 </asp:Content>
 
