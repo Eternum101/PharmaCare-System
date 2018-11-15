@@ -23,14 +23,6 @@
             </div>
         </div>
 
-        <!-- Top Buttons -->
-        <div class="doctor_ButtonAlign">
-            <input type=button class="buttonVisuals_Spacing" onClick="parent.location=''" value='Check Cocktail'>
-            <asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" />
-        </div>
-        
-        <!-- END Top Buttons -->
-
     </div>
 
     <!-- Bordered div -->
@@ -121,16 +113,31 @@
     </div>
     <!-- END Bottom Div -->
 
+    
+
+    <div class="float_center">
+        <ul class="child">
+            <!--
+          <li><p>14/11/18</p></li>  
+          <li><p>Jakob Farrow</p></li>
+          <li><p>455089250</p></li>
+            -->
+          
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit2" OnClick="btnSubmit_Click" /></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
 </asp:Content>
 
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
     <div class="float_center">
         <ul class="child">
           <li><p>14/11/18</p></li>
-          
           <li><p>Jakob Farrow</p></li>
           <li><p>455089250</p></li>
-          
         </ul>
         <div class="clear"></div>
     </div>

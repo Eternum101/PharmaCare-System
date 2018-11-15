@@ -13,7 +13,7 @@ namespace PharmaCare
     public partial class writePrescription : System.Web.UI.Page
     {
         private Models.drug drugName;
-        private Models.prescription prescriptionInfo;
+       // private Models.prescription prescriptionInfo;
 
         
 
@@ -25,7 +25,7 @@ namespace PharmaCare
             drugName = this.GetDrugName();
             ddlDrugName.Text = drugName.DrugName;
 
-            prescriptionInfo = this.GetPrescription();
+            //prescriptionInfo = this.GetPrescription();
 
         }
 
@@ -41,7 +41,7 @@ namespace PharmaCare
             p.DrugName = row["DrugName"].ToString();
             return p;
         }
-
+        /*
         private Models.prescription GetPrescription()
         {
             DataView prescriptionTable = (DataView)
@@ -54,7 +54,7 @@ namespace PharmaCare
             p.PatientID = row["PatientID"].ToString();
             p.PatientID = row["PatientID"].ToString();
             return p;
-        }
+        } */
 
         protected void TextBox13_TextChanged(object sender, EventArgs e)
         {
