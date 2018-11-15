@@ -73,7 +73,6 @@
     <Content Include="App_Data\PharmaCare_DB_log.ldf">
       <DependentUpon>PharmaCare_DB.mdf</DependentUpon>
     </Content>
-    <Content Include="doctor_cancelPrescription.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -84,7 +83,6 @@
     <Content Include="Content\navigation.css" />
     <Content Include="Content\site.css" />
     <Content Include="doctor.aspx" />
-    <Content Include="doctor_modifyPrescription.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -109,7 +107,6 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Master.Master" />
-    <Content Include="staff_PrintPrescription.aspx" />
     <Content Include="staff_ViewPrescription.aspx" />
     <Content Include="doctor_writePrescription.aspx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
@@ -139,13 +136,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="doctor_cancelPrescription.aspx.cs">
-      <DependentUpon>doctor_cancelPrescription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="doctor_cancelPrescription.aspx.designer.cs">
-      <DependentUpon>doctor_cancelPrescription.aspx</DependentUpon>
-    </Compile>
     <Compile Include="doctor.aspx.cs">
       <DependentUpon>doctor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -167,23 +157,9 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
-    <Compile Include="doctor_modifyPrescription.aspx.cs">
-      <DependentUpon>doctor_modifyPrescription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="doctor_modifyPrescription.aspx.designer.cs">
-      <DependentUpon>doctor_modifyPrescription.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Models\drug.cs" />
     <Compile Include="Models\prescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="staff_PrintPrescription.aspx.cs">
-      <DependentUpon>staff_PrintPrescription.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="staff_PrintPrescription.aspx.designer.cs">
-      <DependentUpon>staff_PrintPrescription.aspx</DependentUpon>
-    </Compile>
     <Compile Include="staff_ViewPrescription.aspx.cs">
       <DependentUpon>staff_ViewPrescription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
