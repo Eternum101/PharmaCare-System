@@ -6,8 +6,13 @@
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 
-<asp:Content ID="Container" ContentPlaceHolderID="contentContainer" runat="server"> 
-    <h1>Home</h1>
+<asp:Content ID="Container" ContentPlaceHolderID="contentContainer" runat="server">
+    <div class="div-dark">
+    <h1>Welcome to PharmaCare</h1>
+    </div>
+    <div class="container">
+        <h4>Information Here...</h4>
+    </div>
 </asp:Content>
 
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
