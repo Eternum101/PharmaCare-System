@@ -182,8 +182,6 @@
     <Compile Include="doctor_modifyPrescription.aspx.designer.cs">
       <DependentUpon>doctor_modifyPrescription.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\drug.cs" />
-    <Compile Include="Models\prescription.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staff_PrintPrescription.aspx.cs">
       <DependentUpon>staff_PrintPrescription.aspx</DependentUpon>

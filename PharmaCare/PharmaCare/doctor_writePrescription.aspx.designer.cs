@@ -13,24 +13,6 @@ namespace PharmaCare {
     public partial class writePrescription {
         
         /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
-        /// <summary>
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
-        
-        /// <summary>
         /// TextBox6 control.
         /// </summary>
         /// <remarks>
@@ -40,40 +22,31 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox TextBox6;
         
         /// <summary>
-        /// btnSubmit control.
+        /// txtPrescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
+        protected global::System.Web.UI.WebControls.TextBox txtPrescription;
         
         /// <summary>
-        /// txtPrescriptionID control.
+        /// txtPatent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrescriptionID;
+        protected global::System.Web.UI.WebControls.TextBox txtPatent;
         
         /// <summary>
-        /// txtPatentID control.
+        /// TextBox3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatentID;
-        
-        /// <summary>
-        /// txtDoctorID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDoctorID;
+        protected global::System.Web.UI.WebControls.TextBox TextBox3;
         
         /// <summary>
         /// TextBox8 control.
@@ -130,13 +103,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox TextBox15;
         
         /// <summary>
-        /// ddlDrugName control.
+        /// TextBox4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDrugName;
+        protected global::System.Web.UI.WebControls.DropDownList TextBox4;
         
         /// <summary>
         /// txtDose control.

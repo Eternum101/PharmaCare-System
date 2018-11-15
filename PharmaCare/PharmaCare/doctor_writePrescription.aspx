@@ -9,9 +9,7 @@
     
     <div>
         <!-- Page Heading -->
-        <h1 class="writePrescriptionHeading">Write Prescription<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT * FROM [Drugs]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
-        </h1>
+        <h1 class="writePrescriptionHeading">Write Prescription</h1>
 
         <!-- Patient Name lbl and txt -->
         <h3>Patient Name: </h3>
@@ -26,7 +24,7 @@
         <!-- Top Buttons -->
         <div class="doctor_ButtonAlign">
             <input type=button class="buttonVisuals_Spacing" onClick="parent.location=''" value='Check Cocktail'>
-            <asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit" OnClick="btnSubmit_Click" />
+            <input type=button class="buttonVisuals_Spacing" onClick="parent.location=''" value='Submit'>
         </div>
         
         <!-- END Top Buttons -->
@@ -39,16 +37,13 @@
         <!-- Left Div -->
         <div class="leftTextboxDiv">
             <h4>Prescription ID: </h4>
-            <asp:TextBox ID="txtPrescriptionID" Text="" DataSourceID="SqlDataSource2"
-                DataTextField="PrescriptionID" DataValueField="PrescriptionID"  runat="server" />
+            <asp:TextBox ID="txtPrescription" Text="" runat="server" />
 
             <h4>Patient ID: </h4>
-            <asp:TextBox ID="txtPatentID" Text="" DataSourceID="SqlDataSource2"
-                DataTextField="PatientID" DataValueField="PatientID" runat="server" />
+            <asp:TextBox ID="txtPatent" Text="" runat="server" />
 
             <h4>Doctor ID: </h4>
-            <asp:TextBox ID="txtDoctorID" Text="" DataSourceID="SqlDataSource2"
-                DataTextField="DoctorID" DataValueField="DoctorID" runat="server" />
+            <asp:TextBox ID="TextBox3" Text="" runat="server" />
 
             
         </div>
@@ -70,7 +65,7 @@
 
         <!-- Right Div -->
         <div class="leftTextboxDiv">
-            <h4>Time Per Day: </h4>
+            <h4>Frequency: </h4>
             <asp:TextBox ID="TextBox2" Text="" runat="server" />
 
             <h4>Start Date: </h4>
@@ -82,8 +77,7 @@
 
         <div class="leftTextboxDiv">
             <h4>Drug Name: </h4>
-            <asp:DropDownList CssClass="dropDown" ID="ddlDrugName" DataSourceID="SqlDataSource1"
-                DataTextField="DrugName" DataValueField="DrugID" runat="server">
+            <asp:DropDownList CssClass="dropDown" ID="TextBox4" runat="server">
                 <asp:ListItem Enabled="true" Text="Drug 1" Value="-1"></asp:ListItem>
                 <asp:ListItem Text="Drug 2" Value="1"></asp:ListItem>
                 <asp:ListItem Text="Drug 3" Value="2"></asp:ListItem>
@@ -99,20 +93,16 @@
     <div class="extraSpace">
         <div class="leftTextboxDiv">
             <div class="left">
-                <h4>Additional Information: </h4>
+                <h4>Prescription Details: </h4>
             </div>
             <!-- Bottom Buttons -->
-
-            <!--<div class="prescriptionDetailButtons">
+            <div class="prescriptionDetailButtons">
                 <div>
                     <input type=button class="buttonVisuals" onClick="parent.location=''" value='Delete Line'>
                     <input type=button class="buttonVisualsDark" onClick="parent.location=''" value='Modify Line'>
                     <input type=button class="buttonVisuals" onClick="parent.location=''" value='Add Line'>
                 </div>
-            </div>-->
-
-
-
+            </div>
             <!-- END Bottom Buttons -->
 
             <!-- Bottom Textbox -->
