@@ -62,7 +62,7 @@
                     </div>
                     
                     <div class="btnLogin">
-                        <input type="button" class="btnLoginVisuals" onclick="parent.location='index.aspx'" runat="server" value='Sign In'/>
+                        <input type="button" class="btnLoginVisuals" onclick="parent.location='doctor.aspx'" runat="server" value='Sign In'/>
                     </div>
 
                 </div>
