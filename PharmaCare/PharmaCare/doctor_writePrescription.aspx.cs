@@ -1,4 +1,5 @@
 ﻿using System;
+using PharmaCare.Models;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -12,37 +13,26 @@ namespace PharmaCare
     
     public partial class writePrescription : System.Web.UI.Page
     {
-        private Models.drug drugName;
-       // private Models.prescription prescriptionInfo;
-
-        
+        // private Models.drug drugName;
+        // private Models.prescription prescriptionInfo;
+        //private Models.prescription prescriptionInfo;
+        patient patientInfo = new patient();
+        prescription prescriptionInfo  = new prescription();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            //UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
 
             //prescriptionInfo = this.GetPrescription();
 
         }
-
-        private Models.drug GetDrugName()
-        {
-            DataView drugsTable = (DataView)
-                SqlDataSource1.Select(DataSourceSelectArguments.Empty);
-            drugsTable.RowFilter = string.Format("DrugID = '{0}'", ddlDrugName.SelectedValue);
-            DataRowView row = drugsTable[0];
-
-            Models.drug p = new Models.drug();
-            p.DrugID = row["DrugID"].ToString();
-            p.DrugName = row["DrugName"].ToString();
-            return p;
-        }
+        
         /*
         private Models.prescription GetPrescription()
         {
+            SqlDataSource1.Select(DataSourceSelectArguments.Empty);
             DataView prescriptionTable = (DataView)
-                SqlDataSource1.Select(DataSourceSelectArguments.Empty);
             prescriptionTable.RowFilter = string.Format("PrescriptionID = '{0}'", txtPrescriptionID.Text);
             DataRowView row = prescriptionTable[0];
 
@@ -51,7 +41,7 @@ namespace PharmaCare
             p.PatientID = row["PatientID"].ToString();
             p.PatientID = row["PatientID"].ToString();
             return p;
-        } */
+        }  */
 
         protected void TextBox13_TextChanged(object sender, EventArgs e)
         {
@@ -61,7 +51,12 @@ namespace PharmaCare
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-           
+
+        }
+
+        protected void btnPatientSearch_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

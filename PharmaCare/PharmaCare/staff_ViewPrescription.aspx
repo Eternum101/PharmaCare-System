@@ -6,7 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
      <div>
         <!-- Page Heading -->
-        <h1 class="">View Prescription</h1>
+        <h1 class="">Prescription</h1>
 
         <!-- Patient Name lbl and txt -->
         <h3>Patient Name: </h3>

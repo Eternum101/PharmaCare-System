@@ -70,7 +70,7 @@
                     <button class="dropbtn">Nurse</button>
                         <div class="dropdown-content">
                           <a href="#">View Prescription</a>
-                          <a href="#">View Distribution Schedule</a>
+                          <a href="nurse_ViewDistribution.aspx">View Distribution Schedule</a>
                           <a href="#">View List for Nursing Station</a>
                         </div>
                     </div>
