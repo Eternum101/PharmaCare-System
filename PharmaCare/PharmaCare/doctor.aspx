@@ -8,7 +8,7 @@
         <!-- Page Heading -->
         <h1 class="doctorHeading">Doctors</h1>
         <!-- Patient Name lbl and txt -->
-        <h3>Patient Name: </h3>
+        <h3>Doctor Name: </h3>
         <div class="txtPatientName">
             <asp:TextBox ID="TextBox1" class="search_textboxes" Text="" runat="server" />
             
