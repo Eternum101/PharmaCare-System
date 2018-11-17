@@ -79,6 +79,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="nurse_ViewNursingStation.aspx" />
+    <Content Include="nurse_ViewPrescription.aspx" />
     <Content Include="Images\Cancel.png" />
     <Content Include="Content\navigation.css" />
     <Content Include="Content\site.css" />
@@ -143,6 +145,20 @@
     </Compile>
     <Compile Include="doctor.aspx.designer.cs">
       <DependentUpon>doctor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nurse_ViewNursingStation.aspx.cs">
+      <DependentUpon>nurse_ViewNursingStation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nurse_ViewNursingStation.aspx.designer.cs">
+      <DependentUpon>nurse_ViewNursingStation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="nurse_ViewPrescription.aspx.cs">
+      <DependentUpon>nurse_ViewPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nurse_ViewPrescription.aspx.designer.cs">
+      <DependentUpon>nurse_ViewPrescription.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
