@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="doctor_writePrescription.aspx.cs" Inherits="PharmaCare.writePrescription" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="doctor_writePrescription.aspx.cs" Inherits="PharmaCare.writePrescription" EnableEventValidation = "false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server"> Write Prescriptions
 </asp:Content>
@@ -11,10 +11,14 @@
         <!-- Page Heading -->
         <h1 class="writePrescriptionHeading">Write Prescription
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT Patients.Name, Prescriptions.PrescriptionID, Prescriptions.PrescriptionDate, 
-                Prescriptions.DrugID, Prescriptions.PatientID, Prescriptions.DoctorID, Prescriptions.PrescriptionStatus, 
-                Prescriptions.DrugDose, Prescriptions.StatusOfDose FROM Patients INNER JOIN Prescriptions 
-                ON Patients.PatientID = Prescriptions.PatientID"></asp:SqlDataSource>
+                SelectCommand="SELECT Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
+                Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
+                Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
+                ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
+                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
+
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+                SelectCommand="SELECT Drugs.DrugID, Drugs.DrugName FROM Drugs"></asp:SqlDataSource>
         </h1>
 
         <!-- Patient Name lbl and txt -->
@@ -36,14 +40,15 @@
 
         </div>
             <asp:GridView ID="dgvPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
-                AllowSorting="True" CellPadding="5" Height="200px" Width="1000px" BackColor="White" 
-                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
+                AllowSorting="True" CellPadding="3" Height="200px" Width="1000px" BackColor="White" 
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal"
+                OnRowDataBound="OnRowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
-                <HeaderStyle BackColor="#FF5454" Font-Bold="True" ForeColor="#F7F7F7" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
                 <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
-                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SelectedRowStyle BackColor="#565656" Font-Bold="True" ForeColor="#F7F7F7" />
                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
                 <SortedAscendingHeaderStyle BackColor="#FF5454" />
                 <SortedDescendingCellStyle BackColor="#F7F7F7" />
@@ -57,15 +62,12 @@
 
         <!-- Left Div -->
         <div class="leftTextboxDiv">
-            <h4>Prescription ID: </h4>
-            <asp:TextBox ID="txtPrescriptionID" CssClass="entry_textboxes" runat="server" />
 
-            <h4>Patient ID: </h4>
-            <asp:TextBox ID="txtPatientID" CssClass="entry_textboxes" runat="server" />
+            <h4>Patient Name: </h4>
+            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <h4>Doctor ID: </h4>
-            <asp:TextBox ID="txtDoctorID" CssClass="entry_textboxes" runat="server" />
-
+            <h4>Doctor Name: </h4>
+            <asp:TextBox ID="txtDoctorName" CssClass="entry_textboxes" Width="150px" runat="server" />
             
         </div>
 
@@ -73,40 +75,46 @@
 
         <div class="leftTextboxDiv">
             <h4>Date: </h4>
-            <asp:TextBox ID="txtDate" CssClass="entry_textboxes" runat="server" />
+            <asp:TextBox ID="txtDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <h4>Patient Name: </h4>
-            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" runat="server" />
+            <h4>Start Date: </h4>
+            <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <h4>Patient Type: </h4>
-            <asp:TextBox ID="txtPatientType" CssClass="entry_textboxes" runat="server" />
-
+            
             
         </div>
 
         <!-- Right Div -->
         <div class="leftTextboxDiv">
-            <h4>Time Per Day: </h4>
-            <asp:TextBox ID="txtTimePerDay" CssClass="entry_textboxes" runat="server" />
-
-            <h4>Start Date: </h4>
-            <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" runat="server" />
+            
+            <h4>Drug Name: </h4>
+            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDrugName" Width="150px" DataSourceID="SqlDataSource2" 
+                DataValueField = "DrugID" DataTextField = "DrugName" runat="server">
+                <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
+            </asp:DropDownList>
 
             <h4>End Date: </h4>
-            <asp:TextBox ID="txtEndDate" CssClass="entry_textboxes" runat="server" />
+            <asp:TextBox ID="txtEndDate" CssClass="entry_textboxes" Width="150px" runat="server" />
+
+            
+            
         </div>
 
         <div class="leftTextboxDiv">
-            <h4>Drug Name: </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDrugName" DataSourceID="SqlDataSource1"
-                DataTextField="DrugID" DataValueField="DrugID" runat="server">
-                <asp:ListItem Enabled="true" Text="Drug 1" Value="-1"></asp:ListItem>
-                <asp:ListItem Text="Drug 2" Value="1"></asp:ListItem>
-                <asp:ListItem Text="Drug 3" Value="2"></asp:ListItem>
-            </asp:DropDownList>
+            <h4>Time Per Day: </h4>
+            <asp:TextBox ID="txtTimePerDay" CssClass="entry_textboxes" Width="150px" runat="server" />
 
             <h4>Dose: </h4>
-            <asp:TextBox ID="txtDose" CssClass="entry_textboxes" runat="server" />
+            <asp:TextBox ID="txtDose" CssClass="entry_textboxes" Width="150px" runat="server" />
+        </div>
+
+        <div class="leftTextboxDiv">
+            
+            <h4>Status: </h4>
+            <asp:TextBox ID="txtPrescriptionStatus" CssClass="entry_textboxes" Width="150px" runat="server" />
+
+            <h4>Dose Status: </h4>
+            <asp:TextBox ID="txtDoseStatus" CssClass="entry_textboxes" Width="150px" runat="server" />
         </div>
     </div>
     <!-- END Bordered div -->
@@ -115,7 +123,7 @@
     <div class="extraSpace">
         <div class="leftTextboxDiv">
             <div class="left">
-                <h4>Additional Information: </h4>
+                <h4>Additional Information:</h4>
             </div>
             <!-- Bottom Buttons -->
 
@@ -132,7 +140,7 @@
             <!-- END Bottom Buttons -->
 
             <!-- Bottom Textbox -->
-            <asp:TextBox ID="TextBox9" class="bigTextBox" runat="server" />
+            <asp:TextBox ID="txtAdditionalInformation" class="bigTextBox" runat="server" />
         </div>
     </div>
     <!-- END Bottom Div -->
@@ -149,6 +157,7 @@
           
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit2" OnClick="btnSubmit_Click" /></li>
         </ul>

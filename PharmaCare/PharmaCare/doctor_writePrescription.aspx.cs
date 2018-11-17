@@ -54,7 +54,7 @@ namespace PharmaCare
 
         }
 
-        /*
+        
         private void GetPatient(int searchID)
         {
             SqlConnection con = Dbconnection.GetConnection();
@@ -62,6 +62,8 @@ namespace PharmaCare
             {
                 con.Open();
                 patientInfo = patient.SearchPatientID(searchID);
+                dgvPrescriptions.DataSource = prescription.GetPrescription(con, searchID);
+                dgvPrescriptions.DataBind();
             }
             catch (Exception ex)
             {
@@ -84,70 +86,82 @@ namespace PharmaCare
                 throw ex;
             }
         }
-
-
-        private void PatientTextboxFill()
+        private void DisplayPatientPrescriptions()
         {
-            txtPrescriptionID.Text = prescriptionInfo.PrescriptionID.ToString();
-            txtPrescriptionID.DataBind();
-            txtPatientID.Text = prescriptionInfo.PatientID.ToString();
-            txtPatientID.DataBind();
-            txtDoctorID.Text = prescriptionInfo.DoctorID.ToString();
-            txtDoctorID.DataBind();
-            txtDate.Text = prescriptionInfo.PrescriptionDate.ToString();
-            txtDate.DataBind();
-            txtPatientName.Text = patientInfo.Name.ToString();
-            txtPatientName.DataBind();
-
-            
-        }*/
-
-        /* //public SqlConnection conn = new SqlConnection(@"PharmaCare_DB.mdf;Initial Catalog = PharmaCare_DB; Integrated Security = True");
-         public void test()
-         {
-             SqlConnection conn = Dbconnection.GetConnection();
-             SqlCommand connect;
-             string str;
-
-             conn.Open();
-             str = "SELECT Prescriptions.PrescriptionID, Drugs.DrugName, Patients.Name, Doctors.DoctorName, " +
-                 "Prescriptions.PrescriptionDate, Prescriptions.AdditionalInformation, Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, " +
-                 "Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay, Prescriptions.StatusOfDose FROM Prescriptions " +
-                 "INNER JOIN Drugs ON Prescriptions.DrugID = Drugs.DrugID " +
-                 "INNER JOIN Doctors ON Prescriptions.DoctorID = Doctors.DoctorID " +
-                 "INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID " +
-                 "WHERE Prescriptions.PatientID = @PatientID";
-             connect = new SqlCommand(str, conn);
-             SqlDataReader reader = connect.ExecuteReader();
-             if (reader.Read())
-             {
-                 txtPrescriptionID.Text = reader["Prescriptions.PrescriptionID"].ToString();
-                 txtPatientID.Text = reader["Prescriptions.PatientID"].ToString();
-                 txtDoctorID.Text = reader["Prescriptions.DoctorID"].ToString();
-                 txtDate.Text = reader["Prescriptions.PrescriptionDate"].ToString();
-                 txtPatientName.Text = reader["Patients.Name"].ToString();
-                 reader.Close();
-                 conn.Close();
-             }
-         } */
+            dgvPrescriptions.DataSource = prescriptionInfo;
+            dgvPrescriptions.DataBind();
+        }
 
         protected void btnPatientSearch_Click(object sender, EventArgs e)
         {
-            /*
+            
             if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
             {
                 GetPatientByName(txtPatientNameInput.Text);
                 if (patientInfo != null)
                 {
                     GetPatient(patientInfo.PatientID);
-                    PatientTextboxFill();
+                    
                 }
+                
             }
             else
             {
                 return;
             }
-            */
+            
+        }
+
+        public void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvPrescriptions, "Select$" + e.Row.RowIndex);
+            }
+
+
+        }
+
+        public void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            TableData();
+        }
+
+        private void TableData()
+        {
+            foreach (GridViewRow row in dgvPrescriptions.Rows)
+            {
+                if (row.RowIndex == dgvPrescriptions.SelectedIndex)
+                {
+                    txtPatientName.Text = row.Cells[0].Text;
+                    txtDate.Text = row.Cells[1].Text;
+                    txtPrescriptionStatus.Text = row.Cells[2].Text;
+                    txtDoctorName.Text = row.Cells[3].Text;
+                    ddlDrugName.DataTextFormatString = row.Cells[4].Text.ToString().Trim();
+                    txtStartDate.Text = row.Cells[5].Text;
+                    txtEndDate.Text = row.Cells[6].Text;
+                    txtTimePerDay.Text = row.Cells[7].Text;
+                    txtDose.Text = row.Cells[8].Text;
+                    txtDoseStatus.Text = row.Cells[9].Text;
+                    txtAdditionalInformation.Text = row.Cells[10].Text;
+                }
+            }
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            txtPatientName.Text = null;
+            txtDate.Text = null;
+            //ddlDrugName.DataTextField = null;
+            txtTimePerDay.Text = null;
+            txtPrescriptionStatus.Text = null;
+            txtDoctorName.Text = null;
+            txtStartDate.Text = null;
+            txtEndDate.Text = null;
+            txtDose.Text = null;
+            txtDoseStatus.Text = null;
+            txtAdditionalInformation.Text = null;
+            dgvPrescriptions.SelectedIndex = -1;
         }
     }
 }

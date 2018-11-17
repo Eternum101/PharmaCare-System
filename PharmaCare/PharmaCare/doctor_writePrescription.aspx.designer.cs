@@ -22,6 +22,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
+        
+        /// <summary>
         /// txtPatientNameInput control.
         /// </summary>
         /// <remarks>
@@ -49,31 +58,22 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.GridView dgvPrescriptions;
         
         /// <summary>
-        /// txtPrescriptionID control.
+        /// txtPatientName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrescriptionID;
+        protected global::System.Web.UI.WebControls.TextBox txtPatientName;
         
         /// <summary>
-        /// txtPatientID control.
+        /// txtDoctorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatientID;
-        
-        /// <summary>
-        /// txtDoctorID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDoctorID;
+        protected global::System.Web.UI.WebControls.TextBox txtDoctorName;
         
         /// <summary>
         /// txtDate control.
@@ -85,33 +85,6 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtDate;
         
         /// <summary>
-        /// txtPatientName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatientName;
-        
-        /// <summary>
-        /// txtPatientType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatientType;
-        
-        /// <summary>
-        /// txtTimePerDay control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTimePerDay;
-        
-        /// <summary>
         /// txtStartDate control.
         /// </summary>
         /// <remarks>
@@ -119,15 +92,6 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStartDate;
-        
-        /// <summary>
-        /// txtEndDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEndDate;
         
         /// <summary>
         /// ddlDrugName control.
@@ -139,6 +103,24 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.DropDownList ddlDrugName;
         
         /// <summary>
+        /// txtEndDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEndDate;
+        
+        /// <summary>
+        /// txtTimePerDay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTimePerDay;
+        
+        /// <summary>
         /// txtDose control.
         /// </summary>
         /// <remarks>
@@ -148,13 +130,31 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtDose;
         
         /// <summary>
-        /// TextBox9 control.
+        /// txtPrescriptionStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox txtPrescriptionStatus;
+        
+        /// <summary>
+        /// txtDoseStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDoseStatus;
+        
+        /// <summary>
+        /// txtAdditionalInformation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAdditionalInformation;
         
         /// <summary>
         /// btnCheckCocktail control.
@@ -173,6 +173,15 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
         
         /// <summary>
         /// btnModify control.
