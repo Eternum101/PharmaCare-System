@@ -13,6 +13,15 @@ namespace PharmaCare {
     public partial class staff_ViewPrescription {
         
         /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
         /// TextBox6 control.
         /// </summary>
         /// <remarks>
@@ -22,13 +31,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox TextBox6;
         
         /// <summary>
-        /// txtStaffPrescription control.
+        /// dgvPrescriptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStaffPrescription;
+        protected global::System.Web.UI.WebControls.GridView dgvPrescriptions;
         
         /// <summary>
         /// btnPrint control.
@@ -38,14 +47,5 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrint;
-        
-        /// <summary>
-        /// btnSubmit3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit3;
     }
 }

@@ -9,6 +9,11 @@ namespace PharmaCare.Models
 {
     public class Dbconnection
     {
-       
+        public static SqlConnection GetConnection()
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["PharmaCare_DB"].ConnectionString;
+            SqlConnection connection = new SqlConnection(connectionString);
+            return connection;
+        }
     }
 }

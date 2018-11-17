@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 namespace PharmaCare
 {
     
-    public partial class writePrescription : System.Web.UI.Page
+    public partial class nurse_ViewPrescription : System.Web.UI.Page
     {
         // private Models.drug drugName;
         // private Models.prescription prescriptionInfo;

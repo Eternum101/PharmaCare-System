@@ -19,14 +19,16 @@
 
 .contentContainer {
     width: 100%;
-    height: 800px;
+    height: auto;
+    overflow: hidden;
+    padding-bottom: 25px;
     /* Dark Theme 
     background: rgb(50, 50, 50);*/
     /* Light Theme */
     background-color: white;
 }
 
-.footerContainer{
+.footerContainer {
     background-color: #9d9d9d;
 }
 
@@ -139,7 +141,7 @@ h4 {
     margin-top: -10px;
     margin-right: 15px;
     margin-left: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     padding-left: 10px;
     padding-bottom: 50px;
     padding-top: 10px;
@@ -422,4 +424,9 @@ ul {
     text-align: center;
     position: absolute;
     margin-left: 210px;
+}
+
+/* Nurse Distribution Schedule*/
+.nurse_Heading {
+    padding-bottom: 60px;
 }

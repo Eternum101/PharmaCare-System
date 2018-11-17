@@ -10,7 +10,8 @@
 namespace PharmaCare {
     
     
-    public partial class writePrescription {
+    public partial class nurse_ViewPrescription
+    {
         
         /// <summary>
         /// SqlDataSource1 control.

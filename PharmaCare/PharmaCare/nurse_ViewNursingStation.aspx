@@ -30,7 +30,9 @@
             <h4>Nursing Station Details:</h4><br />
 
         </div>
-            <asp:GridView ID="dgvNusingStation" runat="server" DataSourceID="SqlDataSource1" AllowSorting="True" CellPadding="5" Height="320px" Width="1031px" BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
+            <asp:GridView ID="dgvNusingStation" runat="server" DataSourceID="SqlDataSource1" 
+                AllowSorting="True" CellPadding="5" Height="320px" Width="1031px" BackColor="White" 
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
                 <HeaderStyle BackColor="#FF5454" Font-Bold="True" ForeColor="#F7F7F7" />
@@ -48,12 +50,18 @@
     <!-- Bottom Div -->
     <div class="float_center">
         <ul class="child">
-          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Print" runat="server" ID="btnPrint" OnClientClick="javascript:window.print();" /></li>
+          <li class="btn_li">
+              <asp:Button class="buttonVisuals_Spacing" Text="Print" runat="server" 
+                  ID="btnPrint" OnClientClick="javascript:window.print();" />
+          </li>
         </ul>
     </div>
 
     <!-- END Bottom Div -->
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Patients.Name, Patients.Address, Patients.WardID, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, Prescriptions.StatusOfDose, Patients.RoomID FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+        SelectCommand="SELECT Patients.Name, Patients.Address, Patients.WardID, Prescriptions.PrescriptionDate, 
+        Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, Prescriptions.StatusOfDose, 
+        Patients.RoomID FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID"></asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
     <div class="float_center">

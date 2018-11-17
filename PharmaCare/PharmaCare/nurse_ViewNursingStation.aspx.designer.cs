@@ -10,7 +10,7 @@
 namespace PharmaCare {
     
     
-    public partial class nurse_ViewDistribution {
+    public partial class nurse_ViewNursingStation {
         
         /// <summary>
         /// ddlNursingStation control.

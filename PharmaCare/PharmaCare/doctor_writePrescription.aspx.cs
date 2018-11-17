@@ -21,7 +21,7 @@ namespace PharmaCare
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
 
             //prescriptionInfo = this.GetPrescription();
@@ -54,9 +54,100 @@ namespace PharmaCare
 
         }
 
+        /*
+        private void GetPatient(int searchID)
+        {
+            SqlConnection con = Dbconnection.GetConnection();
+            try
+            {
+                con.Open();
+                patientInfo = patient.SearchPatientID(searchID);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void GetPatientByName(string searchName)
+        {
+            try
+            {
+                patientInfo = patient.SearchPatientName(searchName);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        private void PatientTextboxFill()
+        {
+            txtPrescriptionID.Text = prescriptionInfo.PrescriptionID.ToString();
+            txtPrescriptionID.DataBind();
+            txtPatientID.Text = prescriptionInfo.PatientID.ToString();
+            txtPatientID.DataBind();
+            txtDoctorID.Text = prescriptionInfo.DoctorID.ToString();
+            txtDoctorID.DataBind();
+            txtDate.Text = prescriptionInfo.PrescriptionDate.ToString();
+            txtDate.DataBind();
+            txtPatientName.Text = patientInfo.Name.ToString();
+            txtPatientName.DataBind();
+
+            
+        }*/
+
+        /* //public SqlConnection conn = new SqlConnection(@"PharmaCare_DB.mdf;Initial Catalog = PharmaCare_DB; Integrated Security = True");
+         public void test()
+         {
+             SqlConnection conn = Dbconnection.GetConnection();
+             SqlCommand connect;
+             string str;
+
+             conn.Open();
+             str = "SELECT Prescriptions.PrescriptionID, Drugs.DrugName, Patients.Name, Doctors.DoctorName, " +
+                 "Prescriptions.PrescriptionDate, Prescriptions.AdditionalInformation, Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, " +
+                 "Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay, Prescriptions.StatusOfDose FROM Prescriptions " +
+                 "INNER JOIN Drugs ON Prescriptions.DrugID = Drugs.DrugID " +
+                 "INNER JOIN Doctors ON Prescriptions.DoctorID = Doctors.DoctorID " +
+                 "INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID " +
+                 "WHERE Prescriptions.PatientID = @PatientID";
+             connect = new SqlCommand(str, conn);
+             SqlDataReader reader = connect.ExecuteReader();
+             if (reader.Read())
+             {
+                 txtPrescriptionID.Text = reader["Prescriptions.PrescriptionID"].ToString();
+                 txtPatientID.Text = reader["Prescriptions.PatientID"].ToString();
+                 txtDoctorID.Text = reader["Prescriptions.DoctorID"].ToString();
+                 txtDate.Text = reader["Prescriptions.PrescriptionDate"].ToString();
+                 txtPatientName.Text = reader["Patients.Name"].ToString();
+                 reader.Close();
+                 conn.Close();
+             }
+         } */
+
         protected void btnPatientSearch_Click(object sender, EventArgs e)
         {
-            
+            /*
+            if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
+            {
+                GetPatientByName(txtPatientNameInput.Text);
+                if (patientInfo != null)
+                {
+                    GetPatient(patientInfo.PatientID);
+                    PatientTextboxFill();
+                }
+            }
+            else
+            {
+                return;
+            }
+            */
         }
     }
 }

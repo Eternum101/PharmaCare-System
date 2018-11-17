@@ -40,6 +40,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.Button btnPatientSearch;
         
         /// <summary>
+        /// dgvPrescriptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvPrescriptions;
+        
+        /// <summary>
         /// txtPrescriptionID control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtPrescriptionID;
         
         /// <summary>
-        /// txtPatentID control.
+        /// txtPatientID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPatentID;
+        protected global::System.Web.UI.WebControls.TextBox txtPatientID;
         
         /// <summary>
         /// txtDoctorID control.

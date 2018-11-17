@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PharmaCare
 {
-    public partial class nurse_ViewDistribution : System.Web.UI.Page
+    public partial class nurse_ViewNursingStation : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
