@@ -50,6 +50,11 @@ h4 {
     color: black;
 }
 
+.validatorText{
+    color: red;
+    position:absolute;
+}
+
 .leftTextboxDiv {
     padding: 0px 30px;
     float: left;

@@ -67,13 +67,17 @@
                 </h4>
             <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-                <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="txtPatientName" CssClass="text-danger float-right" ErrorMessage="Patient Name Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="txtPatientName"
+                    CssClass="validatorText" ErrorMessage="Patient Name Required"
+                    ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>Doctor Name: 
                 </h4>
             <asp:TextBox ID="txtDoctorName" CssClass="entry_textboxes" Width="150px" runat="server" />
             
-                <asp:RequiredFieldValidator ID="rfvDoctorName" runat="server" ControlToValidate="txtDoctorName" CssClass="text-danger float-right" ErrorMessage="Doctor Name Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="rfvDoctorName" runat="server" ControlToValidate="txtDoctorName" 
+                    CssClass="validatorText" ErrorMessage="Doctor Name Required" 
+                    ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
             
         </div>
 
@@ -83,14 +87,18 @@
             <h4>Date: </h4>
             <asp:TextBox ID="txtDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <asp:RequiredFieldValidator ID="rfvDate" runat="server" ControlToValidate="txtDate" CssClass="text-danger" ErrorMessage="Date Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvDate" runat="server" ControlToValidate="txtDate" 
+                CssClass="validatorText" ErrorMessage="Date Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>First Time: </h4>
             <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
             
             
-            <asp:RequiredFieldValidator ID="rfvFirstTime" runat="server" ControlToValidate="txtStartDate" CssClass="text-danger" ErrorMessage="First Time Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvFirstTime" runat="server" ControlToValidate="txtStartDate" 
+                CssClass="validatorText" ErrorMessage="First Time Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             
             
@@ -110,7 +118,9 @@
 
             
             
-            <asp:RequiredFieldValidator ID="rfvLastTime" runat="server" ControlToValidate="txtEndDate" CssClass="text-danger" ErrorMessage="Last Time Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvLastTime" runat="server" ControlToValidate="txtEndDate" 
+                CssClass="validatorText" ErrorMessage="Last Time Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             
             
@@ -120,11 +130,15 @@
             <h4>Time Per Day: </h4>
             <asp:TextBox ID="txtTimePerDay" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <asp:RequiredFieldValidator ID="rfvTimePerDay" runat="server" ControlToValidate="txtTimePerDay" CssClass="text-danger" ErrorMessage="Time Per Day Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvTimePerDay" runat="server" ControlToValidate="txtTimePerDay"
+                CssClass="validatorText" ErrorMessage="Time Per Day Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>Dose: </h4>
             <asp:TextBox ID="txtDose" CssClass="entry_textboxes" Width="150px" runat="server" />
-            <asp:RequiredFieldValidator ID="rfvDose" runat="server" ControlToValidate="txtDose" CssClass="text-danger" ErrorMessage="Dose Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvDose" runat="server" ControlToValidate="txtDose" 
+                CssClass="validatorText" ErrorMessage="Dose Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
         </div>
 
         <div class="leftTextboxDiv">
@@ -132,11 +146,15 @@
             <h4>Status: </h4>
             <asp:TextBox ID="txtPrescriptionStatus" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ControlToValidate="txtPrescriptionStatus" CssClass="text-danger" ErrorMessage="Status Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ControlToValidate="txtPrescriptionStatus" 
+                CssClass="validatorText" ErrorMessage="Status Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>Dose Status: </h4>
             <asp:TextBox ID="txtDoseStatus" CssClass="entry_textboxes" Width="150px" runat="server" />
-            <asp:RequiredFieldValidator ID="rfvDoseStatus" runat="server" ControlToValidate="txtDoseStatus" CssClass="text-danger" ErrorMessage="Dose Status Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvDoseStatus" runat="server" ControlToValidate="txtDoseStatus" 
+                CssClass="validatorText" ErrorMessage="Dose Status Required"
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
         </div>
     </div>
     <!-- END Bordered div -->
