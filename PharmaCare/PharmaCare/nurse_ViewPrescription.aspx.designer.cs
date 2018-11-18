@@ -10,7 +10,7 @@
 namespace PharmaCare {
     
     
-    public partial class writePrescription {
+    public partial class nurse_ViewPrescription {
         
         /// <summary>
         /// SqlDataSourceNurse control.
@@ -47,5 +47,14 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvNursePrescriptions;
+        
+        /// <summary>
+        /// btnClear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnClear;
     }
 }
