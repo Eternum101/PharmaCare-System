@@ -63,11 +63,17 @@
         <!-- Left Div -->
         <div class="leftTextboxDiv">
 
-            <h4>Patient Name: </h4>
+            <h4>Patient Name: 
+                </h4>
             <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <h4>Doctor Name: </h4>
+                <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="txtPatientName" CssClass="text-danger float-right" ErrorMessage="Patient Name Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+
+            <h4>Doctor Name: 
+                </h4>
             <asp:TextBox ID="txtDoctorName" CssClass="entry_textboxes" Width="150px" runat="server" />
+            
+                <asp:RequiredFieldValidator ID="rfvDoctorName" runat="server" ControlToValidate="txtDoctorName" CssClass="text-danger float-right" ErrorMessage="Doctor Name Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
             
         </div>
 
@@ -77,8 +83,14 @@
             <h4>Date: </h4>
             <asp:TextBox ID="txtDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
+            <asp:RequiredFieldValidator ID="rfvDate" runat="server" ControlToValidate="txtDate" CssClass="text-danger" ErrorMessage="Date Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+
             <h4>First Time: </h4>
             <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" Width="150px" runat="server" />
+
+            
+            
+            <asp:RequiredFieldValidator ID="rfvFirstTime" runat="server" ControlToValidate="txtStartDate" CssClass="text-danger" ErrorMessage="First Time Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             
             
@@ -98,14 +110,21 @@
 
             
             
+            <asp:RequiredFieldValidator ID="rfvLastTime" runat="server" ControlToValidate="txtEndDate" CssClass="text-danger" ErrorMessage="Last Time Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+
+            
+            
         </div>
 
         <div class="leftTextboxDiv">
             <h4>Time Per Day: </h4>
             <asp:TextBox ID="txtTimePerDay" CssClass="entry_textboxes" Width="150px" runat="server" />
 
+            <asp:RequiredFieldValidator ID="rfvTimePerDay" runat="server" ControlToValidate="txtTimePerDay" CssClass="text-danger" ErrorMessage="Time Per Day Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+
             <h4>Dose: </h4>
             <asp:TextBox ID="txtDose" CssClass="entry_textboxes" Width="150px" runat="server" />
+            <asp:RequiredFieldValidator ID="rfvDose" runat="server" ControlToValidate="txtDose" CssClass="text-danger" ErrorMessage="Dose Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
         </div>
 
         <div class="leftTextboxDiv">
@@ -113,8 +132,11 @@
             <h4>Status: </h4>
             <asp:TextBox ID="txtPrescriptionStatus" CssClass="entry_textboxes" Width="150px" runat="server" />
 
+            <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ControlToValidate="txtPrescriptionStatus" CssClass="text-danger" ErrorMessage="Status Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+
             <h4>Dose Status: </h4>
             <asp:TextBox ID="txtDoseStatus" CssClass="entry_textboxes" Width="150px" runat="server" />
+            <asp:RequiredFieldValidator ID="rfvDoseStatus" runat="server" ControlToValidate="txtDoseStatus" CssClass="text-danger" ErrorMessage="Dose Status Required" ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
         </div>
     </div>
     <!-- END Bordered div -->
@@ -158,7 +180,7 @@
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
-          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" ValidationGroup="PrescriptionValidation" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit2" OnClick="btnSubmit_Click" /></li>
         </ul>
     </div>

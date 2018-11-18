@@ -22,58 +22,58 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// prescriptionID control.
+        /// txtDoctorID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox prescriptionID;
+        protected global::System.Web.UI.WebControls.TextBox txtDoctorID;
         
         /// <summary>
-        /// TextBox6 control.
+        /// txtDoctorZipCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox txtDoctorZipCode;
         
         /// <summary>
-        /// patientID control.
+        /// txtDoctorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox patientID;
+        protected global::System.Web.UI.WebControls.TextBox txtDoctorName;
         
         /// <summary>
-        /// TextBox2 control.
+        /// txtSpeciality control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtSpeciality;
         
         /// <summary>
-        /// TextBox3 control.
+        /// txtDoctorAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtDoctorAddress;
         
         /// <summary>
-        /// TextBox4 control.
+        /// ddlDoctorCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TextBox4;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDoctorCity;
         
         /// <summary>
         /// btnClear control.

@@ -24,28 +24,29 @@
         <!-- Left Div -->
         <div class="leftTextboxDiv">
             <h4>Doctor ID: </h4>
-            <asp:TextBox ID="prescriptionID" Text="" CssClass="entry_textboxes" runat="server" />
+            <asp:TextBox ID="txtDoctorID" Text="" CssClass="entry_textboxes" runat="server" />
 
             <h4>Doctor ZipCode: </h4>
-                <asp:TextBox ID="TextBox6" Text="" CssClass="entry_textboxes" runat="server" />
+                <asp:TextBox ID="txtDoctorZipCode" Text="" CssClass="entry_textboxes" runat="server" />
         </div>
 
         <!-- Right Div -->
         <div class="leftTextboxDiv">
             <h4>Doctor Name: </h4>
-            <asp:TextBox ID="patientID" Text="" CssClass="entry_textboxes" runat="server" />
-            <h4>Speciality: </h4>
-            <asp:TextBox ID="TextBox2" Text=""  CssClass="entry_textboxes" runat="server" />
+            <asp:TextBox ID="txtDoctorName" Text="" CssClass="entry_textboxes" runat="server" />
+            <h4>
+                Speciality: </h4>
+            <asp:TextBox ID="txtSpeciality" Text=""  CssClass="entry_textboxes" runat="server" />
         </div>
 
         <div class="leftTextboxDiv">
             <h4>Doctor Address: </h4>
-            <asp:TextBox ID="TextBox3" Text="" CssClass="entry_textboxes" runat="server" />
+            <asp:TextBox ID="txtDoctorAddress" Text="" CssClass="entry_textboxes" runat="server" />
         </div>
 
         <div class="leftTextboxDiv">
             <h4>Doctor City: </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="TextBox4" runat="server">
+            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDoctorCity" runat="server">
                 <asp:ListItem Enabled="true" Text="city1" Value="-1"></asp:ListItem>
                 <asp:ListItem Text="city2" Value="1"></asp:ListItem>
                 <asp:ListItem Text="city3" Value="2"></asp:ListItem>
