@@ -9,16 +9,20 @@
     
     <div>
         <!-- Page Heading -->
-        <h1 class="writePrescriptionHeading">View Prescription<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT * FROM [Prescriptions]"></asp:SqlDataSource>
+        <h1 class="writePrescriptionHeading">View Prescription<asp:SqlDataSource ID="SqlDataSourceNurse" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
+                Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
+                Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
+                ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
+                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
         </h1>
 
         <!-- Patient Name lbl and txt -->
         <h3>Patient Name: </h3>
         <div class="txtPatientName">
-            <asp:TextBox ID="txtPatientNameInput" class="search_textboxes" Text="" runat="server" />
+            <asp:TextBox ID="txtNursePatientNameInput" class="search_textboxes" Text="" runat="server" />
             
             <div class="doctor_SearchButtonAlign">
-                <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPatientSearch_Click" />
+                <asp:Button ID="btnNursePatientSearch" class="searchButtonVisuals" Text="Search" runat="server" />
             </div>
         </div>
 
@@ -26,9 +30,21 @@
 
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
-            <h4>Patient Prescriptions: </h4>
-            <asp:GridView ID="dgvPrescriptions" runat="server" AutoGenerateColumns="False" EmptyDataText="No Prescriptions Avaliable For This Patient">
-        </asp:GridView>
+            <h4>Patient Prescriptions: </h4><br />
+            <asp:GridView ID="dgvNursePrescriptions" runat="server" DataSourceID="SqlDataSourceNurse" 
+                AllowSorting="True" CellPadding="3" Height="294px" Width="1000px" BackColor="White" 
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
+                <AlternatingRowStyle BackColor="#F7F7F7" />
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
+                <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#FF5454" />
+                <SortedDescendingCellStyle BackColor="#F7F7F7" />
+                <SortedDescendingHeaderStyle BackColor="#FF5454" />
+            </asp:GridView>
         </div>
     </div>
 </asp:Content>

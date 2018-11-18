@@ -31,13 +31,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox TextBox6;
         
         /// <summary>
-        /// dgvPrescriptions control.
+        /// dgvStaffPrescriptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvPrescriptions;
+        protected global::System.Web.UI.WebControls.GridView dgvStaffPrescriptions;
         
         /// <summary>
         /// btnPrint control.

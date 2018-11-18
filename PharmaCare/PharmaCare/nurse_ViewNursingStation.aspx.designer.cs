@@ -10,7 +10,7 @@
 namespace PharmaCare {
     
     
-    public partial class nurse_ViewNursingStation {
+    public partial class nurse_ViewDistribution {
         
         /// <summary>
         /// ddlNursingStation control.
@@ -22,13 +22,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.DropDownList ddlNursingStation;
         
         /// <summary>
-        /// dgvNusingStation control.
+        /// dgvNurseStation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvNusingStation;
+        protected global::System.Web.UI.WebControls.GridView dgvNurseStation;
         
         /// <summary>
         /// btnPrint control.

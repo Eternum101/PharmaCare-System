@@ -40,7 +40,7 @@
             <h4>Prescription Details:</h4><br />
 
         </div>
-            <asp:GridView ID="dgvPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
+            <asp:GridView ID="dgvStaffPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
                 AllowSorting="True" CellPadding="3" Height="200px" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />

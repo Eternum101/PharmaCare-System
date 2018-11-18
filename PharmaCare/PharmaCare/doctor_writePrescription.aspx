@@ -18,7 +18,7 @@
                 ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
 
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT Drugs.DrugID, Drugs.DrugName FROM Drugs"></asp:SqlDataSource>
+                SelectCommand="SELECT [DrugID], [DrugName] FROM [Drugs]"></asp:SqlDataSource>
         </h1>
 
         <!-- Patient Name lbl and txt -->
@@ -39,10 +39,10 @@
             <h4>Prescription Details:</h4><br />
 
         </div>
-            <asp:GridView ID="dgvPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
+            <asp:GridView ID="dgvDoctorPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
                 AllowSorting="True" CellPadding="3" Height="200px" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal"
-                OnRowDataBound="OnRowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
+                OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
                 <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
@@ -77,7 +77,7 @@
             <h4>Date: </h4>
             <asp:TextBox ID="txtDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            <h4>Start Date: </h4>
+            <h4>First Time: </h4>
             <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
             
@@ -93,7 +93,7 @@
                 <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
             </asp:DropDownList>
 
-            <h4>End Date: </h4>
+            <h4>Last Time: </h4>
             <asp:TextBox ID="txtEndDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
             

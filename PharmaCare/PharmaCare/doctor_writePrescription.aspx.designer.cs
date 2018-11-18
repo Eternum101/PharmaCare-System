@@ -49,13 +49,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.Button btnPatientSearch;
         
         /// <summary>
-        /// dgvPrescriptions control.
+        /// dgvDoctorPrescriptions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvPrescriptions;
+        protected global::System.Web.UI.WebControls.GridView dgvDoctorPrescriptions;
         
         /// <summary>
         /// txtPatientName control.

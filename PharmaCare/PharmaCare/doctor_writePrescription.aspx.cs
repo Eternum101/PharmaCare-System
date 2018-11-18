@@ -62,8 +62,8 @@ namespace PharmaCare
             {
                 con.Open();
                 patientInfo = patient.SearchPatientID(searchID);
-                dgvPrescriptions.DataSource = prescription.GetPrescription(con, searchID);
-                dgvPrescriptions.DataBind();
+                dgvDoctorPrescriptions.DataSource = prescription.GetPrescription(con, searchID);
+                dgvDoctorPrescriptions.DataBind();
             }
             catch (Exception ex)
             {
@@ -88,8 +88,8 @@ namespace PharmaCare
         }
         private void DisplayPatientPrescriptions()
         {
-            dgvPrescriptions.DataSource = prescriptionInfo;
-            dgvPrescriptions.DataBind();
+            dgvDoctorPrescriptions.DataSource = prescriptionInfo;
+            dgvDoctorPrescriptions.DataBind();
         }
 
         protected void btnPatientSearch_Click(object sender, EventArgs e)
@@ -112,14 +112,12 @@ namespace PharmaCare
             
         }
 
-        public void OnRowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void dgvDoctorPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvPrescriptions, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDoctorPrescriptions, "Select$" + e.Row.RowIndex);
             }
-
-
         }
 
         public void OnSelectedIndexChanged(object sender, EventArgs e)
@@ -129,9 +127,9 @@ namespace PharmaCare
 
         private void TableData()
         {
-            foreach (GridViewRow row in dgvPrescriptions.Rows)
+            foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
             {
-                if (row.RowIndex == dgvPrescriptions.SelectedIndex)
+                if (row.RowIndex == dgvDoctorPrescriptions.SelectedIndex)
                 {
                     txtPatientName.Text = row.Cells[0].Text;
                     txtDate.Text = row.Cells[1].Text;
@@ -161,7 +159,7 @@ namespace PharmaCare
             txtDose.Text = null;
             txtDoseStatus.Text = null;
             txtAdditionalInformation.Text = null;
-            dgvPrescriptions.SelectedIndex = -1;
+            dgvDoctorPrescriptions.SelectedIndex = -1;
         }
     }
 }

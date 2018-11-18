@@ -6,7 +6,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
     <div>
         <!-- Page Heading -->
-        <h1 class="nurse_Heading">Distribution Schedule<asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+        <h1 class="nurse_Heading">Distribution Schedule<asp:SqlDataSource ID="SqlDataSourceDistribution" runat="server" 
             ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Patients.Name, 
             Drugs.DrugName, Prescriptions.DrugDose, Patients.WardID, Prescriptions.TimesPerDay, 
             Prescriptions.FirstTime, Prescriptions.LastTime FROM Patients INNER JOIN Prescriptions 
@@ -29,7 +29,7 @@
             <h4>Schedule Details:</h4><br />
 
         </div>
-            <asp:GridView ID="dgvNusingStation" runat="server" DataSourceID="SqlDataSource1" 
+            <asp:GridView ID="dgvNurseDistribution" runat="server" DataSourceID="SqlDataSourceDistribution" 
                 AllowSorting="True" CellPadding="5" Height="250px" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
@@ -54,7 +54,7 @@
         <ul class="child">
           <li class="btn_li">
               <asp:Button class="buttonVisuals_Spacing" Text="Print" runat="server" 
-                  ID="btnPrint" OnClientClick="javascript:window.print();" />
+                  ID="btnPrintDistribtion" OnClientClick="javascript:window.print();" />
           </li>
         </ul>
     </div>

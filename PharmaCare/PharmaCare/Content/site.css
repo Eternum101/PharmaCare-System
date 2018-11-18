@@ -1,14 +1,13 @@
 ﻿body {
     /* Dark Theme 
     background-color: rgb(20, 20, 20); */
-
     /* Light Theme */
     background-color: rgb(220, 220, 220);
 }
 
 .div-dark {
-    background: #292929; 
-    color: white; 
+    background: #292929;
+    color: white;
 }
 
 .container {
@@ -54,8 +53,8 @@ h4 {
 .leftTextboxDiv {
     padding: 0px 30px;
     float: left;
-   
 }
+
 .rightTextboxDiv {
     padding: 20px 500px;
     float: right;
@@ -120,6 +119,7 @@ h4 {
     font-size: 18px;
     float: left;
 }
+
     .buttonVisuals:hover, .buttonVisualsDark:hover, .buttonVisuals_Spacing:hover,
     .searchButtonVisuals:hover, .btnLoginVisuals:hover {
         background-color: rgb(90, 90, 90);
@@ -149,7 +149,6 @@ h4 {
     overflow: hidden;
     position: static;
     border-radius: 35px;
-    
 }
 
 .search_textboxes {
@@ -174,7 +173,7 @@ h4 {
     float: right;
 }
 
-.footer{
+.footer {
     background-color: rgb(60, 60, 60);
 }
 
@@ -209,7 +208,6 @@ ul {
         text-decoration: none;
         color: rgb(90, 90, 90);
         font-weight: bold;
-        
         padding: 0px 10px;
         background-color: white;
         font-size: 13px;
@@ -245,7 +243,6 @@ ul {
     text-align: center;
     color: white;
     font-size: 45px;
-    
 }
 
 .btnLogin {
@@ -254,7 +251,6 @@ ul {
     margin-right: auto;
     width: 200px;
     margin-top: 60px;
-    
 }
 
 .login_textboxes {
@@ -279,16 +275,14 @@ ul {
     height: 90px;
     width: 100%;
     background-color: rgb(60, 60, 60);
-    
-    
 }
+
 .login_topBar2 {
     height: 100px;
     width: 60%;
     background-color: rgb(245, 245, 245);
     overflow: hidden;
     position: static;
-    
 }
 
 .login_container {
@@ -296,7 +290,6 @@ ul {
     margin: auto;
     width: 450px;
     margin-top: 100px;
-
 }
 
 .login_redBar {
@@ -304,7 +297,6 @@ ul {
     width: 100%;
     height: 0.5vh;
     background: rgb(255, 84, 84);
-    
 }
 
 .login_contentContainer {
@@ -314,9 +306,7 @@ ul {
     background: rgb(50, 50, 50);*/
     /* Light Theme */
     background-color: white;
-    text-align:left;
-
-    
+    text-align: left;
 }
 
 .login_credentialsContainer {
@@ -345,7 +335,6 @@ ul {
 /* Write Prescription Page */
 .writePrescriptionHeading {
     padding-bottom: 20px;
-    
 }
 
 .txtPatientName {
@@ -406,7 +395,6 @@ ul {
     border-color: #999999;
     border-style: solid;
     border-width: 1px;
-    
 }
 
 /* Staff Prescription */
