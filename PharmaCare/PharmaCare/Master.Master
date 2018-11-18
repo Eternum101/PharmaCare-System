@@ -41,7 +41,6 @@
                         <input type=button class="dropbtn" value='Doctor'>              
                             <div class="dropdown-content">
                               <a href="doctor_writePrescription.aspx">Write Prescription</a>
-                              <a href="doctor.aspx">Doctors</a>
                             </div>
                     </div>
 
