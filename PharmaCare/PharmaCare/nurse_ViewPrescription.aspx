@@ -19,7 +19,7 @@
         <!-- Patient Name lbl and txt -->
         <h3>Patient Name: </h3>
         <div class="txtPatientName">
-            <asp:TextBox ID="txtNursePatientNameInput" class="search_textboxes" Text="" runat="server" />
+            <asp:TextBox ID="txtNursePatientSearch" class="search_textboxes" Text="" runat="server" />
             
             <div class="doctor_SearchButtonAlign">
                 <asp:Button ID="btnNursePatientSearch" class="searchButtonVisuals" Text="Search" runat="server" />

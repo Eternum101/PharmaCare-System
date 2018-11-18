@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace PharmaCare
 {
@@ -22,7 +23,6 @@ namespace PharmaCare
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-
 
             //prescriptionInfo = this.GetPrescription();
 
@@ -94,22 +94,21 @@ namespace PharmaCare
 
         protected void btnPatientSearch_Click(object sender, EventArgs e)
         {
-            
-            if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
-            {
-                GetPatientByName(txtPatientNameInput.Text);
-                if (patientInfo != null)
-                {
-                    GetPatient(patientInfo.PatientID);
-                    
-                }
-                
-            }
-            else
-            {
-                return;
-            }
-            
+             if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
+             {
+                 GetPatientByName(txtPatientNameInput.Text);
+                 if (patientInfo != null)
+                 {
+                     GetPatient(patientInfo.PatientID);
+
+                 }
+
+             }
+             else
+             {
+                 return;
+             } 
+
         }
 
         protected void dgvDoctorPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
