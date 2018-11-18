@@ -24,7 +24,7 @@
         <!-- Patient Name lbl and txt -->
         <h3>Patient Name: </h3>
         <div class="txtPatientName">
-            <asp:TextBox ID="txtPatientNameInput" class="search_textboxes" runat="server" />
+            <asp:TextBox ID="txtPatientNameInput" class="search_textboxes" runat="server" OnTextChanged="txtPatientNameInput_TextChanged" />
             
             <div class="doctor_SearchButtonAlign">
                 <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPatientSearch_Click" />
@@ -36,7 +36,7 @@
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
-            <h4>Prescription Details:</h4><br />
+            <h4 class="lblPrescriptionTable">Prescription Details:</h4><br />
 
         </div>
             <asp:GridView ID="dgvDoctorPrescriptions" runat="server" DataSourceID="SqlDataSource1" 

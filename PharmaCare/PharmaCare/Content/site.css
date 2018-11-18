@@ -113,6 +113,21 @@ h4 {
     border-radius: 20px;
 }
 
+.searchButtonVisualsDisabled {
+    background-color: rgb(60, 60, 60); /* Green */
+    border: none;
+    color: #b1b1b1;
+    height: 30px !important;
+    width: 100px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
 .buttonVisualsDark {
     background-color: rgb(55, 55, 55);
     border: none;
@@ -386,6 +401,10 @@ ul {
     background-color: rgb(245, 245, 245);
     border-style: none;
     border: 1px solid rgba(0,0,0, 0.4);
+}
+
+.lblPrescriptionTable{
+    margin-top: -10px;
 }
 
 /* Modify Prescription */

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
+using System.Text.RegularExpressions;
 
 namespace PharmaCare
 {
@@ -53,8 +54,27 @@ namespace PharmaCare
         {
 
         }
+        /*
+        private void GetPatientName()
+        {
+            using (SqlConnection con = Dbconnection.GetConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandText = "SELECT Patients.Name FROM Customers WHERE ContactName LIKE '%' + @ContactName + '%'";
+                    cmd.Connection = con;
+                    cmd.Parameters.AddWithValue("@ContactName", txtPatientNameInput.Text.Trim());
+                    DataTable dt = new DataTable();
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        sda.Fill(dt);
+                        gvCustomers.DataSource = dt;
+                        gvCustomers.DataBind();
+                    }
+                }
+            }
+        } */
 
-        
         private void GetPatient(int searchID)
         {
             SqlConnection con = Dbconnection.GetConnection();
@@ -74,7 +94,7 @@ namespace PharmaCare
                 con.Close();
             }
         }
-
+        /*
         private void GetPatientByName(string searchName)
         {
             try
@@ -90,25 +110,36 @@ namespace PharmaCare
         {
             dgvDoctorPrescriptions.DataSource = prescriptionInfo;
             dgvDoctorPrescriptions.DataBind();
-        }
+        }*/
 
         protected void btnPatientSearch_Click(object sender, EventArgs e)
         {
-             if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
+            if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
              {
-                 GetPatientByName(txtPatientNameInput.Text);
-                 if (patientInfo != null)
-                 {
-                     GetPatient(patientInfo.PatientID);
 
-                 }
-
-             }
+                search_GridViewNames();
+            }
              else
              {
                  return;
-             } 
+             }
+            btnPatientSearch.Enabled = false;
+            btnPatientSearch.CssClass = "searchButtonVisualsDisabled";
+        }
 
+        protected void search_GridViewNames()
+        {
+            foreach(GridViewRow row in dgvDoctorPrescriptions.Rows)
+            {
+                string txtSearch = txtPatientNameInput.Text.Trim();
+                
+                if (!Regex.IsMatch(row.Cells[0].Text, txtSearch, RegexOptions.IgnoreCase))
+                {
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
         }
 
         protected void dgvDoctorPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -117,6 +148,7 @@ namespace PharmaCare
             {
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDoctorPrescriptions, "Select$" + e.Row.RowIndex);
             }
+
         }
 
         public void OnSelectedIndexChanged(object sender, EventArgs e)
@@ -159,6 +191,17 @@ namespace PharmaCare
             txtDoseStatus.Text = null;
             txtAdditionalInformation.Text = null;
             dgvDoctorPrescriptions.SelectedIndex = -1;
+
+            dgvDoctorPrescriptions.DataSource = null;
+            dgvDoctorPrescriptions.DataBind();
+
+            btnPatientSearch.Enabled = true;
+            btnPatientSearch.CssClass = "searchButtonVisuals";
+        }
+
+        protected void txtPatientNameInput_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
