@@ -15,34 +15,12 @@ namespace PharmaCare
     
     public partial class writePrescription : System.Web.UI.Page
     {
-        // private Models.drug drugName;
-        // private Models.prescription prescriptionInfo;
-        //private Models.prescription prescriptionInfo;
-        patient patientInfo = new patient();
-        prescription prescriptionInfo  = new prescription();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
-            //prescriptionInfo = this.GetPrescription();
-
         }
-        
-        /*
-        private Models.prescription GetPrescription()
-        {
-            SqlDataSource1.Select(DataSourceSelectArguments.Empty);
-            DataView prescriptionTable = (DataView)
-            prescriptionTable.RowFilter = string.Format("PrescriptionID = '{0}'", txtPrescriptionID.Text);
-            DataRowView row = prescriptionTable[0];
-
-            Models.prescription p = new Models.prescription();
-            p.PrescriptionID = row["PrescriptionID"].ToString();
-            p.PatientID = row["PatientID"].ToString();
-            p.PatientID = row["PatientID"].ToString();
-            return p;
-        }  */
 
         protected void TextBox13_TextChanged(object sender, EventArgs e)
         {
@@ -50,81 +28,18 @@ namespace PharmaCare
         }
        
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-
-        }
-        /*
-        private void GetPatientName()
-        {
-            using (SqlConnection con = Dbconnection.GetConnection())
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.CommandText = "SELECT Patients.Name FROM Customers WHERE ContactName LIKE '%' + @ContactName + '%'";
-                    cmd.Connection = con;
-                    cmd.Parameters.AddWithValue("@ContactName", txtPatientNameInput.Text.Trim());
-                    DataTable dt = new DataTable();
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        sda.Fill(dt);
-                        gvCustomers.DataSource = dt;
-                        gvCustomers.DataBind();
-                    }
-                }
-            }
-        } */
-
-        private void GetPatient(int searchID)
-        {
-            SqlConnection con = Dbconnection.GetConnection();
-            try
-            {
-                con.Open();
-                patientInfo = patient.SearchPatientID(searchID);
-                dgvDoctorPrescriptions.DataSource = prescription.GetPrescription(con, searchID);
-                dgvDoctorPrescriptions.DataBind();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-        /*
-        private void GetPatientByName(string searchName)
-        {
-            try
-            {
-                patientInfo = patient.SearchPatientName(searchName);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-        private void DisplayPatientPrescriptions()
-        {
-            dgvDoctorPrescriptions.DataSource = prescriptionInfo;
-            dgvDoctorPrescriptions.DataBind();
-        }*/
-
         protected void btnPatientSearch_Click(object sender, EventArgs e)
         {
+            clearTextboxes();
             if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
              {
-
                 search_GridViewNames();
             }
              else
              {
                  return;
              }
-            btnPatientSearch.Enabled = false;
-            btnPatientSearch.CssClass = "searchButtonVisualsDisabled";
+            
         }
 
         protected void search_GridViewNames()
@@ -177,7 +92,35 @@ namespace PharmaCare
             }
         }
 
-        protected void btnClear_Click(object sender, EventArgs e)
+        private void Insert()
+        {
+            
+            try
+            {
+                string connectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=Documents\PharmaCare\PharmaCare\PharmaCare\App_Data\PharmaCare_DB.mdf;Initial Catalog=PharmaCare_DB;Integrated Security=True";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    
+                    command.CommandText = "INSERT INTO Prescriptions.PrescriptionID, Prescriptions.DrugID, Prescriptions.PatientID, Prescriptions.DoctorID, " +
+                    "Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, Prescriptions.FirstTime, Prescriptions.LastTime, " +
+                    "Prescriptions.TimesPerDay, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation) " +
+                    "VALUES (@prescriptionID, @drugID, @patientID, @doctorID, @prescriptionDate, @PrescriptionStatus, @drugDose, @firstTime, @lastTime)" +
+                    "@timePerDay, @statusOfDose, @additonalInformation";
+
+                    command.Parameters.AddWithValue("@drugDose", txtDose);
+                    //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void clearTextboxes()
         {
             txtPatientName.Text = null;
             txtDate.Text = null;
@@ -194,9 +137,16 @@ namespace PharmaCare
 
             dgvDoctorPrescriptions.DataSource = null;
             dgvDoctorPrescriptions.DataBind();
+        }
 
-            btnPatientSearch.Enabled = true;
-            btnPatientSearch.CssClass = "searchButtonVisuals";
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Insert();
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            clearTextboxes();
         }
 
         protected void txtPatientNameInput_TextChanged(object sender, EventArgs e)

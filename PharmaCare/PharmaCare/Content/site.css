@@ -161,7 +161,7 @@ h4 {
     margin-top: -10px;
     margin-right: 15px;
     margin-left: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     padding-left: 10px;
     padding-bottom: 50px;
     padding-top: 10px;
@@ -387,6 +387,7 @@ ul {
 
 .extraSpace {
     margin-left: 5px;
+    margin-top: -10px;
 }
 
 .prescriptionDetailButtons {

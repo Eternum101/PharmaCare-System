@@ -19,6 +19,13 @@
 
             <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT [DrugID], [DrugName] FROM [Drugs]"></asp:SqlDataSource>
+
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+                SelectCommand="INSERT Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
+                Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
+                Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
+                ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
+                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
         </h1>
 
         <!-- Patient Name lbl and txt -->
@@ -53,6 +60,7 @@
                 <SortedAscendingHeaderStyle BackColor="#FF5454" />
                 <SortedDescendingCellStyle BackColor="#F7F7F7" />
                 <SortedDescendingHeaderStyle BackColor="#FF5454" />
+
             </asp:GridView>
         </div>
     </div>

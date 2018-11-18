@@ -22,64 +22,6 @@ namespace PharmaCare.Models
         public string TimesPerDay { get; set; }
         public string StatusOfDoes { get; set; }
         public string AdditionalInformation { get; set; }
-
-        public static SqlDataReader GetPrescription(SqlConnection con, int PatientID)
-        {
-            //set connection to PharmaCareDB class GetConnection method
-            SqlConnection connection = Dbconnection.GetConnection();
-            //select statement
-            string selectStatement = "SELECT Prescriptions.PrescriptionID, Drugs.DrugName, Patients.Name, Doctors.DoctorName, " +
-                "Prescriptions.PrescriptionDate, Prescriptions.AdditionalInformation, Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, " +
-                "Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay, Prescriptions.StatusOfDose FROM Prescriptions " +
-                "INNER JOIN Drugs ON Prescriptions.DrugID = Drugs.DrugID " +
-                "INNER JOIN Doctors ON Prescriptions.DoctorID = Doctors.DoctorID " +
-                "INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID " +
-                "WHERE Prescriptions.PatientID = @PatientID";
-            
-            using (var selectCommand = new SqlCommand(selectStatement, con))
-            {
-                selectCommand.Parameters.AddWithValue("@PatientID", PatientID);
-                return selectCommand.ExecuteReader();
-            }
-        }
-        /*try
-        {
-            connection.Open();
-            SqlDataReader Reader = selectCommand.ExecuteReader(System.Data.CommandBehavior.SingleRow);
-
-            if
-               (Reader.Read())
-            {
-                prescription prescriptiontInfo = new prescription();
-                prescriptiontInfo.PatientID = (int)Reader["PatientID"];
-                prescriptiontInfo.DrugID = (int)Reader["DrugID"];
-                prescriptiontInfo.DrugName = Reader["DrugName"].ToString();
-                prescriptiontInfo.PatientID = (int)Reader["PatientID"];
-                prescriptiontInfo.DoctorID = (int)Reader["DoctorID"];
-                prescriptiontInfo.DoctorName = Reader["DoctorName"].ToString();
-                prescriptiontInfo.PrescriptionDate = Reader["PrescriptionDate"].ToString();
-                prescriptiontInfo.PrescriptionStatus = Reader["PrescriptionStatus"].ToString();
-                prescriptiontInfo.DrugDose = Reader["DrugDose"].ToString();
-
-
-            }
-            else
-            {
-
-            }
-        }
-        catch (SqlException ex)
-        {
-            throw ex;
-        }
-        finally
-        {
-            connection.Close();
-        }
-
-
-    }*/
-        
         
     }
 }
