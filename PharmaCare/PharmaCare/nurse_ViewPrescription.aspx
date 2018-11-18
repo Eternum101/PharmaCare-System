@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="nurse_ViewPrescription.aspx.cs" Inherits="PharmaCare.writePrescription" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="nurse_ViewPrescription.aspx.cs" Inherits="PharmaCare.nurse_ViewPrescription" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server"> View Prescriptions
 </asp:Content>
@@ -22,7 +22,7 @@
             <asp:TextBox ID="txtNursePatientSearch" class="search_textboxes" Text="" runat="server" />
             
             <div class="doctor_SearchButtonAlign">
-                <asp:Button ID="btnNursePatientSearch" class="searchButtonVisuals" Text="Search" runat="server" />
+                <asp:Button ID="btnNursePatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnNursePatientSearch_Click" />
             </div>
         </div>
 
@@ -32,7 +32,7 @@
         <div class="leftTextboxDiv">
             <h4>Patient Prescriptions: </h4><br />
             <asp:GridView ID="dgvNursePrescriptions" runat="server" DataSourceID="SqlDataSourceNurse" 
-                AllowSorting="True" CellPadding="3" Height="294px" Width="1000px" BackColor="White" 
+                AllowSorting="True" CellPadding="4" Height="294px" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
@@ -47,7 +47,15 @@
             </asp:GridView>
         </div>
     </div>
+
+    <div class="float_center">
+        <ul class="child">        
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
+        </ul>
+    </div>
 </asp:Content>
+
+
 
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
     <div class="float_center">
