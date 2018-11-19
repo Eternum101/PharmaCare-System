@@ -40,6 +40,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.Button btnPatientSearch;
         
         /// <summary>
+        /// rfvSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSearch;
+        
+        /// <summary>
         /// dgvStaffPrescriptions control.
         /// </summary>
         /// <remarks>
