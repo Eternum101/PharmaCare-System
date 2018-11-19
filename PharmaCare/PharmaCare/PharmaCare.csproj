@@ -122,6 +122,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="viewDistributionSchedule.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -173,6 +174,13 @@
     </Compile>
     <Compile Include="doctor_writePrescription.aspx.designer.cs">
       <DependentUpon>doctor_writePrescription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewDistributionSchedule.aspx.cs">
+      <DependentUpon>viewDistributionSchedule.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewDistributionSchedule.aspx.designer.cs">
+      <DependentUpon>viewDistributionSchedule.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
