@@ -96,7 +96,12 @@ namespace PharmaCare
         {
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\2104990817\Documents\PharmaCare-System\PharmaCare\PharmaCare\App_Data\PharmaCare_DB.mdf;Initial Catalog=PharmaCare_DB;Integrated Security=True");
             //SqlConnection conn = Dbconnection.GetConnection();
-            string sql = "INSERT INTO Patients (Name) VALUES (@Name)" + "INSERT INTO Doctors (DoctorName) VALUES (@DocName)";
+            string sql = "INSERT INTO Patients (Name) VALUES (@Name)" + 
+                         "INSERT INTO Doctors (DoctorName) VALUES (@DocName)" + 
+                         "INSERT INTO Prescriptions (PrescriptionDate, PrescriptionStatus, DrugDose, " +
+                         "FirstTime, LastTime, TimesPerDay, StatusOfDose, AdditionalInformation) " +
+                         "VALUES (@PrescriptionDate, @PrescriptionStatus, @DrugDose, @FirstTime, @LastTime, " +
+                         "@TimesPerDay, @StatusOfDose, @AdditionalInformaton )";
             /*"INSERT INTO Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, " +
             "Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay, " +
             "Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions " +
@@ -108,6 +113,13 @@ namespace PharmaCare
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@Name", txtPatientName.Text);
                 cmd.Parameters.AddWithValue("@DocName", txtDoctorName.Text);
+                cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
+                cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
+                cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
+                cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
+                cmd.Parameters.AddWithValue("@DrugDose", txtDose.Text);
+                cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
+                cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
                 //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
