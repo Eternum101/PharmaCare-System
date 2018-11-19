@@ -35,6 +35,7 @@
             
             <div class="doctor_SearchButtonAlign">
                 <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPatientSearch_Click" />
+                <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator>
             </div>
         </div>
 
