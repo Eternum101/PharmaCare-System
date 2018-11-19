@@ -11,7 +11,7 @@ namespace PharmaCare.Models
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=PharmaCare_DB;Integrated Security=True";
+            string connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True";
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
         }

@@ -21,11 +21,10 @@
                 SelectCommand="SELECT [DrugID], [DrugName] FROM [Drugs]"></asp:SqlDataSource>
 
             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="INSERT Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
-                Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
-                Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
-                ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
-                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
+                SelectCommand="SELECT [DoctorID], [DoctorName] FROM [Doctors]"></asp:SqlDataSource>
+
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+                SelectCommand="SELECT [PatientID], [Name] FROM [Patients]"></asp:SqlDataSource>
         </h1>
 
         <!-- Patient Name lbl and txt -->
@@ -74,17 +73,21 @@
 
             <h4>Patient Name: 
                 </h4>
-            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" />
-
-                <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="txtPatientName"
+            <asp:DropDownList CssClass="entry_textboxes" ID="ddlPatientName" Width="150px" DataSourceID="SqlDataSource4" 
+                DataValueField = "PatientID" DataTextField = "Name" runat="server">
+                <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
+            </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="ddlPatientName"
                     CssClass="validatorText" ErrorMessage="Patient Name Required"
                     ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
-            <h4>Doctor Name: 
-                </h4>
-            <asp:TextBox ID="txtDoctorName" CssClass="entry_textboxes" Width="150px" runat="server" />
+            <h4>Doctor Name: </h4>
+            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDoctorName" Width="150px" DataSourceID="SqlDataSource3" 
+                DataValueField = "DoctorID" DataTextField = "DoctorName" runat="server">
+                <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
+            </asp:DropDownList>
             
-                <asp:RequiredFieldValidator ID="rfvDoctorName" runat="server" ControlToValidate="txtDoctorName" 
+                <asp:RequiredFieldValidator ID="rfvDoctorName" runat="server" ControlToValidate="ddlDoctorName" 
                     CssClass="validatorText" ErrorMessage="Doctor Name Required" 
                     ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
             
@@ -100,9 +103,10 @@
                 CssClass="validatorText" ErrorMessage="Date Required" 
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
-            <h4>First Time: </h4>
-            <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" Width="150px" runat="server" />
+            <h4>Drug Name: </h4>
+            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDrugName" Width="150px" runat="server">
 
+            </asp:DropDownList>
             
             
             <asp:RequiredFieldValidator ID="rfvFirstTime" runat="server" ControlToValidate="txtStartDate" 
@@ -115,18 +119,13 @@
 
         <!-- Right Div -->
         <div class="leftTextboxDiv">
-            
-            <h4>Drug Name: </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDrugName" Width="150px" DataSourceID="SqlDataSource2" 
-                DataValueField = "DrugID" DataTextField = "DrugName" runat="server">
-                <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
-            </asp:DropDownList>
+
+            <h4>First Time: </h4>
+            <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
             <h4>Last Time: </h4>
             <asp:TextBox ID="txtEndDate" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            
-            
             <asp:RequiredFieldValidator ID="rfvLastTime" runat="server" ControlToValidate="txtEndDate" 
                 CssClass="validatorText" ErrorMessage="Last Time Required" 
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
