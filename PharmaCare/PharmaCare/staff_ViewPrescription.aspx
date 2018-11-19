@@ -20,10 +20,10 @@
         <h3>Patient Name: </h3>
 
         <div class="txtPatientName">
-            <asp:TextBox ID="TextBox6" class="search_textboxes" Text="" runat="server" />
+            <asp:TextBox ID="txtPatientNameInput" class="search_textboxes" Text="" runat="server" />
 
             <div class="staff_SearchButtonAlign">
-                <input type=button class="searchButtonVisuals" onClick="parent.location=''" value='Search'>
+                <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPatientSearch_Click" />
             </div>
         </div>
 
@@ -60,6 +60,7 @@
 
     <div class="float_center">
         <ul class="child">
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
           <li class="btn_li">
               <asp:Button class="buttonVisuals_Spacing" Text="Print" runat="server" 
                   ID="btnPrint" OnClientClick="javascript:window.print();" />
