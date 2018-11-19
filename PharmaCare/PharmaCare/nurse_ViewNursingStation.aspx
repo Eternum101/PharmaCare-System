@@ -10,7 +10,7 @@
 
         <!-- Patient Name lbl and txt -->
         <h3>Select Nursing Station: 
-            <asp:DropDownList ID="ddlNursingStation" runat="server" Width="729px">
+            <asp:DropDownList CssClass="dropDownList" ID="ddlNursingStation" runat="server" Width="729px" DataSourceID="SqlDataSource2" DataTextField="NursingStationID" DataValueField="NursingStationID" Height="30px">
             </asp:DropDownList>
         </h3>
         <div>
@@ -62,6 +62,7 @@
         SelectCommand="SELECT Patients.Name, Patients.Address, Patients.WardID, Prescriptions.PrescriptionDate, 
         Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, Prescriptions.StatusOfDose, 
         Patients.RoomID FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT [NursingStationID] FROM [IndoorPrescriptions]"></asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
     <div class="float_center">

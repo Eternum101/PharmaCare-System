@@ -22,7 +22,8 @@
             <asp:TextBox ID="txtNursePatientSearch" class="search_textboxes" Text="" runat="server" />
             
             <div class="doctor_SearchButtonAlign">
-                <asp:Button ID="btnNursePatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnNursePatientSearch_Click" />
+                <asp:Button ID="btnNursePatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnNursePatientSearch_Click" ValidationGroup="SearchValidation" />
+                <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtNursePatientSearch" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator>
             </div>
         </div>
 
