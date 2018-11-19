@@ -62,7 +62,9 @@
         SelectCommand="SELECT Patients.Name, Patients.Address, Patients.WardID, Prescriptions.PrescriptionDate, 
         Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, Prescriptions.StatusOfDose, 
         Patients.RoomID FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT [NursingStationID] FROM [IndoorPrescriptions]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+        SelectCommand="SELECT DISTINCT [NursingStationID] FROM [IndoorPrescriptions] 
+        ORDER BY [NursingStationID]"></asp:SqlDataSource>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
     <div class="float_center">
