@@ -94,30 +94,34 @@ namespace PharmaCare
 
         private void Insert()
         {
-            
+            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\2104990817\Documents\PharmaCare-System\PharmaCare\PharmaCare\App_Data\PharmaCare_DB.mdf;Initial Catalog=PharmaCare_DB;Integrated Security=True");
+            //SqlConnection conn = Dbconnection.GetConnection();
+            string sql = "INSERT INTO Patients (Name) VALUES (@Name)" + "INSERT INTO Doctors (DoctorName) VALUES (@DocName)";
+            /*"INSERT INTO Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, " +
+            "Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay, " +
+            "Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions " +
+            "ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors " +
+            "ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID ";*/
             try
             {
-                string connectionString = @"Data Source=.\SQLEXPRESS;AttachDbFilename=Documents\PharmaCare\PharmaCare\PharmaCare\App_Data\PharmaCare_DB.mdf;Initial Catalog=PharmaCare_DB;Integrated Security=True";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                using (SqlCommand command = connection.CreateCommand())
-                {
-                    
-                    command.CommandText = "INSERT INTO Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, " +
-                    "Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptio ns.TimesPerDay, " +
-                    "Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions " +
-                    "ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors " +
-                    "ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID ";
-
-                    command.Parameters.AddWithValue("Patients.Name", txtPatientName.Text);
-                    command.Parameters.AddWithValue("Prescriptions.Name", txtPatientName.Text);
-                    //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Name", txtPatientName.Text);
+                cmd.Parameters.AddWithValue("@DocName", txtDoctorName.Text);
+                //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
             }
-            catch (SqlException ex)
+            catch (System.Data.SqlClient.SqlException ex)
             {
-                Console.WriteLine(ex.Message);
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                throw new Exception(msg);
+
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
