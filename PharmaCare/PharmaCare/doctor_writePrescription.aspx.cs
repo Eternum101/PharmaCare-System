@@ -102,13 +102,14 @@ namespace PharmaCare
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     
-                    command.CommandText = "INSERT INTO Prescriptions.PrescriptionID, Prescriptions.DrugID, Prescriptions.PatientID, Prescriptions.DoctorID, " +
-                    "Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, Prescriptions.FirstTime, Prescriptions.LastTime, " +
-                    "Prescriptions.TimesPerDay, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation) " +
-                    "VALUES (@prescriptionID, @drugID, @patientID, @doctorID, @prescriptionDate, @PrescriptionStatus, @drugDose, @firstTime, @lastTime)" +
-                    "@timePerDay, @statusOfDose, @additonalInformation";
+                    command.CommandText = "INSERT INTO Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, " +
+                    "Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptio ns.TimesPerDay, " +
+                    "Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions " +
+                    "ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors " +
+                    "ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID ";
 
-                    command.Parameters.AddWithValue("@drugDose", txtDose);
+                    command.Parameters.AddWithValue("Patients.Name", txtPatientName.Text);
+                    command.Parameters.AddWithValue("Prescriptions.Name", txtPatientName.Text);
                     //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
                     connection.Open();
                     command.ExecuteNonQuery();
