@@ -48,7 +48,7 @@
         </div>
             <asp:GridView ID="dgvDoctorPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
                 AllowSorting="True" CellPadding="3" Height="200px" Width="1000px" BackColor="White" 
-                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal"
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CssClass="testtt" CellSpacing="2" GridLines="Horizontal"
                 OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
@@ -73,8 +73,7 @@
 
             <h4>Patient Name: 
                 </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="ddlPatientName" Width="150px" DataSourceID="SqlDataSource4" 
-                DataValueField = "PatientID" DataTextField = "Name" runat="server">
+            <asp:DropDownList CssClass="entry_textboxes" ID="ddlPatientName" Width="150px" runat="server">
                 <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
             </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="ddlPatientName"
@@ -82,8 +81,7 @@
                     ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>Doctor Name: </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDoctorName" Width="150px" DataSourceID="SqlDataSource3" 
-                DataValueField = "DoctorID" DataTextField = "DoctorName" runat="server">
+            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDoctorName" Width="150px" runat="server">
                 <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
             </asp:DropDownList>
             
@@ -204,8 +202,8 @@
             -->
           
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" /></li>
-          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" OnClick="btnCancel_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" ValidationGroup="PrescriptionValidation" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit2" OnClick="btnSubmit_Click" /></li>
         </ul>

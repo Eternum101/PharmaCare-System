@@ -20,10 +20,18 @@ namespace PharmaCare
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
-            DrugnameDropdown();
+            DrugNameDropdown();
+            DoctorNameDropdown();
+            PatientNameDropdown();
+
+            btnModify.Enabled = false;
+            btnModify.CssClass = "buttonVisuals_Spacing_Disabled";
+
+            btnCancel.Enabled = false;
+            btnCancel.CssClass = "buttonVisuals_Spacing_Disabled";
         }
 
-        protected void DrugnameDropdown()
+        protected void DrugNameDropdown()
         {
             if (!this.IsPostBack)
             {
@@ -42,6 +50,50 @@ namespace PharmaCare
                     }
                 }
                 ddlDrugName.Items.Insert(0, new ListItem("", ""));
+            }
+        }
+
+        protected void DoctorNameDropdown()
+        {
+            if (!this.IsPostBack)
+            {
+                using (SqlConnection con = Dbconnection.GetConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT DoctorID, DoctorName FROM Doctors"))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = con;
+                        con.Open();
+                        ddlDoctorName.DataSource = cmd.ExecuteReader();
+                        ddlDoctorName.DataTextField = "DoctorName";
+                        ddlDoctorName.DataValueField = "DoctorID";
+                        ddlDoctorName.DataBind();
+                        con.Close();
+                    }
+                }
+                ddlDoctorName.Items.Insert(0, new ListItem("", ""));
+            }
+        }
+
+        protected void PatientNameDropdown()
+        {
+            if (!this.IsPostBack)
+            {
+                using (SqlConnection con = Dbconnection.GetConnection())
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT PatientID, Name FROM Patients"))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = con;
+                        con.Open();
+                        ddlPatientName.DataSource = cmd.ExecuteReader();
+                        ddlPatientName.DataTextField = "Name";
+                        ddlPatientName.DataValueField = "PatientID";
+                        ddlPatientName.DataBind();
+                        con.Close();
+                    }
+                }
+                ddlPatientName.Items.Insert(0, new ListItem("", ""));
             }
         }
 
@@ -100,12 +152,12 @@ namespace PharmaCare
             {
                 if (row.RowIndex == dgvDoctorPrescriptions.SelectedIndex)
                 {
-                    ddlPatientName.DataTextFormatString = row.Cells[0].Text.ToString().Trim();
+                    ddlPatientName.SelectedItem.Text = row.Cells[0].Text.ToString().Trim();
                     txtDate.Text = row.Cells[1].Text;
                     txtPrescriptionStatus.Text = row.Cells[2].Text;
-                    ddlDoctorName.DataTextFormatString = row.Cells[3].Text.ToString().Trim();
-                    
-                    ddlDrugName.SelectedItem.Text = row.Cells[4].Text.ToString().Trim();
+                    ddlDoctorName.SelectedItem.Text = row.Cells[3].Text.ToString().Trim();
+
+                    ddlDrugName.SelectedItem.Text = dgvDoctorPrescriptions.SelectedRow.Cells[4].Text;
 
                     txtStartDate.Text = row.Cells[5].Text;
                     txtEndDate.Text = row.Cells[6].Text;
@@ -113,6 +165,15 @@ namespace PharmaCare
                     txtDose.Text = row.Cells[8].Text;
                     txtDoseStatus.Text = row.Cells[9].Text;
                     txtAdditionalInformation.Text = row.Cells[10].Text;
+
+                    btnSubmit2.Enabled = false;
+                    btnSubmit2.CssClass = "buttonVisuals_Spacing_Disabled";
+
+                    btnModify.Enabled = true;
+                    btnModify.CssClass = "buttonVisuals_Spacing";
+
+                    btnCancel.Enabled = true;
+                    btnCancel.CssClass = "buttonVisuals_Spacing";
                 }
             }
         }
@@ -131,35 +192,39 @@ namespace PharmaCare
                          "VALUES (@PatientID, @DrugID, @DoctorID, @PrescriptionDate, @PrescriptionStatus, @DrugDose, @FirstTime, @LastTime, " +
                          "@TimesPerDay, @StatusOfDose, @AdditionalInformation )";
 
-            try
+            if (!string.IsNullOrEmpty(ddlPatientName.Text + txtDate.Text + txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text +
+                txtPrescriptionStatus.Text + ddlDrugName.Text + ddlDrugName.Text + txtDose.Text + txtDoseStatus.Text))
             {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@PatientID", ddlPatientName.SelectedValue);
-                cmd.Parameters.AddWithValue("@DoctorID", ddlDoctorName.SelectedValue);
-                cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
-                cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
-                cmd.Parameters.AddWithValue("@DrugID", ddlDrugName.SelectedValue);
-                cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
-                cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
-                cmd.Parameters.AddWithValue("@DrugDose", txtDose.Text);
-                cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
-                cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
-                cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
-                //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
-                cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
-            }
-            catch (System.Data.SqlClient.SqlException ex)
-            {
-                string msg = "Insert Error:";
-                msg += ex.Message;
-                throw new Exception(msg);
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@PatientID", ddlPatientName.SelectedValue);
+                    cmd.Parameters.AddWithValue("@DoctorID", ddlDoctorName.SelectedValue);
+                    cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
+                    cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
+                    cmd.Parameters.AddWithValue("@DrugID", ddlDrugName.SelectedValue);
+                    cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
+                    cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
+                    cmd.Parameters.AddWithValue("@DrugDose", txtDose.Text);
+                    cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
+                    cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
+                    cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
+                    //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.ExecuteNonQuery();
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    string msg = "Insert Error:";
+                    msg += ex.Message;
+                    throw new Exception(msg);
 
-            }
-            finally
-            {
-                conn.Close();
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
         }
 
@@ -169,6 +234,8 @@ namespace PharmaCare
         {
             txtDate.Text = null;
             ddlDrugName.SelectedIndex = 0;
+            ddlDoctorName.SelectedIndex = 0;
+            ddlPatientName.SelectedIndex = 0;
             //ddlDrugName.DataTextField = null;
             txtTimePerDay.Text = null;
             txtPrescriptionStatus.Text = null;
@@ -181,10 +248,20 @@ namespace PharmaCare
 
             dgvDoctorPrescriptions.DataSource = null;
             dgvDoctorPrescriptions.DataBind();
+
+            btnSubmit2.Enabled = true;
+            btnSubmit2.CssClass = "buttonVisuals_Spacing";
+
+            btnModify.Enabled = false;
+            btnModify.CssClass = "buttonVisuals_Spacing_Disabled";
+
+            btnCancel.Enabled = false;
+            btnCancel.CssClass = "buttonVisuals_Spacing_Disabled";
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            ddlDrugName.Items.RemoveAt(1);
             Insert();
             checkName();
             clearTextboxes();
@@ -201,6 +278,11 @@ namespace PharmaCare
         protected void txtPatientNameInput_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

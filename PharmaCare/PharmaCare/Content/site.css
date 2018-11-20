@@ -98,6 +98,20 @@ h4 {
     margin-right: 10px;
 }
 
+.buttonVisuals_Spacing_Disabled {
+    background-color: rgb(60, 60, 60); /* Green */
+    border: none;
+    color: white;
+    width: 160px;
+    padding: 13px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    float: left;
+    margin-right: 10px;
+}
+
 .searchButtonVisuals {
     background-color: rgb(60, 60, 60); /* Green */
     border: none;
@@ -261,6 +275,18 @@ ul {
         line-height: 50px;
         text-decoration: none;
         color: white;
+        padding: 0px 20px;
+        background-color: rgb(60,60,60);
+        font-size: 18px;
+        border-radius: 25px;
+    }
+
+    ul .buttonVisuals_Spacing_Disabled {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        text-decoration: none;
+        color: #636363;
         padding: 0px 20px;
         background-color: rgb(60,60,60);
         font-size: 18px;
