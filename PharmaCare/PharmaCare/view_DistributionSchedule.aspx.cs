@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace PharmaCare
 {
-    public partial class viewDistributionSchedule : System.Web.UI.Page
+    public partial class view_DistributionSchedule : System.Web.UI.Page
     {
         string connectionstring = ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="view_DistributionSchedule.aspx.cs" Inherits="PharmaCare.viewDistributionSchedule" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="view_DistributionSchedule.aspx.cs" Inherits="PharmaCare.view_DistributionSchedule" %>
 
 <asp:Content ID="Title" ContentPlaceHolderID="titile" runat="server">
     ViewDistributionSchedule
@@ -22,15 +22,15 @@
             <asp:ListItem Text="3" Value="3"/>
             <asp:ListItem Text="4" Value="4"/>
         </asp:DropDownList>
-        <asp:Button ID="DisplayButton" CssClass="searchButtonVisuals" runat="server" Height="26px" OnClick="Button1_Click" Text="Display Ward" Width="128px" />
+        <asp:Button ID="DisplayButton" CssClass="displayWard" runat="server" OnClick="Button1_Click" Text="Display Ward" />
     </div>
     <div>
-    </div>
-    <br />
-    <div class="globalBorderRound">
-        <asp:GridView ID="gvViewDistributionSchedule" enablePaging="true" class="gridviewProperties" runat="server" CellPadding="4" ForeColor="Black" 
+    </div> <br />
+
+    <div class="globalBorderRound"><br />
+        <asp:GridView ID="dgvViewDistributionSchedule" enablePaging="true" class="gridviewProperties" runat="server" CellPadding="4" ForeColor="Black" 
             AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="WingNumber" ShowHeaderWhenEmpty="True" 
-            AllowPaging="True" AllowSorting="True" GridLines="Vertical" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" Width="1093px">
+            AllowPaging="True" AllowSorting="True" GridLines="Vertical" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" Width="1055px">
 
             <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
@@ -58,7 +58,7 @@
 
                 <asp:BoundField DataField="LastTime" HeaderText="Time Last Taken"/>              
             </Columns>
-            <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
+            <FooterStyle BackColor="#F7F7F7" ForeColor="#000000" />
                 <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
                 <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />

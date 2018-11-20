@@ -10,7 +10,7 @@
 namespace PharmaCare {
     
     
-    public partial class viewDistributionSchedule {
+    public partial class view_DistributionSchedule {
         
         /// <summary>
         /// SelectButton control.
@@ -31,12 +31,12 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.Button DisplayButton;
         
         /// <summary>
-        /// gvViewDistributionSchedule control.
+        /// dgvViewDistributionSchedule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvViewDistributionSchedule;
+        protected global::System.Web.UI.WebControls.GridView dgvViewDistributionSchedule;
     }
 }
