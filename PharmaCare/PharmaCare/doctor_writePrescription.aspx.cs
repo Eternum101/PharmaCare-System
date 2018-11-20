@@ -104,7 +104,9 @@ namespace PharmaCare
                     txtDate.Text = row.Cells[1].Text;
                     txtPrescriptionStatus.Text = row.Cells[2].Text;
                     ddlDoctorName.DataTextFormatString = row.Cells[3].Text.ToString().Trim();
-                    ddlDrugName.DataTextFormatString = row.Cells[4].Text.ToString().Trim();
+                    
+                    ddlDrugName.SelectedItem.Text = row.Cells[4].Text.ToString().Trim();
+
                     txtStartDate.Text = row.Cells[5].Text;
                     txtEndDate.Text = row.Cells[6].Text;
                     txtTimePerDay.Text = row.Cells[7].Text;
