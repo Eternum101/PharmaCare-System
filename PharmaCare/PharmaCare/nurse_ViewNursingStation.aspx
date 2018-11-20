@@ -31,7 +31,7 @@
 
         </div>
             <asp:GridView ID="dgvNurseStation" runat="server" DataSourceID="SqlDataSource1" 
-                AllowSorting="True" CellPadding="5" Height="320px" Width="1031px" BackColor="White" 
+                AllowSorting="True" CellPadding="5" Width="1031px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />

@@ -59,7 +59,7 @@
                           <a href="#">View Prescription</a>
                           <a href="#">Print Indoor Medication Labels</a>
                           <a href="#">View Preparation List</a>
-                          <a href="#">View Distribution Schedule</a>
+                          <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
                           <a href="#">View List for Nursing Station</a>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                     <button class="dropbtn">Nurse</button>
                         <div class="dropdown-content">
                           <a href="nurse_ViewPrescription.aspx">View Prescription</a>
-                          <a href="nurse_ViewDistribution.aspx">View Distribution Schedule</a>
+                          <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
                           <a href="nurse_ViewNursingStation.aspx">View List for Nursing Station</a>
                         </div>
                     </div>

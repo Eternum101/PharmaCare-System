@@ -33,7 +33,7 @@
         <div class="leftTextboxDiv">
             <h4>Patient Prescriptions: </h4><br />
             <asp:GridView ID="dgvNursePrescriptions" runat="server" DataSourceID="SqlDataSourceNurse" 
-                AllowSorting="True" CellPadding="4" Height="294px" Width="1000px" BackColor="White" 
+                AllowSorting="True" CellPadding="4" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
