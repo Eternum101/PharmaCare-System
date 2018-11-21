@@ -216,16 +216,19 @@ namespace PharmaCare
 
             try
             {
+                
+                SqlCommand cmd = new SqlCommand(
+                 " DECLARE @DrugName varchar(45)" +
+                 " SET @DrugName = '" + txtDrugName.Text + "'" +
+                 " SELECT Drugs.DrugID FROM Drugs WHERE DrugName like '%'+@DrugName+'%'" +
+                 " UPDATE Prescriptions SET Prescriptions.DrugID = @PrescriptionDrugID WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
                 sqlConn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT Drugs.DrugID = @DrugID FROM Drugs WHERE DrugName = '" + Convert.ToString(txtPatientName.Text) + "'" +
-                                      " UPDATE Prescriptions SET Prescriptions.DrugID = @PrescriptionDrugID WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
-
                 foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
                 {
                     if (row.Cells[0].Text == lblPrescriptionNumber.Text)
                     {
                         row.Cells[5].Text = txtDrugName.Text;
-                        cmd.Parameters.AddWithValue("@PrescriptionDrugID", "@DrugID");
+                        cmd.Parameters.AddWithValue("@PrescriptionDrugID", "Drugs.DrugID");
                         cmd.ExecuteNonQuery();
                     }
                 }
