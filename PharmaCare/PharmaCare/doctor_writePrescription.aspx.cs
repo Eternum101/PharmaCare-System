@@ -212,21 +212,20 @@ namespace PharmaCare
         {
             SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
 
-            string subjectquery = "SELECT DrugID = @DrugMainID FROM [Drugs] WHERE ([DrugName] = @DrugName )" +
-                                  "UPDATE [Prescriptions] SET DrugID = @DrugID WHERE ([PrescriptionID] = @PrescriptionID ) ";
+             
 
             try
             {
                 sqlConn.Open();
-                SqlCommand cmd = new SqlCommand(subjectquery, sqlConn);
-                cmd.Parameters.AddWithValue("@DrugName", txtDrugName.Text.ToString());
-                cmd.Parameters.AddWithValue("@PrescriptionID", lblPrescriptionNumber.Text);
+                SqlCommand cmd = new SqlCommand("SELECT Drugs.DrugID = @DrugID FROM Drugs WHERE DrugName = '" + Convert.ToString(txtPatientName.Text) + "'" +
+                                      " UPDATE Prescriptions SET Prescriptions.DrugID = @PrescriptionDrugID WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
+
                 foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
                 {
                     if (row.Cells[0].Text == lblPrescriptionNumber.Text)
                     {
                         row.Cells[5].Text = txtDrugName.Text;
-                        cmd.Parameters.AddWithValue("@DrugID", "@DrugMainID");
+                        cmd.Parameters.AddWithValue("@PrescriptionDrugID", "@DrugID");
                         cmd.ExecuteNonQuery();
                     }
                 }
