@@ -86,6 +86,7 @@
     <Content Include="Content\site.css" />
     <Content Include="login.aspx" />
     <Content Include="nurse_ViewDistribution.aspx" />
+    <Content Include="pharmacist_viewPrescription.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="nurse_ViewDistribution.aspx.designer.cs">
       <DependentUpon>nurse_ViewDistribution.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pharmacist_viewPrescription.aspx.cs">
+      <DependentUpon>pharmacist_viewPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pharmacist_viewPrescription.aspx.designer.cs">
+      <DependentUpon>pharmacist_viewPrescription.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="staff_ViewPrescription.aspx.cs">

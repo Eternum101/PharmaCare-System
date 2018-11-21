@@ -56,7 +56,7 @@
                     <div class="dropdownMain">
                     <button class="dropbtn">Pharmacist</button>
                         <div class="dropdown-content">
-                          <a href="#">View Prescription</a>
+                          <a href="pharmacist_viewPrescription.aspx">View Prescription</a>
                           <a href="#">Print Indoor Medication Labels</a>
                           <a href="#">View Preparation List</a>
                           <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
