@@ -76,19 +76,7 @@
 
                     <!-- HPCDS Button -->
                     <div class="dropdownMain">
-                    <button class="dropbtn">HPCDS</button>
-                        <div class="dropdown-content">
-                          <a href="#">Cancel Standing Orders</a>
-                          <a href="#">Transfer Patient Prescription</a>
-                        </div>
-                    </div>
-
-                    <!-- CAS Button -->
-                    <div class="dropdownMain">
-                    <button class="dropbtn">CAS</button>
-                        <div class="dropdown-content">
-                          <a href="#">Get Drugs Administered</a>
-                        </div>
+                    <asp:Button ID="btnLogout" CssClass="dropbtn" runat="server" Text="Logout" OnClick="btnLogout_Click"></asp:Button>
                     </div>
 
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">

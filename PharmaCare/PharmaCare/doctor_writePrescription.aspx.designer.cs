@@ -85,13 +85,22 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.GridView dgvDoctorPrescriptions;
         
         /// <summary>
-        /// ddlPatientName control.
+        /// lblPrescriptionNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPatientName;
+        protected global::System.Web.UI.WebControls.Label lblPrescriptionNumber;
+        
+        /// <summary>
+        /// txtPatientName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPatientName;
         
         /// <summary>
         /// rfvPatientName control.
@@ -103,13 +112,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPatientName;
         
         /// <summary>
-        /// ddlDoctorName control.
+        /// txtDoctorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDoctorName;
+        protected global::System.Web.UI.WebControls.TextBox txtDoctorName;
         
         /// <summary>
         /// rfvDoctorName control.
@@ -139,22 +148,22 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDate;
         
         /// <summary>
-        /// ddlDrugName control.
+        /// txtDrugName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDrugName;
+        protected global::System.Web.UI.WebControls.TextBox txtDrugName;
         
         /// <summary>
-        /// rfvFirstTime control.
+        /// rfvDrugName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstTime;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDrugName;
         
         /// <summary>
         /// txtStartDate control.
@@ -164,6 +173,15 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtStartDate;
+        
+        /// <summary>
+        /// rfvFirstTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvFirstTime;
         
         /// <summary>
         /// txtEndDate control.

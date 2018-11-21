@@ -11,7 +11,7 @@
         <!-- Page Heading -->
         <h1 class="writePrescriptionHeading">Write Prescription
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
+                SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
                 Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
                 Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
                 ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
@@ -52,10 +52,10 @@
                 OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
-                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="12px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
                 <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
-                <SelectedRowStyle BackColor="#565656" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SelectedRowStyle BackColor="#666666" Font-Bold="True" ForeColor="#F7F7F7" />
                 <SortedAscendingCellStyle BackColor="#F7F7F7" />
                 <SortedAscendingHeaderStyle BackColor="#FF5454" />
                 <SortedDescendingCellStyle BackColor="#F7F7F7" />
@@ -68,24 +68,22 @@
     <!-- Bordered div -->
     <div class="globalBorderRound">
 
+                <h4 class="lblPrescriptionNumber">Prescription Number: <asp:Label Text="" ID="lblPrescriptionNumber" runat="server" /> </h4><br />
+                
         <!-- Left Div -->
         <div class="leftTextboxDiv">
-
+            
             <h4>Patient Name: 
                 </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="ddlPatientName" Width="150px" runat="server">
-                <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
-            </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="ddlPatientName"
+            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" />
+                <asp:RequiredFieldValidator ID="rfvPatientName" runat="server" ControlToValidate="txtPatientName"
                     CssClass="validatorText" ErrorMessage="Patient Name Required"
                     ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>Doctor Name: </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDoctorName" Width="150px" runat="server">
-                <asp:ListItem Enabled="true" Value="-1"></asp:ListItem>
-            </asp:DropDownList>
+            <asp:TextBox ID="txtDoctorName" CssClass="entry_textboxes" Width="150px" runat="server" />
             
-                <asp:RequiredFieldValidator ID="rfvDoctorName" runat="server" ControlToValidate="ddlDoctorName" 
+                <asp:RequiredFieldValidator ID="rfvDoctorName" runat="server" ControlToValidate="txtDoctorName" 
                     CssClass="validatorText" ErrorMessage="Doctor Name Required" 
                     ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
             
@@ -102,12 +100,9 @@
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>Drug Name: </h4>
-            <asp:DropDownList CssClass="entry_textboxes" ID="ddlDrugName" Width="150px" runat="server">
+            <asp:TextBox ID="txtDrugName" CssClass="entry_textboxes" Width="150px" runat="server" />
 
-            </asp:DropDownList>
-            
-            
-            <asp:RequiredFieldValidator ID="rfvFirstTime" runat="server" ControlToValidate="txtStartDate" 
+            <asp:RequiredFieldValidator ID="rfvDrugName" runat="server" ControlToValidate="txtDrugName" 
                 CssClass="validatorText" ErrorMessage="First Time Required" 
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
@@ -120,6 +115,9 @@
 
             <h4>First Time: </h4>
             <asp:TextBox ID="txtStartDate" CssClass="entry_textboxes" Width="150px" runat="server" />
+            <asp:RequiredFieldValidator ID="rfvFirstTime" runat="server" ControlToValidate="txtStartDate" 
+                CssClass="validatorText" ErrorMessage="Last Time Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
 
             <h4>Last Time: </h4>
             <asp:TextBox ID="txtEndDate" CssClass="entry_textboxes" Width="150px" runat="server" />
@@ -204,7 +202,7 @@
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" OnClick="btnCancel_Click" /></li>
-          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" ValidationGroup="PrescriptionValidation" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" ValidationGroup="PrescriptionValidation" OnClick="btnModify_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit2" OnClick="btnSubmit_Click" /></li>
         </ul>
     </div>
