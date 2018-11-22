@@ -47,7 +47,7 @@
 
         </div>
             <asp:GridView ID="dgvDoctorPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
-                AllowSorting="True" CellPadding="3" Height="200px" Width="1000px" BackColor="White" 
+                AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal"
                 OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />

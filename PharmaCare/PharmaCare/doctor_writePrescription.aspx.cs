@@ -36,14 +36,13 @@ namespace PharmaCare
         {
             clearTextboxes();
             if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
-             {
+            {
                 search_GridViewNames();
             }
-             else
-             {
-                 return;
-             }
-            
+            else
+            {
+                return;
+            }
         }
 
         protected void search_GridViewNames()
@@ -52,7 +51,7 @@ namespace PharmaCare
             {
                 string txtSearch = txtPatientNameInput.Text.Trim();
                 
-                if (!Regex.IsMatch(row.Cells[0].Text, txtSearch, RegexOptions.IgnoreCase))
+                if (!Regex.IsMatch(row.Cells[1].Text, txtSearch, RegexOptions.IgnoreCase))
                 {
                     {
                         row.Visible = false;
@@ -179,8 +178,8 @@ namespace PharmaCare
             txtDose.Text = null;
             txtDoseStatus.Text = null;
             txtAdditionalInformation.Text = null;
-            dgvDoctorPrescriptions.SelectedIndex = -1;
 
+            dgvDoctorPrescriptions.SelectedIndex = -1;
             dgvDoctorPrescriptions.DataSource = null;
             dgvDoctorPrescriptions.DataBind();
 
