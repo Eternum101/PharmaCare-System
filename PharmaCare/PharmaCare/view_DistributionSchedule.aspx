@@ -46,11 +46,11 @@
 
                 <asp:BoundField DataField="PatientID" HeaderText="Patient ID"/>         
                 
-                <asp:BoundField DataField="PatientName" HeaderText="Patient Name"/>             
+                <asp:BoundField DataField="Name" HeaderText="Patient Name"/>             
                                         
                 <asp:BoundField DataField="DrugName" HeaderText="Drug Name"/>              
                     
-                <asp:BoundField DataField="Dose" HeaderText="Dose"/>              
+                <asp:BoundField DataField="DrugDose" HeaderText="Dose"/>              
                  
                 <asp:BoundField DataField="TimesPerDay" HeaderText="Times Per Day"/>              
                     

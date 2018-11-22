@@ -100,3 +100,20 @@ C:\Users\Jakeman\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\Pha
 C:\Users\Jakeman\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.csproj.CoreCompileInputs.cache
 C:\Users\Jakeman\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.dll
 C:\Users\Jakeman\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.pdb
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\PharmaCare.dll.config
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\PharmaCare.dll
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\PharmaCare.pdb
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\csc.exe.config
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\csc.rsp
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\csi.exe.config
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\csi.rsp
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\Microsoft.CSharp.Core.targets
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\Microsoft.Managed.Core.targets
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\Microsoft.VisualBasic.Core.targets
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\vbc.exe.config
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\vbc.rsp
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\bin\roslyn\VBCSCompiler.exe.config
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.csprojResolveAssemblyReference.cache
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.csproj.CoreCompileInputs.cache
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.dll
+\\Client\F$\Pharmacare again\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.pdb
