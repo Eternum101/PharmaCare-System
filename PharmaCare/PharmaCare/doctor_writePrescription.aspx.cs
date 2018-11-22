@@ -92,7 +92,15 @@ namespace PharmaCare
                     txtTimePerDay.Text = row.Cells[8].Text;
                     txtDose.Text = row.Cells[9].Text;
                     txtDoseStatus.Text = row.Cells[10].Text;
-                    txtAdditionalInformation.Text = row.Cells[11].Text;
+                    if (row.Cells[11].Text != "&nbsp;")
+                    {
+                        txtAdditionalInformation.Text = row.Cells[11].Text;
+                    }
+                    else if (row.Cells[11].Text == "&nbsp;")
+                    {
+                        txtAdditionalInformation.Text = null;
+                    }
+                    
 
                     btnSubmit2.Enabled = false;
                     btnSubmit2.CssClass = "buttonVisuals_Spacing_Disabled";
@@ -205,30 +213,39 @@ namespace PharmaCare
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            
+            SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
+
+            sqlConn.Open();
+
+            SqlCommand cmd = new SqlCommand(
+                " DELETE FROM Prescriptions WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
+            cmd.ExecuteNonQuery();
+            sqlConn.Close();
+            clearTextboxes();
         }
 
         private void getDrugID()
         {
             SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
 
-             
-
             try
             {
-                
-                SqlCommand cmd = new SqlCommand(
+                sqlConn.Open();
+                string connection = 
                  " DECLARE @DrugName varchar(45)" +
                  " SET @DrugName = '" + txtDrugName.Text + "'" +
-                 " SELECT Drugs.DrugID FROM Drugs WHERE DrugName like '%'+@DrugName+'%'" +
-                 " UPDATE Prescriptions SET Prescriptions.DrugID = @PrescriptionDrugID WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
-                sqlConn.Open();
+                 " SELECT Drugs.DrugID FROM Drugs WHERE DrugName = @DrugName " +
+                 " UPDATE Prescriptions SET Prescriptions.DrugID = Drugs.DrugID " +
+                 " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
+
+                SqlCommand cmd = new SqlCommand(connection, sqlConn);
+                
                 foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
                 {
                     if (row.Cells[0].Text == lblPrescriptionNumber.Text)
                     {
                         row.Cells[5].Text = txtDrugName.Text;
-                        cmd.Parameters.AddWithValue("@PrescriptionDrugID", "Drugs.DrugID");
+                        cmd.Parameters.AddWithValue("Prescriptions.DrugID", "Drugs.DrugID");
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -251,13 +268,13 @@ namespace PharmaCare
         protected void btnModify_Click(object sender, EventArgs e)
         {
             
-                SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
+            SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
                 
 
-                string query = "UPDATE Prescriptions SET " +
-                    "PrescriptionDate = @PrescriptionDate, PrescriptionStatus = @PrescriptionStatus, DrugDose = @DrugDose, FirstTIme = @FirstTime," +
-                    "LastTime = @LastTime, TimesPerDay = @TimesPerDay, StatusOfDose = @StatusOfDose, AdditionalInformation = @AdditionalInformation " +
-                    "WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
+            string query = "UPDATE Prescriptions SET " +
+                "PrescriptionDate = @PrescriptionDate, PrescriptionStatus = @PrescriptionStatus, DrugDose = @DrugDose, FirstTIme = @FirstTime," +
+                "LastTime = @LastTime, TimesPerDay = @TimesPerDay, StatusOfDose = @StatusOfDose, AdditionalInformation = @AdditionalInformation " +
+                "WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
             try
             {
                 sqlConn.Open();

@@ -45,9 +45,10 @@ h3 {
 }
 
 h4 {
-    font-size: 21px;
+    font-size: 20px;
     padding-top: 30px;
     color: black;
+    font-family: Arial;
 }
 
 .validatorText{
@@ -211,6 +212,8 @@ h4 {
     width: 180px;
     height: 30px;
     text-align: left;
+    font-size: 15px;
+    font-family: Arial;
 }
 
 .left {
@@ -444,15 +447,17 @@ ul {
     border: 1px solid rgba(0,0,0, 0.4);
 }
 
-.lblPrescriptionTable{
+.lblPrescriptionTable {
     margin-top: -10px;
+    margin-bottom: 0px;
+    font-family: Arial;
 }
 
 .lblPrescriptionNumber {
     margin-top: -10px;
     padding-left: 30px;
     margin-bottom: -20px;
-
+    font-family: Arial;
 }
 
 /* Modify Prescription */

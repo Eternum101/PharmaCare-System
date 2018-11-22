@@ -43,12 +43,12 @@
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
-            <h4 class="lblPrescriptionTable">Prescription Details:</h4><br />
+            <h4 class="lblPrescriptionTable">Prescription Details</h4><br />
 
         </div>
             <asp:GridView ID="dgvDoctorPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
                 AllowSorting="True" CellPadding="3" Height="200px" Width="1000px" BackColor="White" 
-                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CssClass="testtt" CellSpacing="2" GridLines="Horizontal"
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal"
                 OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
@@ -68,7 +68,7 @@
     <!-- Bordered div -->
     <div class="globalBorderRound">
 
-                <h4 class="lblPrescriptionNumber">Prescription Number: <asp:Label Text="" ID="lblPrescriptionNumber" runat="server" /> </h4><br />
+                <h4 class="lblPrescriptionNumber">Prescription Number: &nbsp;<asp:Label Text="" ID="lblPrescriptionNumber" runat="server" /> </h4><br />
                 
         <!-- Left Div -->
         <div class="leftTextboxDiv">
