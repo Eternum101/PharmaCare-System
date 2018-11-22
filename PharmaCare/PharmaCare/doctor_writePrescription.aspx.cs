@@ -120,7 +120,7 @@ namespace PharmaCare
 
         private void Insert()
         {
-            SqlConnection conn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
             string sql ="INSERT INTO Prescriptions (PatientID, DrugID, DoctorID, PrescriptionDate, PrescriptionStatus, DrugDose, " +
                          "FirstTime, LastTime, TimesPerDay, StatusOfDose, AdditionalInformation) " +
@@ -212,7 +212,7 @@ namespace PharmaCare
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
+            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
             sqlConn.Open();
 
@@ -225,30 +225,24 @@ namespace PharmaCare
 
         private void getDrugID()
         {
-            SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            int drugID = 0;
 
             try
             {
-                sqlConn.Open();
-                string connection = 
-                 " DECLARE @DrugName varchar(45)" +
-                 " SET @DrugName = '" + txtDrugName.Text + "'" +
-                 " SELECT Drugs.DrugID FROM Drugs WHERE DrugName = @DrugName " +
-                 " UPDATE Prescriptions SET Prescriptions.DrugID = Drugs.DrugID " +
-                 " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
-
-                SqlCommand cmd = new SqlCommand(connection, sqlConn);
-                
-                foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
+                SqlDataReader myReader = cmd.ExecuteReader();
+                while (myReader.Read())
                 {
-                    if (row.Cells[0].Text == lblPrescriptionNumber.Text)
-                    {
-                        row.Cells[5].Text = txtDrugName.Text;
-                        cmd.Parameters.AddWithValue("Prescriptions.DrugID", "Drugs.DrugID");
-                        cmd.ExecuteNonQuery();
-                    }
+                    drugID = myReader.GetInt32(0);
                 }
-                clearTextboxes();
+
+                con.Close();
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand("UPDATE Prescriptions set DrugID = '" + drugID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", con);
+                cmd1.ExecuteNonQuery();
+                con.Close();
 
             }
             catch (SqlException ex)
@@ -257,17 +251,12 @@ namespace PharmaCare
                 msg += ex.Message;
                 throw new Exception(msg);
             }
-            finally
-            {
-                sqlConn.Close();
-            }
-
         }
 
         protected void btnModify_Click(object sender, EventArgs e)
         {
             
-            SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
+            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
                 
 
             string query = "UPDATE Prescriptions SET " +
