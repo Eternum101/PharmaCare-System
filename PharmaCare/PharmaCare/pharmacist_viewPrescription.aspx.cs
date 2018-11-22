@@ -100,14 +100,14 @@ namespace PharmaCare
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Prescriptions set PrescriptionStatus = 'On Hold' WHERE PrescriptionID = '" + Convert.ToInt16(txtPrescriptionID.Text).ToString() + "'", con);
+                SqlCommand cmd = new SqlCommand("UPDATE Prescriptions set PrescriptionStatus = 'Hold' WHERE PrescriptionID = '" + Convert.ToInt16(txtPrescriptionID.Text).ToString() + "'", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 foreach (GridViewRow row in dgvPharmacistPrescriptions.Rows)
                 {
                     if (row.Cells[0].Text == txtPrescriptionID.Text)
                     {
-                        row.Cells[3].Text = "On Hold";
+                        row.Cells[3].Text = "Hold";
 
                     }
                 }

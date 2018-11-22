@@ -113,6 +113,7 @@
     <Content Include="Master.Master" />
     <Content Include="staff_ViewPrescription.aspx" />
     <Content Include="doctor_writePrescription.aspx" />
+    <Content Include="pharmacist_preparationList.aspx" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -215,6 +216,13 @@
     </Compile>
     <Compile Include="view_DistributionSchedule.aspx.designer.cs">
       <DependentUpon>view_DistributionSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pharmacist_preparationList.aspx.cs">
+      <DependentUpon>pharmacist_preparationList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pharmacist_preparationList.aspx.designer.cs">
+      <DependentUpon>pharmacist_preparationList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
