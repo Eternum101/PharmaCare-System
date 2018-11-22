@@ -133,3 +133,4 @@ C:\Users\Jakeman\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\Pha
 \\Client\C$\Users\5103355915\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.csproj.CoreCompileInputs.cache
 \\Client\C$\Users\5103355915\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.dll
 \\Client\C$\Users\5103355915\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.pdb
+\\Client\C$\Users\5103355915\Documents\PharmaCare-System\PharmaCare\PharmaCare\obj\Debug\PharmaCare.csprojResolveAssemblyReference.cache
