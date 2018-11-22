@@ -57,10 +57,10 @@
                     <button class="dropbtn">Pharmacist</button>
                         <div class="dropdown-content">
                           <a href="pharmacist_viewPrescription.aspx">View Prescription</a>
-                          <a href="#">Print Indoor Medication Labels</a>
+                          <a href="pharmacist_PrintIndoorMedicationLabels.aspx">Print Indoor Medication Labels</a>
                           <a href="#">View Preparation List</a>
                           <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
-                          <a href="#">View List for Nursing Station</a>
+                          <a href="nurse_ViewNursingStation.aspx">View List for Nursing Station</a>
                         </div>
                     </div>
 
