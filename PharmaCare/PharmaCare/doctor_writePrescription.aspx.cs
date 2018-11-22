@@ -212,23 +212,24 @@ namespace PharmaCare
         {
             SqlConnection sqlConn = new SqlConnection(@"Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True");
 
-             
-
             try
             {
-                
-                SqlCommand cmd = new SqlCommand(
+                sqlConn.Open();
+                string connection = 
                  " DECLARE @DrugName varchar(45)" +
                  " SET @DrugName = '" + txtDrugName.Text + "'" +
-                 " SELECT Drugs.DrugID FROM Drugs WHERE DrugName like '%'+@DrugName+'%'" +
-                 " UPDATE Prescriptions SET Prescriptions.DrugID = @PrescriptionDrugID WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
-                sqlConn.Open();
+                 " SELECT Drugs.DrugID FROM Drugs WHERE DrugName = @DrugName " +
+                 " UPDATE Prescriptions SET Prescriptions.DrugID = Drugs.DrugID " +
+                 " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
+
+                SqlCommand cmd = new SqlCommand(connection, sqlConn);
+                
                 foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
                 {
                     if (row.Cells[0].Text == lblPrescriptionNumber.Text)
                     {
                         row.Cells[5].Text = txtDrugName.Text;
-                        cmd.Parameters.AddWithValue("@PrescriptionDrugID", "Drugs.DrugID");
+                        cmd.Parameters.AddWithValue("Prescriptions.DrugID", "Drugs.DrugID");
                         cmd.ExecuteNonQuery();
                     }
                 }
