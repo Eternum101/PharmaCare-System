@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="pharmacist_viewPrescription.aspx.cs" Inherits="PharmaCare.pharmacist_viewPrescription"  enableEventValidation="false"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="pharmacist_ViewPrescription.aspx.cs" Inherits="PharmaCare.pharmacist_viewPrescription"  enableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server">
 

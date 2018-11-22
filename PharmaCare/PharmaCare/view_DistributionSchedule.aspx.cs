@@ -20,6 +20,7 @@ namespace PharmaCare
                 PopulatedGridView();
             }
         }
+        //The onclick event that starts the population of the gridview
         protected void Button1_Click(object sender, EventArgs e)
         {
             PopulatedGridView();
@@ -30,15 +31,17 @@ namespace PharmaCare
             int selectValue = Convert.ToInt32(SelectButton.SelectedItem.Value);
             using (SqlConnection con = new SqlConnection(connectionstring))
             {
+                //displays wing depending on the selected value of the drop down menu.
                 if (selectValue == 1)
                 {
 
 
-                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, PharmaCare_Master.PatientID, " +
-                        "PharmaCare_Master.PatientName, PharmaCare_master.DrugName, PharmaCare_master.Dose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
+                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, Patients.PatientID, " +
+                        "Patients.Name, Drugs.DrugName, Prescriptions.DrugDose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
                         "FROM IndoorPrescriptions " +
-                        "LEFT JOIN PharmaCare_Master ON IndoorPrescriptions.PrescriptionID = PharmaCare_Master.PrescriptionID " +
-                        "LEFT JOIN Prescriptions ON PharmaCare_Master.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Prescriptions ON IndoorPrescriptions.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Patients ON Prescriptions.PatientID = Patients.PatientID " +
+                        "LEFT JOIN Drugs ON Prescriptions.DrugId = Drugs.DrugId " +
                         "WHERE WingNumber = 1 " +
                         "ORDER BY IndoorPrescriptions.FloorNumber";
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
@@ -48,11 +51,12 @@ namespace PharmaCare
                 {
 
 
-                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, PharmaCare_Master.PatientID, " +
-                        "PharmaCare_Master.PatientName, PharmaCare_master.DrugName, PharmaCare_master.Dose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
+                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, Patients.PatientID, " +
+                        "Patients.Name, Drugs.DrugName, Prescriptions.DrugDose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
                         "FROM IndoorPrescriptions " +
-                        "LEFT JOIN PharmaCare_Master ON IndoorPrescriptions.PrescriptionID = PharmaCare_Master.PrescriptionID " +
-                        "LEFT JOIN Prescriptions ON PharmaCare_Master.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Prescriptions ON IndoorPrescriptions.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Patients ON Prescriptions.PatientID = Patients.PatientID " +
+                        "LEFT JOIN Drugs ON Prescriptions.DrugId = Drugs.DrugId " +
                         "WHERE WingNumber = 2 " +
                         "ORDER BY IndoorPrescriptions.FloorNumber";
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
@@ -62,11 +66,12 @@ namespace PharmaCare
                 {
 
 
-                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, PharmaCare_Master.PatientID, " +
-                        "PharmaCare_Master.PatientName, PharmaCare_master.DrugName, PharmaCare_master.Dose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
+                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, Patients.PatientID, " +
+                        "Patients.Name, Drugs.DrugName, Prescriptions.DrugDose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
                         "FROM IndoorPrescriptions " +
-                        "LEFT JOIN PharmaCare_Master ON IndoorPrescriptions.PrescriptionID = PharmaCare_Master.PrescriptionID " +
-                        "LEFT JOIN Prescriptions ON PharmaCare_Master.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Prescriptions ON IndoorPrescriptions.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Patients ON Prescriptions.PatientID = Patients.PatientID " +
+                        "LEFT JOIN Drugs ON Prescriptions.DrugId = Drugs.DrugId " +
                         "WHERE WingNumber = 3 " +
                         "ORDER BY IndoorPrescriptions.FloorNumber";
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
@@ -76,11 +81,12 @@ namespace PharmaCare
                 {
 
 
-                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, PharmaCare_Master.PatientID, " +
-                        "PharmaCare_Master.PatientName, PharmaCare_master.DrugName, PharmaCare_master.Dose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
+                    string sql = "SELECT WingNumber, FloorNumber, RoomNumber, IndoorPrescriptions.PrescriptionID, NursingStationId, Patients.PatientID, " +
+                        "Patients.Name, Drugs.DrugName, Prescriptions.DrugDose, Prescriptions.TimesPerDay, Prescriptions.FirstTime, Prescriptions.LastTime " +
                         "FROM IndoorPrescriptions " +
-                        "LEFT JOIN PharmaCare_Master ON IndoorPrescriptions.PrescriptionID = PharmaCare_Master.PrescriptionID " +
-                        "LEFT JOIN Prescriptions ON PharmaCare_Master.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Prescriptions ON IndoorPrescriptions.PrescriptionID = Prescriptions.PrescriptionID " +
+                        "LEFT JOIN Patients ON Prescriptions.PatientID = Patients.PatientID " +
+                        "LEFT JOIN Drugs ON Prescriptions.DrugId = Drugs.DrugId " +
                         "WHERE WingNumber = 4 " +
                         "ORDER BY IndoorPrescriptions.FloorNumber";
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
