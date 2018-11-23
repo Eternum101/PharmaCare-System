@@ -59,6 +59,7 @@ h4 {
 .leftTextboxDiv {
     padding: 0px 30px;
     float: left;
+
 }
 
 .rightTextboxDiv {
@@ -117,15 +118,19 @@ h4 {
     background-color: rgb(60, 60, 60); /* Green */
     border: none;
     color: white;
-    height: 30px !important;
-    width: 100px;
+    height: 32px !important;
+    width: 105px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
     float: left;
     margin-right: 10px;
-    border-radius: 20px;
+    border-radius: 25px;
+}
+
+.roundtest {
+    
 }
 
 .searchButtonVisualsDisabled {
@@ -214,6 +219,8 @@ h4 {
     text-align: left;
     font-size: 15px;
     font-family: Arial;
+    border-radius: 4px;
+    padding-left: 5px;
 }
 
 .left {
@@ -447,6 +454,10 @@ ul {
     border-style: none;
     border: 1px solid rgba(0,0,0, 0.4);
     margin-bottom: 25px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-bottom: 90px;
+
 }
 
 .lblPrescriptionTable {
