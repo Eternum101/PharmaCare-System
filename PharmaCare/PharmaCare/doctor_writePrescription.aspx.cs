@@ -291,8 +291,7 @@ namespace PharmaCare
                             cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
                             cmd.ExecuteNonQuery();
                         }
-                    }
-                    clearTextboxes();
+                    }                   
                 
             }
             catch (SqlException ex)
@@ -306,6 +305,7 @@ namespace PharmaCare
                 sqlConn.Close();
             }
             getDrugID();
+            clearTextboxes();
         }
         
     }
