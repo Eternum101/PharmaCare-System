@@ -270,6 +270,7 @@ ul {
         float: left;
         list-style-type: none;
         margin: 17px 15px;
+        margin-top: 0px;
     }
 
     ul .buttonVisuals_Spacing {
@@ -445,6 +446,7 @@ ul {
     background-color: rgb(245, 245, 245);
     border-style: none;
     border: 1px solid rgba(0,0,0, 0.4);
+    margin-bottom: 25px;
 }
 
 .lblPrescriptionTable {
@@ -496,9 +498,38 @@ ul {
     padding-bottom: 60px;
 }
 
+.DistributionHeader {
+    padding-bottom: 30px;
+}
+
 .dropDownList {
-    width: 730px; 
-    height: 30px; 
+    width: 730px;
+    height: 30px;
     font-size: 20px;
     font-family: 'Century Gothic';
+}
+
+.dropdownRoundDistribution {
+    margin-left: 40px;
+    margin-right: 30px;
+    border-radius: 20px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+/* Nurse Nursing Station List */
+.dropdownRoundStation {
+    width: 730px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 20px;
+    font-family: Arial;
+    padding-left: 10px;
+}
+
+/* Pharmacist */
+.lblPreperationListTable {
+    margin-top: -10px;
+    margin-bottom: 0px;
+    font-family: Arial;
 }

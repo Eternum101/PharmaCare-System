@@ -46,7 +46,7 @@
 
                     <!-- Staff Button -->
                     <div class="dropdownMain">
-                    <button class="dropbtn">Staff</button>
+                        <input type=button class="dropbtn" value='Staff'>
                         <div class="dropdown-content">
                           <a href="staff_ViewPrescription.aspx">View OPD Prescription</a>
                         </div>
@@ -54,7 +54,7 @@
 
                     <!-- Pharmacist Button -->
                     <div class="dropdownMain">
-                    <button class="dropbtn">Pharmacist</button>
+                        <input type=button class="dropbtn" value='Pharmacist'>
                         <div class="dropdown-content">
                           <a href="pharmacist_viewPrescription.aspx">View Prescription</a>
                           <a href="pharmacist_PrintIndoorMedicationLabels.aspx">Print Indoor Medication Labels</a>
@@ -66,12 +66,12 @@
 
                     <!-- Nurse Button -->
                     <div class="dropdownMain">
-                    <button class="dropbtn">Nurse</button>
-                        <div class="dropdown-content">
-                          <a href="nurse_ViewPrescription.aspx">View Prescription</a>
-                          <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
-                          <a href="nurse_ViewNursingStation.aspx">View List for Nursing Station</a>
-                        </div>
+                        <input type=button class="dropbtn" value='Nurse'>
+                            <div class="dropdown-content">
+                              <a href="nurse_ViewPrescription.aspx">View Prescription</a>
+                              <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
+                              <a href="nurse_ViewNursingStation.aspx">View List for Nursing Station</a>
+                            </div>
                     </div>
 
                     <!-- HPCDS Button -->

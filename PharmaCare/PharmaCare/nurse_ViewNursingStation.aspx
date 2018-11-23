@@ -10,7 +10,7 @@
 
         <!-- Patient Name lbl and txt -->
         <h3>Select Nursing Station: 
-            <asp:DropDownList CssClass="dropDownList" ID="ddlNursingStation" runat="server" Width="729px" DataSourceID="SqlDataSource2" DataTextField="NursingStationID" DataValueField="NursingStationID" Height="30px">
+            <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" Width="729px" DataSourceID="SqlDataSource2" DataTextField="NursingStationID" DataValueField="NursingStationID" Height="30px">
             </asp:DropDownList>
         </h3>
         <div>
@@ -24,18 +24,18 @@
     </div>
 
     <!-- Bordered div -->
-    <div class="globalBorder">
+    <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
             <h4>Nursing Station Details:</h4><br />
 
         </div>
             <asp:GridView ID="dgvNurseStation" runat="server" DataSourceID="SqlDataSource1" 
-                AllowSorting="True" CellPadding="5" Width="1031px" BackColor="White" 
+                AllowSorting="True" CellPadding="4" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
-                <HeaderStyle BackColor="#FF5454" Font-Bold="True" ForeColor="#F7F7F7" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="15px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
                 <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
                 <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />

@@ -13,10 +13,10 @@
 </asp:Content>
 
 <asp:Content ID="Container" ContentPlaceHolderID="contentContainer" runat="server">
-    <h1>View Distribution Schedule</h1>
+    <h1 class="DistributionHeader">View Distribution Schedule</h1>
     <div>
         <br />        
-        <asp:DropDownList ID="SelectButton" CssClass="SelectBtn" runat="server" Width="729px">
+        <asp:DropDownList ID="SelectButton" CssClass="dropdownRoundDistribution" runat="server" Width="729px">
             <asp:ListItem Text="1" Value="1"/>
             <asp:ListItem Text="2" Value="2"/>
             <asp:ListItem Text="3" Value="3"/>
@@ -27,10 +27,15 @@
     <div>
     </div> <br />
 
-    <div class="globalBorderRound"><br />
-        <asp:GridView ID="dgvViewDistributionSchedule" enablePaging="true" class="gridviewProperties" runat="server" CellPadding="4" ForeColor="Black" 
+    <div class="globalBorderRound">
+        <div class="leftTextboxDiv">
+         <div class="left">
+         <h4 class="lblPrescriptionTable">Distribution Schedule</h4><br />
+
+        </div>
+        <asp:GridView ID="dgvViewDistributionSchedule" enablePaging="true" class="gridviewProperties" runat="server" CellPadding="2" ForeColor="Black" 
             AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="WingNumber" ShowHeaderWhenEmpty="True" 
-            AllowPaging="True" AllowSorting="True" GridLines="Vertical" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" Width="1055px">
+            AllowPaging="True" AllowSorting="True" GridLines="Vertical" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" Width="1000px">
 
             <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
@@ -69,6 +74,7 @@
                 <SortedDescendingHeaderStyle BackColor="#FF5454" />
         </asp:GridView>
     </div>
+        </div>
     <br />
 
 </asp:Content>

@@ -6,12 +6,14 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
     <div>
         <!-- Page Heading -->
-        <h1 class="nurse_Heading">Distribution Schedule<asp:SqlDataSource ID="SqlDataSourceDistribution" runat="server" 
+        <h1 class="nurse_Heading">Distribution Schedule</h1>
+        
+        <asp:SqlDataSource ID="SqlDataSourceDistribution" runat="server" 
             ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Patients.Name, 
             Drugs.DrugName, Prescriptions.DrugDose, Patients.WardID, Prescriptions.TimesPerDay, 
             Prescriptions.FirstTime, Prescriptions.LastTime FROM Patients INNER JOIN Prescriptions 
             ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
-        </h1>
+        
 
         <!-- Patient Name lbl and txt -->
         
@@ -26,7 +28,7 @@
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
-            <h4>Schedule Details:</h4><br />
+            <h4 >Schedule Details:</h4><br />
 
         </div>
             <asp:GridView ID="dgvNurseDistribution" runat="server" DataSourceID="SqlDataSourceDistribution" 

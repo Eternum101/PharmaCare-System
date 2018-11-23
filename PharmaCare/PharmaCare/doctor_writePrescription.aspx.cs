@@ -99,8 +99,8 @@ namespace PharmaCare
                     {
                         txtAdditionalInformation.Text = null;
                     }
-                    
 
+                    txtPatientName.Enabled = false;
                     btnSubmit2.Enabled = false;
                     btnSubmit2.CssClass = "buttonVisuals_Spacing_Disabled";
 
@@ -179,6 +179,8 @@ namespace PharmaCare
             txtDoseStatus.Text = null;
             txtAdditionalInformation.Text = null;
 
+            txtPatientName.Enabled = true;
+
             dgvDoctorPrescriptions.SelectedIndex = -1;
             dgvDoctorPrescriptions.DataSource = null;
             dgvDoctorPrescriptions.DataBind();
@@ -223,25 +225,39 @@ namespace PharmaCare
             clearTextboxes();
         }
 
-        private void getDrugID()
+        private void getIDs()
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             int drugID = 0;
-
+            int doctorID = 0;
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
-                SqlDataReader myReader = cmd.ExecuteReader();
-                while (myReader.Read())
+                SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
+                SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
+                while (myReaderDrugID.Read())
                 {
-                    drugID = myReader.GetInt32(0);
+                    drugID = myReaderDrugID.GetInt32(0);
                 }
 
                 con.Close();
                 con.Open();
-                SqlCommand cmd1 = new SqlCommand("UPDATE Prescriptions set DrugID = '" + drugID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", con);
-                cmd1.ExecuteNonQuery();
+                SqlCommand cmdUpdateDrugID = new SqlCommand("UPDATE Prescriptions set DrugID = '" + drugID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", con);
+                cmdUpdateDrugID.ExecuteNonQuery();
+                con.Close();
+
+                con.Open();
+                SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", con);
+                SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+                while (myReaderDoctorID.Read())
+                {
+                    doctorID = myReaderDoctorID.GetInt32(0);
+                }
+
+                con.Close();
+                con.Open();
+                SqlCommand cmdUpdateDoctorID = new SqlCommand("UPDATE Prescriptions set DoctorID = '" + doctorID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", con);
+                cmdUpdateDoctorID.ExecuteNonQuery();
                 con.Close();
 
             }
@@ -304,7 +320,7 @@ namespace PharmaCare
             {
                 sqlConn.Close();
             }
-            getDrugID();
+            getIDs();
             clearTextboxes();
         }
         

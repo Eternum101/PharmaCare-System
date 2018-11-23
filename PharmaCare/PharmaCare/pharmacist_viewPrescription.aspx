@@ -32,6 +32,10 @@
 
      <div class="globalBorderRound">
         <div class="leftTextboxDiv">
+            <div class="left">
+            <h4 class="lblPrescriptionTable">Preperation List</h4><br />
+
+            </div>
             <asp:GridView ID="dgvPharmacistPrescriptions" runat="server" DataSourceID="SqlDataSourcePharmacist" 
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" OnRowDataBound="dgvPharmacistPrescriptions_RowDataBound" OnSelectedIndexChanged="dgvPharmacistPrescriptions_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="PrescriptionID" ValidateRequestMode="Disabled">

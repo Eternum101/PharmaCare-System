@@ -9,7 +9,8 @@
     
     <div>
         <!-- Page Heading -->
-        <h1 class="writePrescriptionHeading">Write Prescription
+        <h1 class="writePrescriptionHeading">Write Prescription</h1>
+
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
                 Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
@@ -25,7 +26,7 @@
 
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT [PatientID], [Name] FROM [Patients]"></asp:SqlDataSource>
-        </h1>
+        
 
         <!-- Patient Name lbl and txt -->
         <h3>Patient Name: </h3>
@@ -52,7 +53,7 @@
                 OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
-                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="12px" ForeColor="#F7F7F7" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="11px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
                 <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
                 <SelectedRowStyle BackColor="#666666" Font-Bold="True" ForeColor="#F7F7F7" />
