@@ -5,15 +5,30 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
-    <br />
     <div>
-        <asp:Label ID="Label1" runat="server" Text="Patient ID:"></asp:Label>
-        <asp:TextBox ID="TextBox1" placeholder="ex:1001" runat="server"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Search" OnClick="Button1_Click" /><br />
+        <h1 class="writePrescriptionHeading">Indoor Medication</h1>
+
+        <h3>Patient ID: </h3>
+        <div class="txtPatientName">
+            <asp:TextBox ID="txtPatientNameInput" placeholder="ex:1001" class="search_textboxes" runat="server"/>
+            
+            <div class="doctor_SearchButtonAlign">
+                <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="Button1_Click" ValidationGroup="SearchValidation" />
+                <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient ID Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator>
+            </div>
+        </div>
+
     </div>
-    <br />
-    <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical">
-            <AlternatingRowStyle BackColor="#CCCCCC" />
+
+    <div class="globalBorderRound">
+        <div class="leftTextboxDiv">
+        <div class="left">
+            <h4 class="lblPrescriptionTable">Prescription Details</h4><br />
+
+        </div>
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" AllowSorting="True" CellPadding="3" Width="1000px" 
+            BackColor="White" BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellSpacing="2" GridLines="Horizontal">
+            <AlternatingRowStyle BackColor="#F7F7F7" />
             <Columns>
                 <asp:TemplateField HeaderText="Available">
                     <ItemTemplate>
@@ -35,21 +50,24 @@
                 <asp:BoundField DataField="PrescriptionDetails" HeaderText="Prescription Details" />
 
             </Columns>
-            <FooterStyle BackColor="#CCCCCC" />
-            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-            <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#808080" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#383838" />
+            <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
+                <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
+                <SelectedRowStyle BackColor="#666666" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#FF5454" />
+                <SortedDescendingCellStyle BackColor="#F7F7F7" />
+                <SortedDescendingHeaderStyle BackColor="#FF5454" />
         </asp:GridView>
     </div>
-    <br />
-    <div>
-        <input id="btnPrint" style="width: 100px" type="button" value="Print" onclick="PrintGridViewSelectedRows()" />
     </div>
 
+    <div class="float_center">
+        <ul class="child">
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Print" runat="server" ID="btnPrint" OnClientClick="PrintGridViewSelectedRows()" /></li>
+        </ul>
+    </div>
 
     <script src="Scripts/jquery-3.0.0.js"></script>
     <script src="Scripts/jquery-3.0.0.min.js"></script>

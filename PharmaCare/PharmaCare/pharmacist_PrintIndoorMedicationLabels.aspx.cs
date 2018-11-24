@@ -17,14 +17,14 @@ namespace PharmaCare
         string Con = ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
         private DataTable GetData()
         {
             using (SqlConnection con = new SqlConnection(Con))
             {
                 using (SqlCommand cmd = new SqlCommand("Select PrescriptionID,PatientID,DoctorID,DrugName,Date,PatientName," +
-                    "PatientType,Dose,Frequency,startdate,enddate,Prescriptiondetails from PharmaCare_Master where PrescriptionId=" + TextBox1.Text + " and PatientType='IN'"))
+                    "PatientType,Dose,Frequency,startdate,enddate,Prescriptiondetails from PharmaCare_Master where PrescriptionId=" + txtPatientNameInput.Text + " and PatientType='IN'"))
                 {
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
@@ -39,7 +39,7 @@ namespace PharmaCare
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (TextBox1.Text!="")
+            if (txtPatientNameInput.Text!="")
             {
                 DataTable ds = GetData();
                 if (!object.Equals(ds, null))

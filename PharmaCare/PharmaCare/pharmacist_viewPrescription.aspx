@@ -38,7 +38,9 @@
             </div>
             <asp:GridView ID="dgvPharmacistPrescriptions" runat="server" DataSourceID="SqlDataSourcePharmacist" 
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
-                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" OnRowDataBound="dgvPharmacistPrescriptions_RowDataBound" OnSelectedIndexChanged="dgvPharmacistPrescriptions_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="PrescriptionID" ValidateRequestMode="Disabled">
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
+                OnRowDataBound="dgvPharmacistPrescriptions_RowDataBound" OnSelectedIndexChanged="dgvPharmacistPrescriptions_SelectedIndexChanged" 
+                AutoGenerateColumns="False" DataKeyNames="PrescriptionID" ValidateRequestMode="Disabled">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="PrescriptionID" HeaderText="PrescriptionID" ReadOnly="True" SortExpression="PrescriptionID" />
