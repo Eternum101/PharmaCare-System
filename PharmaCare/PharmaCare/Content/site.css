@@ -57,9 +57,13 @@ h4 {
 }
 
 .leftTextboxDiv {
-    padding: 0px 30px;
+    padding: 0 30px;
     float: left;
 
+}
+
+.bigTextBoxDiv {
+    padding: 0 30px;
 }
 
 .rightTextboxDiv {
@@ -75,7 +79,7 @@ h4 {
 
 /* Buttons */
 .buttonVisuals {
-    background-color: rgb(60, 60, 60); /* Green */
+    background-color: rgb(60, 60, 60); 
     border: none;
     color: white;
     padding: 13px 20px;
@@ -87,7 +91,7 @@ h4 {
 }
 
 .buttonVisuals_Spacing {
-    background-color: rgb(60, 60, 60); /* Green */
+    background-color: rgb(60, 60, 60); 
     border: none;
     color: white;
     width: 160px;
@@ -102,7 +106,7 @@ h4 {
 }
 
 .buttonVisuals_Spacing_Disabled {
-    background-color: rgb(60, 60, 60); /* Green */
+    background-color: rgb(60, 60, 60); 
     border: none;
     color: white;
     width: 160px;
@@ -117,10 +121,10 @@ h4 {
 }
 
 .searchButtonVisuals {
-    background-color: rgb(60, 60, 60); /* Green */
+    background-color: rgb(60, 60, 60); 
     border: none;
     color: white;
-    height: 32px !important;
+    height: 32px;
     width: 105px;
     text-align: center;
     text-decoration: none;
@@ -137,10 +141,10 @@ h4 {
 }
 
 .searchButtonVisualsDisabled {
-    background-color: rgb(60, 60, 60); /* Green */
+    background-color: rgb(60, 60, 60); 
     border: none;
     color: #b1b1b1;
-    height: 30px !important;
+    height: 30px;
     width: 100px;
     text-align: center;
     text-decoration: none;
@@ -164,10 +168,10 @@ h4 {
 }
 
 .displayWard {
-    background-color: rgb(60, 60, 60); /* Green */
+    background-color: rgb(60, 60, 60);
     border: none;
     color: white;
-    height: 30px !important;
+    height: 30px;
     width: 150px;
     text-align: center;
     text-decoration: none;
@@ -175,6 +179,14 @@ h4 {
     font-size: 18px;
     margin-right: 10px;
     border-radius: 20px;
+}
+
+@media only screen and (max-width: 991px) {
+    /* For mobile phones: */
+    [class*="displayWard"] {
+        margin-left: 40px;
+        margin-top: 10px;
+    }
 }
 
     .buttonVisuals:hover, .buttonVisualsDark:hover, .buttonVisuals_Spacing:hover,
@@ -185,8 +197,8 @@ h4 {
 /* Editing this will effect all sites*/
 .globalBorder {
     margin-top: -10px;
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: 0;
+    margin-left: 0;
     padding-left: 10px;
     padding-bottom: 50px;
     background-color: rgb(240, 240, 240);
@@ -208,8 +220,14 @@ h4 {
     border-radius: 35px;
 }
 
+@media only screen and (max-width: 1199px) {
+    /* For mobile phones: */
+    [class*="globalBorderRound"] {
+        overflow-x: scroll;
+    }
+}
+
 .search_textboxes {
-    /*width: 100%;*/
     border-style: none;
     border-bottom: 1px solid black;
 }
@@ -238,6 +256,7 @@ h4 {
     background-color: rgb(60, 60, 60);
 }
 
+/* Bottom Buttons Editor */
 .float_center {
     float: right;
     position: relative;
@@ -269,18 +288,18 @@ ul {
         text-decoration: none;
         color: rgb(90, 90, 90);
         font-weight: bold;
-        padding: 0px 10px;
+        padding: 0 10px;
         background-color: white;
         font-size: 13px;
         border-radius: 15px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
     }
 
     ul .btn_li {
         float: left;
         list-style-type: none;
         margin: 17px 15px;
-        margin-top: 0px;
+        margin-top: 0;
     }
 
     ul .buttonVisuals_Spacing {
@@ -289,7 +308,7 @@ ul {
         line-height: 50px;
         text-decoration: none;
         color: #e8e8e8;
-        padding: 0px 20px;
+        padding: 0 20px;
         background-color: rgb(60,60,60);
         font-size: 18px;
         border-radius: 25px;
@@ -301,19 +320,80 @@ ul {
         line-height: 50px;
         text-decoration: none;
         color: #636363;
-        padding: 0px 20px;
+        padding: 0 20px;
         background-color: rgb(60,60,60);
         font-size: 18px;
         border-radius: 25px;
     }
 
+/* Top Search Editor */
+.searchContainer {
+    float: left;
+    position: relative;
+    width: 100%;
+    text-align: left;
+    margin-top: -10px;
+}
+
+    .searchContainer > .childSearch {
+        position: relative;
+    }
+
+ul .searchPosition {
+    margin-left: 0px;
+}
+
+ul .searchPositionSmaller {
+    width: 120px;
+}
+
+ul .search_textboxes2 {
+    margin-top: 20px;
+    margin-bottom: 18px;
+    margin-left: -20px;
+    margin-right: 10px;
+    border-style: none;
+    border-bottom: 1px solid black;
+    display: block;
+}
+
+@media only screen and (max-width: 493px) {
+    /* For mobile phones: */
+    [class*="search_textboxes2"] {
+        margin-top: -20px !important;
+        margin-left: 45px !important;
+        margin-right: 100px !important;
+    }
+
+    [class*="btnSearchPosition"] {
+        margin-left: 35px !important;
+    }
+}
+
+ul .btnSearchPosition {
+    background-color: rgb(60, 60, 60);
+    border: none;
+    color: white;
+    height: 30px;
+    width: 105px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    float: left;
+    margin-right: 10px;
+    margin-left: 5px;
+    border-radius: 25px;
+    font-family: Arial;
+    margin-top: 17px;
+}
 /* INDIVIDUAL PAGE CSS */
 
 /* Login Page */
 
 .lblLogin {
     font-family: Arial;
-    padding: 20px 0px;
+    padding: 20px 0;
     text-align: center;
     color: white;
     font-size: 45px;
@@ -360,10 +440,17 @@ ul {
 }
 
 .login_container {
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
     margin: auto;
     width: 450px;
     margin-top: 100px;
+}
+
+@media only screen and (max-width: 480px) {
+    /* For mobile phones: */
+    [class*="login_container"] {
+        width: 390px;
+    }
 }
 
 .login_redBar {
@@ -451,7 +538,7 @@ ul {
 }
 
 .bigTextBox {
-    width: 1036px;
+    width: 100%;
     height: 140px;
     background-color: rgb(245, 245, 245);
     border-style: none;
@@ -460,12 +547,15 @@ ul {
     border-radius: 10px;
     padding-left: 10px;
     padding-bottom: 90px;
-
 }
 
 .lblPrescriptionTable {
+    display: block;
     margin-top: -10px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
+    font-size: 20px;
+    padding-top: 30px;
+    color: black;
     font-family: Arial;
 }
 
@@ -529,11 +619,12 @@ ul {
     border-radius: 20px;
     height: 30px;
     padding-left: 10px;
+    Width: 70%;
 }
 
 /* Nurse Nursing Station List */
 .dropdownRoundStation {
-    width: 730px;
+    width: 70%;
     height: 30px;
     font-size: 20px;
     border-radius: 20px;
@@ -544,6 +635,6 @@ ul {
 /* Pharmacist */
 .lblPreperationListTable {
     margin-top: -10px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     font-family: Arial;
 }

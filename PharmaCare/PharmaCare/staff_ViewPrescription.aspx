@@ -17,21 +17,14 @@
         <h1 class="">OPD Prescription</h1>
 
         <!-- Patient Name lbl and txt -->
-        <h3>Patient Name: </h3>
-
-        <div class="txtPatientName">
-            <asp:TextBox ID="txtPatientNameInput" class="search_textboxes" Text="" runat="server" />
-
-            <div class="staff_SearchButtonAlign">
-                <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPatientSearch_Click" ValidationGroup="SearchValidation" />
-                <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator>
-            </div>
-        </div>
-
-        <!-- Top Buttons -->
-        
-        <!-- END Top Buttons -->
-
+          <div class="searchContainer">
+            <ul class="child2">
+              <li class="searchPosition"><h3>Patient Name: </h3></li>
+              <li class="searchPosition"><asp:TextBox ID="txtPatientNameInput" class="search_textboxes2" runat="server" /></li>
+              <li class="searchPositionSmaller"><asp:Button ID="Button1" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPatientSearch_Click" ValidationGroup="SearchValidation" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
+            </ul>
+          </div>
     </div>
 
     <!-- Bordered div -->

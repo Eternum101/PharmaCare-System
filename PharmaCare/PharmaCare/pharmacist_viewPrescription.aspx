@@ -19,15 +19,14 @@
         </h1>
 
         <!--Prescription Search-->
-        <h3>Patient Name: </h3>
-        <div class="txtPatientName">
-            <asp:TextBox ID="txtPharmacistPatientSearch" class="search_textboxes" Text="" runat="server" />
-            
-            <div class="doctor_SearchButtonAlign">
-                <asp:Button ID="btnPharmacistPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPharmacistPatientSearch_Click" />
-            </div>
-        </div>
-
+        <div class="searchContainer">
+            <ul class="childSearch">
+              <li class="searchPosition"><h3>Patient Name: </h3></li>
+              <li class="searchPosition"><asp:TextBox ID="txtPharmacistPatientSearch" class="search_textboxes2" runat="server" /></li>
+              <li class="searchPositionSmaller"><asp:Button ID="btnPharmacistPatientSearch" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPharmacistPatientSearch_Click" ValidationGroup="SearchValidation" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPharmacistPatientSearch" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
+            </ul>
+          </div>
     </div>
 
      <div class="globalBorderRound">

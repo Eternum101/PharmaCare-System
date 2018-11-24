@@ -13,13 +13,13 @@
         </h1>
 
         <!--Prescription Search-->
-        <h3>Prescription ID: </h3>
-        <div class="txtPatientName">
-            <asp:TextBox ID="txtPharmacistPrescriptionSearch" class="search_textboxes" Text="" runat="server" />
-            
-            <div class="doctor_SearchButtonAlign">
-                <asp:Button ID="btnPharmacistPrescriptionSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPharmacistPrescriptionSearch_Click"/>
-            </div>
+         <div class="searchContainer">
+            <ul class="childSearch">
+              <li class="searchPosition"><h3>Prescription ID: </h3></li>
+              <li class="searchPosition"><asp:TextBox ID="txtPharmacistPrescriptionSearch" class="search_textboxes2" runat="server"/></li>
+              <li class="searchPositionSmaller"><asp:Button ID="btnPharmacistPrescriptionSearch" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPharmacistPrescriptionSearch_Click" ValidationGroup="SearchValidation" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPharmacistPrescriptionSearch" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
+            </ul>
         </div>
 
     </div>

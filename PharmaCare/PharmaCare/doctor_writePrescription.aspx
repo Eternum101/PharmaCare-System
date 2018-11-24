@@ -6,7 +6,7 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div>
         <!-- Page Heading -->
         <h1 class="writePrescriptionHeading">Write Prescription</h1>
@@ -27,24 +27,19 @@
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT [PatientID], [Name] FROM [Patients]"></asp:SqlDataSource>
         
-
-        <!-- Patient Name lbl and txt -->
-        <h3>Patient Name: </h3>
-        <div class="txtPatientName">
-            <asp:TextBox ID="txtPatientNameInput" class="search_textboxes" runat="server" OnTextChanged="txtPatientNameInput_TextChanged" />
-            
-            <div class="doctor_SearchButtonAlign">
-                <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="btnPatientSearch_Click" ValidationGroup="SearchValidation" />
-                <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator>
-            </div>
+        <div class="searchContainer">
+            <ul class="childSearch">
+              <li class="searchPosition"><h3>Patient Name: </h3></li>
+              <li class="searchPosition"><asp:TextBox ID="txtPatientNameInput" class="search_textboxes2" runat="server"/></li>
+              <li class="searchPositionSmaller"><asp:Button ID="btnPatientSearch" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPatientSearch_Click" ValidationGroup="SearchValidation" />
+                <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
+            </ul>
         </div>
-
     </div>
-
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
-            <h4 class="lblPrescriptionTable">Prescription Details</h4><br />
+            <asp:Label Text="Prescription Details" CssClass="lblPrescriptionTable" runat="server" /><br />
 
         </div>
             <asp:GridView ID="dgvDoctorPrescriptions" runat="server" DataSourceID="SqlDataSource1" 
@@ -166,25 +161,10 @@
 
     <!-- Bottom Div -->
     <div class="extraSpace">
-        <div class="leftTextboxDiv">
+        <div class="bigTextBoxDiv">
             <div class="left">
                 <h4>Additional Information:</h4>
             </div>
-            <!-- Bottom Buttons -->
-
-            <!--<div class="prescriptionDetailButtons">
-                <div>
-                    <input type=button class="buttonVisuals" onClick="parent.location=''" value='Delete Line'>
-                    <input type=button class="buttonVisualsDark" onClick="parent.location=''" value='Modify Line'>
-                    <input type=button class="buttonVisuals" onClick="parent.location=''" value='Add Line'>
-                </div>
-            </div>-->
-
-
-
-            <!-- END Bottom Buttons -->
-
-            <!-- Bottom Textbox -->
             <asp:TextBox ID="txtAdditionalInformation" class="bigTextBox" runat="server" />
         </div>
     </div>

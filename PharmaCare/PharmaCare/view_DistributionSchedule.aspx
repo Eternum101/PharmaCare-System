@@ -16,7 +16,7 @@
     <h1 class="DistributionHeader">View Distribution Schedule</h1>
     <div>
         <br />        
-        <asp:DropDownList ID="SelectButton" CssClass="dropdownRoundDistribution" runat="server" Width="729px">
+        <asp:DropDownList ID="SelectButton" CssClass="dropdownRoundDistribution" runat="server" >
             <asp:ListItem Text="1" Value="1"/>
             <asp:ListItem Text="2" Value="2"/>
             <asp:ListItem Text="3" Value="3"/>

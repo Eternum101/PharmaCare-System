@@ -10,7 +10,7 @@
 
         <!-- Patient Name lbl and txt -->
         <h3>Select Nursing Station: 
-            <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" Width="729px" DataSourceID="SqlDataSource2" DataTextField="NursingStationID" DataValueField="NursingStationID" Height="30px">
+            <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" DataSourceID="SqlDataSource2" DataTextField="NursingStationID" DataValueField="NursingStationID" Height="30px">
             </asp:DropDownList>
         </h3>
         <div>

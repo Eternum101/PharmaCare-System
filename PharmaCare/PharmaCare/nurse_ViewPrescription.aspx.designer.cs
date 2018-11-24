@@ -31,22 +31,22 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtNursePatientSearch;
         
         /// <summary>
-        /// btnNursePatientSearch control.
+        /// btnPharmacistPatientSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnNursePatientSearch;
+        protected global::System.Web.UI.WebControls.Button btnPharmacistPatientSearch;
         
         /// <summary>
-        /// rfvSearch control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvSearch;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// dgvNursePrescriptions control.

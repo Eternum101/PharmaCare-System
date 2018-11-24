@@ -7,17 +7,15 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
     <div>
         <h1 class="writePrescriptionHeading">Indoor Medication</h1>
-
-        <h3>Patient ID: </h3>
-        <div class="txtPatientName">
-            <asp:TextBox ID="txtPatientNameInput" placeholder="ex:1001" class="search_textboxes" runat="server"/>
-            
-            <div class="doctor_SearchButtonAlign">
-                <asp:Button ID="btnPatientSearch" class="searchButtonVisuals" Text="Search" runat="server" OnClick="Button1_Click" ValidationGroup="SearchValidation" />
-                <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient ID Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator>
-            </div>
+        
+        <div class="searchContainer">
+            <ul class="childSearch">
+              <li class="searchPosition"><h3>Patient ID: </h3></li>
+              <li class="searchPosition"><asp:TextBox ID="txtPatientNameInput" placeholder="ex:1001" class="search_textboxes2" runat="server"/></li>
+              <li class="searchPositionSmaller"><asp:Button ID="Button1" class="btnSearchPosition" Text="Search" runat="server" OnClick="Button1_Click" ValidationGroup="SearchValidation" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
+            </ul>
         </div>
-
     </div>
 
     <div class="globalBorderRound">
