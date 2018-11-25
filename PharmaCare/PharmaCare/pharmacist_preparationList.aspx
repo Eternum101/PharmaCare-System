@@ -64,16 +64,22 @@
         <div class="leftTextboxDiv">
            <h4>Prescription ID:</h4> 
             <asp:TextBox ID="txtPrescriptionID" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
+        </div>
+        <div class="leftTextboxDiv">
             <h4>Drug Dose:</h4> 
             <asp:TextBox ID="txtDrugDose" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
         </div>
-        <div>
+        <div class="leftTextboxDiv">
            <h4>Drug Name:</h4> 
             <asp:TextBox ID="txtDrugName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrescription" runat="server" ErrorMessage="Prescription is not selected" ValidationGroup="group" ControlToValidate="txtPrescriptionID" SetFocusOnError="True"></asp:RequiredFieldValidator>
-            <br /><br /><br /><br />
-            <asp:Button ID="btnFill" class="searchButtonVisuals" Text="Fill" runat="server" OnClick="btnFill_Click"  ValidationGroup="group"/>  
         </div>
+    </div>
+
+    <div class="float_center">
+        <ul class="child">
+            <li class="btn_li"><asp:Button ID="btnFill" class="buttonVisuals_Spacing" Text="Fill" runat="server" OnClick="btnFill_Click"  ValidationGroup="group"/></li>
+        </ul>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">

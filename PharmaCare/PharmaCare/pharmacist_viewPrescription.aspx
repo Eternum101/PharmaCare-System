@@ -71,25 +71,32 @@
         <div class="leftTextboxDiv">
            <h4>Prescription ID:</h4> 
             <asp:TextBox ID="txtPrescriptionID" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
+            </div>
             
+         <div class="leftTextboxDiv">
             <h4>Drug:</h4>
             <asp:TextBox ID="txtDrugName"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
-            <br /><br />
-            <asp:Button ID="btnDispatch" class="searchButtonVisuals" Text="Dispatch" runat="server" OnClick="btnDispatch_Click" ValidationGroup="group"/>
-        </div>
+         </div>
 
-        <div>
+        <div class="leftTextboxDiv">
            <h4>Patient Name:</h4> 
-            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
+            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+        </div>
             
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group"></asp:RequiredFieldValidator>
-            
+        <div class="leftTextboxDiv">
             <h4>Status:</h4>
             <asp:TextBox ID="txtStatus"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
-            <br /><br />
-            <asp:Button ID="btnRecall" class="searchButtonVisuals" Text="Recall" runat="server" OnClick="btnRecall_Click" ValidationGroup="group"/>
-        </div>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group"></asp:RequiredFieldValidator>
+            </div>
     </div>
+
+    <div class="float_center">
+        <ul class="child">
+            <li class="btn_li"><asp:Button ID="btnDispatch" class="buttonVisuals_Spacing" Text="Dispatch" runat="server" OnClick="btnDispatch_Click" ValidationGroup="group"/></li>
+            <li class="btn_li"><asp:Button ID="btnRecall" class="buttonVisuals_Spacing" Text="Recall" runat="server" OnClick="btnRecall_Click" ValidationGroup="group"/></li>
+        </ul>
+    </div>
+
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
     <div class="float_center">

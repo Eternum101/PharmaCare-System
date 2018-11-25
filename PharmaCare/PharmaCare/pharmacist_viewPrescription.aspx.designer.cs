@@ -76,15 +76,6 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtDrugName;
         
         /// <summary>
-        /// btnDispatch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDispatch;
-        
-        /// <summary>
         /// txtPatientName control.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPatientName;
+        
+        /// <summary>
+        /// txtStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtStatus;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -103,13 +103,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// txtStatus control.
+        /// btnDispatch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStatus;
+        protected global::System.Web.UI.WebControls.Button btnDispatch;
         
         /// <summary>
         /// btnRecall control.
