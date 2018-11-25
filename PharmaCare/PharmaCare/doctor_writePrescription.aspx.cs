@@ -120,7 +120,7 @@ namespace PharmaCare
 
         private void Insert()
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
             string sql ="INSERT INTO Prescriptions (PatientID, DrugID, DoctorID, PrescriptionDate, PrescriptionStatus, DrugDose, " +
                          "FirstTime, LastTime, TimesPerDay, StatusOfDose, AdditionalInformation) " +
@@ -214,7 +214,7 @@ namespace PharmaCare
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
             sqlConn.Open();
 
@@ -227,7 +227,7 @@ namespace PharmaCare
 
         private void getIDs()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
             int drugID = 0;
             int doctorID = 0;
             try
@@ -272,7 +272,7 @@ namespace PharmaCare
         protected void btnModify_Click(object sender, EventArgs e)
         {
             
-            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
                 
 
             string query = "UPDATE Prescriptions SET " +
