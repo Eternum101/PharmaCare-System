@@ -72,7 +72,7 @@
         <div class="leftTextboxDiv">
            <h4>Drug Name:</h4> 
             <asp:TextBox ID="txtDrugName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrescription" runat="server" ErrorMessage="Prescription is not selected" ValidationGroup="group" ControlToValidate="txtPrescriptionID" SetFocusOnError="True"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrescription" runat="server" ErrorMessage="Prescription Not Selected" ValidationGroup="group" ControlToValidate="txtPrescriptionID" SetFocusOnError="True" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
     </div>
 

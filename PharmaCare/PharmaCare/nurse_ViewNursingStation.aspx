@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="nurse_ViewNursingStation.aspx.cs" Inherits="PharmaCare.nurse_ViewDistribution" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="nurse_ViewNursingStation.aspx.cs" Inherits="PharmaCare.nurse_ViewNursingStation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
@@ -69,10 +69,9 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
     <div class="float_center">
         <ul class="child">
-          <li><p>14/11/18</p></li>
-          <li><p>Billy Bob</p></li>
-          <li><p>John Doe</p></li>
-          <li><p>Silly Sam</p></li>
+          <li><p>18/11/18</p></li>
+          <li><p>Brayden Cantrill</p></li>
+          <li><p>454657305</p></li>
         </ul>
     </div>
 </asp:Content>

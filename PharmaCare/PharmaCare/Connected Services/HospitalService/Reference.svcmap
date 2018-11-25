@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="982bd4cc-61e2-4f1b-b741-04ce08651c6b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://web.tafe.mst/HospitalService/HospitalService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HospitalService.xsd" MetadataType="Schema" ID="44eb7431-ba2a-4411-985f-d30005892f39" SourceId="1" SourceUrl="http://web.tafe.mst/HospitalService/HospitalService.svc?xsd=xsd2" />
+    <MetadataFile FileName="HospitalService1.xsd" MetadataType="Schema" ID="492835b8-87e7-4ef2-b0d0-783c5550d212" SourceId="1" SourceUrl="http://web.tafe.mst/HospitalService/HospitalService.svc?xsd=xsd1" />
+    <MetadataFile FileName="HospitalService2.xsd" MetadataType="Schema" ID="5d97aa39-1f67-47ac-9b83-fe10d9101ee1" SourceId="1" SourceUrl="http://web.tafe.mst/HospitalService/HospitalService.svc?xsd=xsd0" />
+    <MetadataFile FileName="HospitalService.wsdl" MetadataType="Wsdl" ID="d076359b-d40e-4f54-91c4-9c3c5a74115b" SourceId="1" SourceUrl="http://web.tafe.mst/HospitalService/HospitalService.svc?wsdl" />
+    <MetadataFile FileName="HospitalService.disco" MetadataType="Disco" ID="b090b0a9-a3ba-4010-a09d-6499d41d6325" SourceId="1" SourceUrl="http://web.tafe.mst/HospitalService/HospitalService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
