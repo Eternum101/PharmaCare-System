@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="pharmacist_ViewPrescription.aspx.cs" Inherits="PharmaCare.pharmacist_viewPrescription"  enableEventValidation="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server">
-    Dispatch Prescription
-</asp:Content>
+    Dispatch Prescription</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>
@@ -86,7 +85,7 @@
         <div class="leftTextboxDiv">
             <h4>Status:</h4>
             <asp:TextBox ID="txtStatus"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group" CssClass="text-danger"></asp:RequiredFieldValidator>
             </div>
     </div>
 
