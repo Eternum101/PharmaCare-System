@@ -23,8 +23,9 @@ namespace PharmaCare
         {
             using (SqlConnection con = new SqlConnection(Con))
             {
-                using (SqlCommand cmd = new SqlCommand("Select PrescriptionID,PatientID,DoctorID,DrugName,Date,PatientName," +
-                    "PatientType,Dose,Frequency,startdate,enddate,Prescriptiondetails from PharmaCare_Master where PrescriptionId=" + txtPatientNameInput.Text + " and PatientType='IN'"))
+                using (SqlCommand cmd = new SqlCommand("Select PrescriptionID, Prescriptions.PatientID, Prescriptions.DoctorID, Prescriptions.DrugID, Name, DoctorName, DrugName, DrugDose, TimesPerDay, " +
+                    "Type FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID " +
+                    "INNER JOIN Doctors ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID WHERE Patients.PatientID=" + txtPrescriptionIDInput.Text + " and Type='IN'"))
                 {
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
@@ -39,7 +40,7 @@ namespace PharmaCare
         }
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (txtPatientNameInput.Text!="")
+            if (txtPrescriptionIDInput.Text!="")
             {
                 DataTable ds = GetData();
                 if (!object.Equals(ds, null))
@@ -53,7 +54,7 @@ namespace PharmaCare
                     else
                     {
                         GridView1.Visible = false;
-                        string message = "Pharmacist or Patient not registered or Drug dose details not found";
+                        string message = "Patient ID Not Registered or Not Found";
                         System.Text.StringBuilder sb = new System.Text.StringBuilder();
                         sb.Append("<script type = 'text/javascript'>");
                         sb.Append("window.onload=function(){");
@@ -67,7 +68,7 @@ namespace PharmaCare
             }
             else
             {
-                string message = "Please enter valid Patient Id!";
+                string message = "Please Enter Valid Patient ID!";
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append("<script type = 'text/javascript'>");
                 sb.Append("window.onload=function(){");

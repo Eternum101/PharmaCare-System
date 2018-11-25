@@ -11,9 +11,9 @@
         <div class="searchContainer">
             <ul class="childSearch">
               <li class="searchPosition"><h3>Patient ID: </h3></li>
-              <li class="searchPosition"><asp:TextBox ID="txtPatientNameInput" placeholder="ex:1001" class="search_textboxes2" runat="server"/></li>
+              <li class="searchPosition"><asp:TextBox ID="txtPrescriptionIDInput" placeholder="ex:1" class="search_textboxes2" runat="server"/></li>
               <li class="searchPositionSmaller"><asp:Button ID="Button1" class="btnSearchPosition" Text="Search" runat="server" OnClick="Button1_Click" ValidationGroup="SearchValidation" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
+                <asp:RequiredFieldValidator ID="rfvPatientID" runat="server" ControlToValidate="txtPrescriptionIDInput" CssClass="text-danger" ErrorMessage="Patient ID Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
             </ul>
         </div>
     </div>
@@ -34,18 +34,12 @@
                         </asp:CheckBox>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:BoundField DataField="PrescriptionID" HeaderText="Prescription ID" />
-                <asp:BoundField DataField="PatientID" HeaderText="Patient ID" />
-                <asp:BoundField DataField="DoctorID" HeaderText="Doctor ID" />
+                <asp:BoundField DataField="Name" HeaderText="Patient Name" />
+                <asp:BoundField DataField="DoctorName" HeaderText="Doctor Name" />
                 <asp:BoundField DataField="DrugName" HeaderText="Drug Name" />
-                <asp:BoundField DataField="Date" HeaderText="Date" />
-                <asp:BoundField DataField="PatientName" HeaderText="Patient Name" />
-                <asp:BoundField DataField="PatientType" HeaderText="Patient Type" />
-                <asp:BoundField DataField="Dose" HeaderText="Dose" />
-                <asp:BoundField DataField="Frequency" HeaderText="Frequency" />
-                <asp:BoundField DataField="StartDate" HeaderText="Start Date" />
-                <asp:BoundField DataField="EndDate" HeaderText="End Date" />
-                <asp:BoundField DataField="PrescriptionDetails" HeaderText="Prescription Details" />
+                <asp:BoundField DataField="DrugDose" HeaderText="Drug Dose" />
+                <asp:BoundField DataField="TimesPerDay" HeaderText="Times Per Day" />
+                <asp:BoundField DataField="Type" HeaderText="Patient Type" />
 
             </Columns>
             <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />

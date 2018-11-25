@@ -337,7 +337,9 @@ ul {
 
     .searchContainer > .childSearch {
         position: relative;
-    }
+    top: 0px;
+    left: 0px;
+}
 
 ul .searchPosition {
     margin-left: 0px;
