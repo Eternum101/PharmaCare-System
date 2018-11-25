@@ -46,6 +46,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,6 +75,26 @@
     <Content Include="App_Data\PharmaCare_DB_log.ldf">
       <DependentUpon>PharmaCare_DB.mdf</DependentUpon>
     </Content>
+    <None Include="Connected Services\CocktailService\CocktailService.disco" />
+    <None Include="Connected Services\CocktailService\configuration91.svcinfo" />
+    <None Include="Connected Services\CocktailService\configuration.svcinfo" />
+    <None Include="Connected Services\CocktailService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\HospitalService\HospitalService.disco" />
+    <None Include="Connected Services\HospitalService\configuration91.svcinfo" />
+    <None Include="Connected Services\HospitalService\configuration.svcinfo" />
+    <Content Include="Connected Services\HospitalService\PharmaCare.HospitalService.Doctor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\HospitalService\PharmaCare.HospitalService.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\HospitalService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -113,6 +135,27 @@
     <Content Include="staff_ViewPrescription.aspx" />
     <Content Include="doctor_writePrescription.aspx" />
     <Content Include="pharmacist_preparationList.aspx" />
+    <None Include="Connected Services\CocktailService\CocktailService.wsdl" />
+    <None Include="Connected Services\CocktailService\CocktailService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CocktailService\CocktailService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HospitalService\HospitalService.wsdl" />
+    <None Include="Connected Services\HospitalService\HospitalService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HospitalService\HospitalService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HospitalService\HospitalService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
@@ -141,6 +184,16 @@
     <Content Include="Scripts\popper-utils.js.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connected Services\CocktailService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\HospitalService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="nurse_ViewNursingStation.aspx.cs">
       <DependentUpon>nurse_ViewNursingStation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -188,6 +241,11 @@
       <DependentUpon>pharmacist_PrintIndoorMedicationLabels.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="staff_ViewPrescription.aspx.cs">
       <DependentUpon>staff_ViewPrescription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +291,16 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CocktailService\" />
+    <WCFMetadataStorage Include="Connected Services\HospitalService\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
