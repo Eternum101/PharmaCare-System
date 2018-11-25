@@ -12,7 +12,7 @@ namespace PharmaCare
 {
     public partial class pharmacist_preparationList : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {

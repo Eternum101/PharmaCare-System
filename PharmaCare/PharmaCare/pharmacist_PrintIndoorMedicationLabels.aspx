@@ -34,6 +34,7 @@
                         </asp:CheckBox>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:BoundField DataField="PatientID" HeaderText="Patient ID" />
                 <asp:BoundField DataField="Name" HeaderText="Patient Name" />
                 <asp:BoundField DataField="DoctorName" HeaderText="Doctor Name" />
                 <asp:BoundField DataField="DrugName" HeaderText="Drug Name" />
