@@ -85,7 +85,6 @@
     <Content Include="Content\navigation.css" />
     <Content Include="Content\site.css" />
     <Content Include="login.aspx" />
-    <Content Include="nurse_ViewDistribution.aspx" />
     <Content Include="pharmacist_ViewPrescription.aspx" />
     <Content Include="pharmacist_PrintIndoorMedicationLabels.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -174,13 +173,6 @@
     <Compile Include="Models\doctors.cs" />
     <Compile Include="Models\patient.cs" />
     <Compile Include="Models\prescription.cs" />
-    <Compile Include="nurse_ViewDistribution.aspx.cs">
-      <DependentUpon>nurse_ViewDistribution.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="nurse_ViewDistribution.aspx.designer.cs">
-      <DependentUpon>nurse_ViewDistribution.aspx</DependentUpon>
-    </Compile>
     <Compile Include="pharmacist_ViewPrescription.aspx.cs">
       <DependentUpon>pharmacist_ViewPrescription.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
