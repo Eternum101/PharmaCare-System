@@ -186,11 +186,46 @@ namespace PharmaCare
 
         private void Insert()
         {
+            int drugID = 0;
+            int doctorID = 0;
+            int patientID = 0;
+
+            
+
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
-            string sql ="INSERT INTO Prescriptions (PrescriptionDate, PrescriptionStatus, DrugDose, " +
+            conn.Open();
+            SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", conn);
+            SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
+            while (myReaderDrugID.Read())
+            {
+                drugID = myReaderDrugID.GetInt32(0);
+            }
+            conn.Close();
+
+            conn.Open();
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", conn);
+            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+            while (myReaderDoctorID.Read())
+            {
+                doctorID = myReaderDoctorID.GetInt32(0);
+            }
+
+            conn.Close();
+
+            conn.Open();
+            SqlCommand cmdGetPatientID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPatientName.Text + "'", conn);
+            SqlDataReader myReaderPatientID = cmdGetPatientID.ExecuteReader();
+            while (myReaderPatientID.Read())
+            {
+                patientID = myReaderPatientID.GetInt32(0);
+            }
+
+            conn.Close();
+
+            string sql ="INSERT INTO Prescriptions (PatientID, DoctorID, DrugID, PrescriptionDate, PrescriptionStatus, DrugDose, " +
                          "FirstTime, LastTime, TimesPerDay, StatusOfDose, AdditionalInformation) " +
-                         "VALUES (@PrescriptionDate, @PrescriptionStatus, @DrugDose, @FirstTime, @LastTime, " +
+                         "VALUES (@PatientID, @DoctorID, @DrugID, @PrescriptionDate, @PrescriptionStatus, @DrugDose, @FirstTime, @LastTime, " +
                          "@TimesPerDay, @StatusOfDose, @AdditionalInformation )";
 
             if (!string.IsNullOrEmpty(txtPatientName.Text + txtDate.Text + txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text +
@@ -200,6 +235,9 @@ namespace PharmaCare
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(sql, conn);
+                    cmd.Parameters.AddWithValue("@PatientID", patientID);
+                    cmd.Parameters.AddWithValue("@DoctorID", doctorID);
+                    cmd.Parameters.AddWithValue("@DrugID", drugID);
                     cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
                     cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
                     cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
@@ -223,7 +261,6 @@ namespace PharmaCare
                     conn.Close();
                 }
             }
-            InsertIDs();
             clearTextboxes();
         }
 
