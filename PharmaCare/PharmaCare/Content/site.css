@@ -568,6 +568,23 @@ ul .btnSearchPosition {
     font-family: Arial;
 }
 
+.cocktailWarning{
+    text-align: center;
+    margin-top: -20px;
+}
+
+.lblCocktailSafe {
+    color: black;
+    font-family: Arial;
+    font-size: 18px;
+}
+
+.lblcocktailWarning {
+    color: red;
+    font-family: Arial;
+    font-size: 18px;
+}
+
 /* Modify Prescription */
 .modifyPrescriptionHeader {
     padding-bottom: 50px;
