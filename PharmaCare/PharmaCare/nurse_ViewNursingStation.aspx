@@ -10,7 +10,9 @@
 
         <!-- Patient Name lbl and txt -->
         <h3>Select Nursing Station: 
-            <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" Height="30px" AutoPostBack="True" DataTextField="NursingStationID" DataValueField="NursingStationID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="ddlNursingStation_SelectedIndexChanged1">
+            <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" Height="30px" AutoPostBack="True" DataTextField="NursingStationID" 
+                DataValueField="NursingStationID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="ddlNursingStation_SelectedIndexChanged1" AppendDataBoundItems="true">
+                <asp:ListItem Value="" Text=""></asp:ListItem>
             </asp:DropDownList>
         </h3>
         <div>
@@ -43,6 +45,18 @@
                 <SortedAscendingHeaderStyle BackColor="#FF5454" />
                 <SortedDescendingCellStyle BackColor="#F7F7F7" />
                 <SortedDescendingHeaderStyle BackColor="#FF5454" />
+                <Columns>
+                <asp:BoundField DataField="NursingStationID" HeaderText="Nursing Station ID" />
+                <asp:BoundField DataField="PrescriptionID" HeaderText="Prescription ID" />
+                <asp:BoundField DataField="Name" HeaderText="Patient Name" />
+                <asp:BoundField DataField="WardID" HeaderText="Ward ID" />
+                <asp:BoundField DataField="RoomID" HeaderText="Room ID" />
+                <asp:BoundField DataField="RoomNumber" HeaderText="Room Number" />
+                <asp:BoundField DataField="WingNumber" HeaderText="Wing Number" />
+                <asp:BoundField DataField="FloorNumber" HeaderText="Floor Number" />
+                <asp:BoundField DataField="PrescriptionDate" HeaderText="Prescription Date" />
+                <asp:BoundField DataField="PrescriptionStatus" HeaderText="Prescription Status" />
+                </Columns>
 
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT [NursingStationID] FROM [IndoorPrescriptions]"></asp:SqlDataSource>

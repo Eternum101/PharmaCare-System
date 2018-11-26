@@ -25,7 +25,7 @@ namespace PharmaCare
                 string sql = "SELECT IndoorPrescriptions.NursingStationID, IndoorPrescriptions.PrescriptionID, Patients.Name, Patients.WardID," +
                     " Patients.RoomID, IndoorPrescriptions.RoomNumber, IndoorPrescriptions.WingNumber, IndoorPrescriptions.FloorNumber, Prescriptions.PrescriptionDate," +
                     " Prescriptions.PrescriptionStatus FROM IndoorPrescriptions INNER JOIN Prescriptions ON IndoorPrescriptions.PrescriptionID = Prescriptions.PrescriptionID" +
-                    " INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID WHERE Patients.PatientID= " + ddlNursingStation.SelectedItem.Value;
+                    " INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID WHERE IndoorPrescriptions.NursingStationID= '" + ddlNursingStation.SelectedItem.Text + "'";
                 dgvNurseStation.DataSource = this.GetData(sql);
                 dgvNurseStation.DataBind();
             }
