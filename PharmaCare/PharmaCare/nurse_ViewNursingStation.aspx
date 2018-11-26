@@ -10,7 +10,7 @@
 
         <!-- Patient Name lbl and txt -->
         <h3>Select Nursing Station: 
-            <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" DataSourceID="SqlDataSource2" DataTextField="NursingStationID" DataValueField="NursingStationID" Height="30px">
+            <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" DataTextField="NursingStationID" DataValueField="NursingStationID" Height="30px">
             </asp:DropDownList>
         </h3>
         <div>
@@ -32,8 +32,19 @@
         </div>
             <asp:GridView ID="dgvNurseStation" runat="server" DataSourceID="SqlDataSource1" 
                 AllowSorting="True" CellPadding="4" Width="1000px" BackColor="White" 
-                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" AutoGenerateColumns="False">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
+                <Columns>
+                    <asp:BoundField DataField="PrescriptionID" HeaderText="PrescriptionID" SortExpression="PrescriptionID" />
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="RoomNumber" HeaderText="RoomNumber" SortExpression="RoomNumber" />
+                    <asp:BoundField DataField="WardID" HeaderText="WardID" SortExpression="WardID" />
+                    <asp:BoundField DataField="RoomID" HeaderText="RoomID" SortExpression="RoomID" />
+                    <asp:BoundField DataField="WingNumber" HeaderText="WingNumber" SortExpression="WingNumber" />
+                    <asp:BoundField DataField="FloorNumber" HeaderText="FloorNumber" SortExpression="FloorNumber" />
+                    <asp:BoundField DataField="PrescriptionDate" HeaderText="PrescriptionDate" SortExpression="PrescriptionDate" />
+                    <asp:BoundField DataField="PrescriptionStatus" HeaderText="PrescriptionStatus" SortExpression="PrescriptionStatus" />
+                </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
                 <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="15px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
@@ -59,13 +70,8 @@
 
     <!-- END Bottom Div -->
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-        SelectCommand="SELECT Patients.Name, Patients.Address, Patients.WardID, Prescriptions.PrescriptionDate, 
-        Prescriptions.PrescriptionStatus, Prescriptions.DrugDose, Prescriptions.StatusOfDose, 
-        Patients.RoomID FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-        SelectCommand="SELECT DISTINCT [NursingStationID] FROM [IndoorPrescriptions] 
-        ORDER BY [NursingStationID]"></asp:SqlDataSource>
-</asp:Content>
+        SelectCommand="SELECT IndoorPrescriptions.PrescriptionID, Patients.Name, IndoorPrescriptions.RoomNumber, Patients.WardID, Patients.RoomID, IndoorPrescriptions.WingNumber, IndoorPrescriptions.FloorNumber, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus FROM IndoorPrescriptions INNER JOIN Prescriptions ON IndoorPrescriptions.PrescriptionID = Prescriptions.PrescriptionID INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID"></asp:SqlDataSource>
+    </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
     <div class="float_center">
         <ul class="child">
