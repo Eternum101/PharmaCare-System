@@ -109,6 +109,8 @@ namespace PharmaCare
 
                     btnCancel.Enabled = true;
                     btnCancel.CssClass = "buttonVisuals_Spacing";
+
+                    lblCocktailWarning.Text = null;
                 }
             }
         }
@@ -117,14 +119,78 @@ namespace PharmaCare
         {
             
         }
+        private void InsertIDs()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+            int drugID = 0;
+            int doctorID = 0;
+            int patientID = 0;
+            try
+            {
+                con.Open();
+                SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
+                SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
+                while (myReaderDrugID.Read())
+                {
+                    drugID = myReaderDrugID.GetInt32(0);
+                }
+
+                con.Close();
+                con.Open();
+                SqlCommand cmdUpdateDrugID = new SqlCommand("INSERT INTO Prescriptions (DrugID) VALUES (@DrugID)", con) ;
+                cmdUpdateDrugID.Parameters.AddWithValue("@DrugID", drugID);
+                cmdUpdateDrugID.CommandType = CommandType.Text;
+                cmdUpdateDrugID.ExecuteNonQuery();
+                con.Close();
+
+                con.Open();
+                SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", con);
+                SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+                while (myReaderDoctorID.Read())
+                {
+                    doctorID = myReaderDoctorID.GetInt32(0);
+                }
+
+                con.Close();
+                con.Open();
+                SqlCommand cmdUpdateDoctorID = new SqlCommand("INSERT INTO Prescriptions (DoctorID) VALUES (@DoctorID)", con);
+                cmdUpdateDoctorID.Parameters.AddWithValue("@DoctorID", doctorID);
+                cmdUpdateDoctorID.CommandType = CommandType.Text;
+                cmdUpdateDoctorID.ExecuteNonQuery();
+                con.Close();
+
+                con.Open();
+                SqlCommand cmdGetPatientID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPatientName.Text + "'", con);
+                SqlDataReader myReaderPatientID = cmdGetPatientID.ExecuteReader();
+                while (myReaderPatientID.Read())
+                {
+                    patientID = myReaderPatientID.GetInt32(0);
+                }
+
+                con.Close();
+                con.Open();
+                SqlCommand cmdUpdatePatientID = new SqlCommand("INSERT INTO Prescriptions (PatientID) VALUES (@PatientID)", con);
+                cmdUpdatePatientID.Parameters.AddWithValue("@PatientID", patientID);
+                cmdUpdatePatientID.CommandType = CommandType.Text;
+                cmdUpdatePatientID.ExecuteNonQuery();
+                con.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                throw new Exception(msg);
+            }
+        }
 
         private void Insert()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
-            string sql ="INSERT INTO Prescriptions (PatientID, DrugID, DoctorID, PrescriptionDate, PrescriptionStatus, DrugDose, " +
+            string sql ="INSERT INTO Prescriptions (PrescriptionDate, PrescriptionStatus, DrugDose, " +
                          "FirstTime, LastTime, TimesPerDay, StatusOfDose, AdditionalInformation) " +
-                         "VALUES (@PatientID, @DrugID, @DoctorID, @PrescriptionDate, @PrescriptionStatus, @DrugDose, @FirstTime, @LastTime, " +
+                         "VALUES (@PrescriptionDate, @PrescriptionStatus, @DrugDose, @FirstTime, @LastTime, " +
                          "@TimesPerDay, @StatusOfDose, @AdditionalInformation )";
 
             if (!string.IsNullOrEmpty(txtPatientName.Text + txtDate.Text + txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text +
@@ -134,18 +200,14 @@ namespace PharmaCare
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@PatientID", txtPatientName.Text);
-                    cmd.Parameters.AddWithValue("@DoctorID", txtDoctorName.Text);
                     cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
                     cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
-                    cmd.Parameters.AddWithValue("@DrugID", txtDrugName.Text);
                     cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
                     cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
                     cmd.Parameters.AddWithValue("@DrugDose", txtDose.Text);
                     cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
                     cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
                     cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
-                    //command.Parameters.AddWithValue("@DrugID", txtDoctorName);
                     cmd.CommandType = CommandType.Text;
                     cmd.ExecuteNonQuery();
                 }
@@ -161,6 +223,8 @@ namespace PharmaCare
                     conn.Close();
                 }
             }
+            InsertIDs();
+            clearTextboxes();
         }
 
       
@@ -180,6 +244,8 @@ namespace PharmaCare
             txtAdditionalInformation.Text = null;
 
             txtPatientName.Enabled = true;
+
+            lblCocktailWarning.Text = null;
 
             dgvDoctorPrescriptions.SelectedIndex = -1;
             dgvDoctorPrescriptions.DataSource = null;
@@ -323,6 +389,24 @@ namespace PharmaCare
             getIDs();
             clearTextboxes();
         }
-        
+
+        protected void btnCheckCocktail_Click(object sender, EventArgs e)
+        {
+
+            CocktailService.CocktailServiceClient client = new CocktailService.CocktailServiceClient();
+
+            if (client.checkCocktail(txtDrugName.Text) == true)
+            {
+                lblCocktailWarning.CssClass = "lblcocktailWarning";
+                lblCocktailWarning.Text = "Warning! Dangerous Drug Used!";    
+            }
+            else if (client.checkCocktail(txtDrugName.Text) == false)
+            {
+                lblCocktailWarning.CssClass = "lblCocktailSafe";
+                lblCocktailWarning.Text = "Current Drug Used Is Safe!";
+            }
+
+            client.Close();
+        }
     }
 }

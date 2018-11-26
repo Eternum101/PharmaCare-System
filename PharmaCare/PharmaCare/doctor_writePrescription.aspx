@@ -158,7 +158,9 @@
         </div>
     </div>
     <!-- END Bordered div -->
-
+    <div class="cocktailWarning">
+        <asp:Label Text="" ID="lblCocktailWarning" CssClass="lblcocktailWarning" runat="server" />
+    </div>
     <!-- Bottom Div -->
     <div class="extraSpace">
         <div class="bigTextBoxDiv">
@@ -180,7 +182,7 @@
           <li><p>455089250</p></li>
             -->
           
-          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" OnClick="btnCheckCocktail_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" OnClick="btnCancel_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" ValidationGroup="PrescriptionValidation" OnClick="btnModify_Click" /></li>
