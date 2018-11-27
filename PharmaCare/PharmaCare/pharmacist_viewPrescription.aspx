@@ -8,13 +8,15 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
 
     <div>
-        <!-- Page Heading -->
+       
         <h1 class="writePrescriptionHeading">View/Dispatch Prescription<asp:SqlDataSource ID="SqlDataSourcePharmacist" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-            SelectCommand="SELECT   Prescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
-                Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
-                Prescriptions.DrugDose, Prescriptions.StatusOfDose FROM Patients INNER JOIN Prescriptions 
-                ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
-                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
+            SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Doctors.DoctorName, Prescriptions.PrescriptionDate, Prescriptions.StatusOfPrescription FROM Prescriptions INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID INNER JOIN Doctors ON Prescriptions.DoctorID = Doctors.DoctorID AND Patients.DoctorID = Doctors.DoctorID"></asp:SqlDataSource>
+            
+            <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="txtPrescriptionID" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
         </h1>
 
         <!--Prescription Search-->
@@ -31,7 +33,7 @@
      <div class="globalBorderRound">
         <div class="leftTextboxDiv">
             <div class="left">
-            <h4 class="lblPrescriptionTable">Preperation List</h4><br />
+            <h4 class="lblPrescriptionTable">Prescription List</h4><br />
 
             </div>
             <asp:GridView ID="dgvPharmacistPrescriptions" runat="server" DataSourceID="SqlDataSourcePharmacist" 
@@ -41,16 +43,43 @@
                 AutoGenerateColumns="False" DataKeyNames="PrescriptionID" ValidateRequestMode="Disabled">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
-                    <asp:BoundField DataField="PrescriptionID" HeaderText="PrescriptionID" ReadOnly="True" SortExpression="PrescriptionID" />
+                    <asp:BoundField DataField="PrescriptionID" HeaderText="PrescriptionID" ReadOnly="True" SortExpression="PrescriptionID" InsertVisible="False" />
                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                    <asp:BoundField DataField="PrescriptionDate" HeaderText="PrescriptionDate" SortExpression="PrescriptionDate" />
-                    <asp:BoundField DataField="PrescriptionStatus" HeaderText="PrescriptionStatus" SortExpression="PrescriptionStatus" />
                     <asp:BoundField DataField="DoctorName" HeaderText="DoctorName" SortExpression="DoctorName" />
+                    <asp:BoundField DataField="PrescriptionDate" HeaderText="PrescriptionDate" SortExpression="PrescriptionDate" />
+                    <asp:BoundField DataField="StatusOfPrescription" HeaderText="StatusOfPrescription" SortExpression="StatusOfPrescription" />
+                </Columns>
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
+                <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#FF5454" />
+                <SortedDescendingCellStyle BackColor="#F7F7F7" />
+                <SortedDescendingHeaderStyle BackColor="#FF5454" />
+            </asp:GridView>
+        </div>
+    </div>
+    <div class="globalBorderRound">
+        <div class="leftTextboxDiv">
+            <div class="left">
+            <h4 class="lblPrescriptionTable">Prescription Details</h4><br />
+
+            </div>
+            <asp:GridView ID="dgvPrescriptionsDetails" runat="server" DataSourceId="SqlDataSourceDetails"
+                AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
+                AutoGenerateColumns="False" ValidateRequestMode="Disabled">
+                <AlternatingRowStyle BackColor="#F7F7F7" />
+                <Columns>
+                    <asp:BoundField DataField="LinkID" HeaderText="LinkID" SortExpression="LinkID" />
                     <asp:BoundField DataField="DrugName" HeaderText="DrugName" SortExpression="DrugName" />
+                    <asp:BoundField DataField="DrugForm" HeaderText="DrugForm" SortExpression="DrugForm" />
+                    <asp:BoundField DataField="Dose" HeaderText="Dose" SortExpression="Dose" />
                     <asp:BoundField DataField="FirstTime" HeaderText="FirstTime" SortExpression="FirstTime" />
                     <asp:BoundField DataField="LastTime" HeaderText="LastTime" SortExpression="LastTime" />
                     <asp:BoundField DataField="TimesPerDay" HeaderText="TimesPerDay" SortExpression="TimesPerDay" />
-                    <asp:BoundField DataField="DrugDose" HeaderText="DrugDose" SortExpression="DrugDose" />
                     <asp:BoundField DataField="StatusOfDose" HeaderText="StatusOfDose" SortExpression="StatusOfDose" />
                 </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
@@ -73,8 +102,8 @@
             </div>
             
          <div class="leftTextboxDiv">
-            <h4>Drug:</h4>
-            <asp:TextBox ID="txtDrugName"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
+            <h4>Doctor Name:</h4>
+            <asp:TextBox ID="txtDoctorName"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
          </div>
 
         <div class="leftTextboxDiv">

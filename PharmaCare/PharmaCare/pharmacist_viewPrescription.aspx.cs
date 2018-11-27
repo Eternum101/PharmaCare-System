@@ -62,9 +62,9 @@ namespace PharmaCare
                 if (row.RowIndex == dgvPharmacistPrescriptions.SelectedIndex)
                 {
                     txtPrescriptionID.Text = row.Cells[0].Text;
-                    txtDrugName.Text = row.Cells[5].Text.ToString().Trim();
+                    txtDoctorName.Text = row.Cells[2].Text.ToString().Trim();
                     txtPatientName.Text = row.Cells[1].Text;
-                    txtStatus.Text = row.Cells[3].Text;
+                    txtStatus.Text = row.Cells[4].Text;
 
                 }
             }
@@ -122,7 +122,7 @@ namespace PharmaCare
         private void ClearTextBox()
         {
             txtPrescriptionID.Text = "";
-            txtDrugName.Text = "";
+            txtDoctorName.Text = "";
             txtPatientName.Text = "";
             txtStatus.Text = "";
         }
