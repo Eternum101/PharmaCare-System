@@ -136,6 +136,9 @@
         <!-- Left Div -->
        
             <h4 class="lblPrescriptionNumber">Drug Details Number: &nbsp;<asp:Label Text="" ID="lblDrugID" runat="server" /> </h4><br />
+        
+            <asp:Button class="btnSubmitNewDrugDetail" Text="New Details" runat="server" ID="btnSubmitNewDrugDetail" OnClick="btnSubmitNewDrugDetail_Click"/>
+            
         <!-- Right Div -->
         <div class="leftTextboxDiv">
 
@@ -195,6 +198,9 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtDrugName" 
                 CssClass="validatorText" ErrorMessage="First Time Required" 
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            
+            
+            
         </div>
 
     </div>

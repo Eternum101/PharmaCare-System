@@ -25,6 +25,9 @@ namespace PharmaCare
 
             btnCancel.Enabled = false;
             btnCancel.CssClass = "buttonVisuals_Spacing_Disabled";
+
+            btnSubmitNewDrugDetail.Enabled = false;
+            btnSubmitNewDrugDetail.CssClass = "btnSubmitNewDrugDetailDisabled";
         }
 
         protected void TextBox13_TextChanged(object sender, EventArgs e)
@@ -109,6 +112,9 @@ namespace PharmaCare
                     btnCancel.Enabled = true;
                     btnCancel.CssClass = "buttonVisuals_Spacing";
 
+                    btnSubmitNewDrugDetail.Enabled = true;
+                    btnSubmitNewDrugDetail.CssClass = "btnSubmitNewDrugDetail";
+
                     lblCocktailWarning.Text = null;
 
                     
@@ -171,6 +177,9 @@ namespace PharmaCare
 
                     btnCancel.Enabled = true;
                     btnCancel.CssClass = "buttonVisuals_Spacing";
+
+                    btnSubmitNewDrugDetail.Enabled = false;
+                    btnSubmitNewDrugDetail.CssClass = "btnSubmitNewDrugDetailDisabled";
 
                     lblCocktailWarning.Text = null;
                 }
@@ -400,6 +409,9 @@ namespace PharmaCare
 
             btnCancel.Enabled = false;
             btnCancel.CssClass = "buttonVisuals_Spacing_Disabled";
+
+            btnSubmitNewDrugDetail.Enabled = true;
+            btnSubmitNewDrugDetail.CssClass = "btnSubmitNewDrugDetail";
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -421,7 +433,17 @@ namespace PharmaCare
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+            
+
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+
+            sqlConn.Open();
+
+            SqlCommand cmd2 = new SqlCommand(
+                " DELETE FROM PrescriptionsDetails WHERE LinkID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
+            cmd2.ExecuteNonQuery();
+            sqlConn.Close();
+
 
             sqlConn.Open();
 
@@ -429,7 +451,10 @@ namespace PharmaCare
                 " DELETE FROM Prescriptions WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
             cmd.ExecuteNonQuery();
             sqlConn.Close();
+            
+            
             clearTextboxes();
+
         }
 
         private void dgvDoctorPrescriptions_ContentModify()
@@ -540,6 +565,44 @@ namespace PharmaCare
             }
 
             client.Close();
+        }
+
+        protected void btnSubmitNewDrugDetail_Click(object sender, EventArgs e)
+        {
+            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+
+            string sql = "INSERT INTO PrescriptionsDetails (DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, LinkID) " +
+                         "VALUES (@DrugName, @DrugForm, @Dose, @FirstTime, @LastTime, @TimesPerDay, @StatusOfDose, @LinkID)";
+
+            try
+            {
+                sqlConn.Open();
+                SqlCommand cmd = new SqlCommand(sql, sqlConn);
+                cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
+                cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
+                cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
+                cmd.Parameters.AddWithValue("@DrugForm", txtDrugForm.Text);
+                cmd.Parameters.AddWithValue("@Dose", txtDose.Text);
+                cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
+                cmd.Parameters.AddWithValue("@DrugName", txtDrugName.Text);
+                cmd.Parameters.AddWithValue("@LinkID", Convert.ToInt32(lblPrescriptionNumber.Text));
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                throw new Exception(msg);
+
+            }
+            finally
+            {
+                sqlConn.Close();
+            }
+            dgvDrugDetails.DataSource = SqlDataSourceDetails;
+            dgvDrugDetails.DataBind();
+            clearTextboxes();
         }
     }
 }
