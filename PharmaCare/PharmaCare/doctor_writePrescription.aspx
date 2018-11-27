@@ -12,20 +12,12 @@
         <h1 class="writePrescriptionHeading">Write Prescription</h1>
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
-                Doctors.DoctorName, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
+                SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Doctors.DoctorName, 
+                Prescriptions.StatusOfPrescription FROM Patients INNER JOIN Prescriptions 
                 ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
-                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
+                ON Doctors.DoctorID = Prescriptions.DoctorID"></asp:SqlDataSource>
 
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT [DrugID], [DrugName] FROM [Drugs]"></asp:SqlDataSource>
-
-            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT [DoctorID], [DoctorName] FROM [Doctors]"></asp:SqlDataSource>
-
-            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT [PatientID], [Name] FROM [Patients]"></asp:SqlDataSource>
-        
+   
         <div class="searchContainer">
             <ul class="childSearch">
               <li class="searchPosition"><h3>Patient Name: </h3></li>
@@ -66,7 +58,7 @@
             <asp:Label Text="Drug Details" CssClass="lblPrescriptionTable" runat="server" /><br />
 
         </div>
-            <asp:GridView ID="GridView1" runat="server" DataSourceID="" 
+            <asp:GridView ID="dgvDrugDetails" runat="server"
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellSpacing="2" GridLines="Horizontal"
                 OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
@@ -205,7 +197,7 @@
     <div class="cocktailWarning">
         <asp:Label Text="" ID="lblCocktailWarning" CssClass="lblcocktailWarning" runat="server" />
     </div>
-    <!-- Bottom Div -->
+    <!-- Bottom Div 
     <div class="extraSpace">
         <div class="bigTextBoxDiv">
             <div class="left">
@@ -213,9 +205,8 @@
             </div>
             <asp:TextBox ID="txtAdditionalInformation" class="bigTextBox" runat="server" />
         </div>
-    </div>
+    </div>-->
     <!-- END Bottom Div -->
-
     
 
     <div class="float_center">
