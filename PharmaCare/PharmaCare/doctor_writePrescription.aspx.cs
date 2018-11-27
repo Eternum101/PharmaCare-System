@@ -77,10 +77,11 @@ namespace PharmaCare
 
         private void TableData()
         {
+            string prescriptionID;
             foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
             {
-                
-                    if (row.RowIndex == dgvDoctorPrescriptions.SelectedIndex)
+                prescriptionID = row.Cells[0].Text;
+                if (row.RowIndex == dgvDoctorPrescriptions.SelectedIndex)
                     {
                         lblPrescriptionNumber.Text = row.Cells[0].Text;
                         txtPatientName.Text = row.Cells[1].Text;
@@ -116,42 +117,19 @@ namespace PharmaCare
                         btnCancel.CssClass = "buttonVisuals_Spacing";
 
                         lblCocktailWarning.Text = null;
-                    }
+
+                    dgvDrugDetails.DataSource = SqlDataSourceDetails;
+                    dgvDrugDetails.DataBind();
+                }
                     
-                    using (SqlConnection con = new SqlConnection(Con))
-                    {
-                        int LinkID = 0;
-                        string sql = "SELECT PrescriptionsDetails.PrescriptionDetailsID, " +
-                            " PrescriptionsDetails.LinkID, " +
-                            " PrescriptionsDetails.DrugName, PrescriptionsDetails.DrugForm, PrescriptionsDetails.Dose, PrescriptionsDetails.FirstTime, " +
-                            " PrescriptionsDetails.LastTime, PrescriptionsDetails.TimesPerDay, PrescriptionsDetails.StatusOfDose " +
-                            " FROM PrescriptionsDetails INNER JOIN Prescriptions ON PrescriptionsDetails.LinkID = Prescriptions.PrescriptionID " +
-                            " WHERE PrescriptionsDetails.LinkID = Prescriptions.PrescriptionID  ";
                     
-                            dgvDrugDetails.DataSource = this.GetData(sql);
-                            dgvDrugDetails.DataBind();
-                        
-                    }
+                            
+                    
                 
             }
         }
 
-        private DataTable GetData(string sql)
-        {
-            using (SqlConnection con = new SqlConnection(Con))
-            {
-                using (SqlCommand cmd = new SqlCommand(sql))
-                {
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-                    {
-                        cmd.Connection = con;
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        return dt;
-                    }
-                }
-            }
-        }
+        
 
         
         private void checkName()
