@@ -12,7 +12,8 @@
         <h1 class="writePrescriptionHeading">View/Dispatch Prescription<asp:SqlDataSource ID="SqlDataSourcePharmacist" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
             SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Doctors.DoctorName, Prescriptions.PrescriptionDate, Prescriptions.StatusOfPrescription FROM Prescriptions INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID INNER JOIN Doctors ON Prescriptions.DoctorID = Doctors.DoctorID AND Patients.DoctorID = Doctors.DoctorID"></asp:SqlDataSource>
             
-            <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
+            <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+                SelectCommand="SELECT [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="txtPrescriptionID" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
                 </SelectParameters>

@@ -17,6 +17,12 @@
                 ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
                 ON Doctors.DoctorID = Prescriptions.DoctorID"></asp:SqlDataSource>
 
+            <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+                SelectCommand="SELECT [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
+                <SelectParameters>
+                    <asp:ControlParameter ControlID="lblPrescriptionNumber" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
+                </SelectParameters>
+            </asp:SqlDataSource>
    
         <div class="searchContainer">
             <ul class="childSearch">
