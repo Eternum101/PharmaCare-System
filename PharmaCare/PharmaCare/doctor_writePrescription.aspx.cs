@@ -176,7 +176,7 @@ namespace PharmaCare
                 }
             }
         }
-
+        
         
         private void checkName()
         {
