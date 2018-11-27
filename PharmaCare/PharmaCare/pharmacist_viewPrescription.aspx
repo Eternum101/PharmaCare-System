@@ -18,6 +18,7 @@
                     <asp:ControlParameter ControlID="txtPrescriptionID" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceOPD" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Doctors.DoctorName, OPDPrescriptions.[Filled&amp;Dispatched], OPDPrescriptions.TimeDispatched, OPDPrescriptions.DateDispatched, OPDPrescriptions.IndoorEmergency, OPDPrescriptions.ToFill, Patients.Type FROM Doctors INNER JOIN Patients ON Doctors.DoctorID = Patients.DoctorID INNER JOIN Prescriptions ON Doctors.DoctorID = Prescriptions.DoctorID AND Patients.PatientID = Prescriptions.PatientID INNER JOIN OPDPrescriptions ON Prescriptions.PrescriptionID = OPDPrescriptions.PrescriptionID"></asp:SqlDataSource>
         </h1>
 
         <!--Prescription Search-->
@@ -95,7 +96,40 @@
             </asp:GridView>
         </div>
     </div>
-    <br/>
+    <div><h1 class="writePrescriptionHeading">Fill/Dispatch OPD Prescriptions</h1></div><br /><br />
+    <div class="globalBorderRound">
+        <div class="leftTextboxDiv">
+            <div class="left">
+            <h4 class="lblPrescriptionTable">Patient Outdoor Prescriptions:</h4><br />
+             </div>
+            </div>
+        <asp:GridView ID="dgvOPDPrescriptions" runat="server" DataSourceId="SqlDataSourceOPD"
+                AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
+                AutoGenerateColumns="False" ValidateRequestMode="Disabled" DataKeyNames="PrescriptionID">
+                <Columns>
+                    <asp:BoundField DataField="PrescriptionID" HeaderText="Prescription ID" InsertVisible="False" ReadOnly="True" SortExpression="PrescriptionID" />
+                    <asp:BoundField DataField="Name" HeaderText="Patient Name" SortExpression="Name" />
+                    <asp:BoundField DataField="DoctorName" HeaderText="Doctor Name" SortExpression="DoctorName" />
+                    <asp:BoundField DataField="Filled&amp;Dispatched" HeaderText="Filled &amp; Dispatched" SortExpression="Filled&amp;Dispatched" />
+                    <asp:BoundField DataField="TimeDispatched" HeaderText="Time Dispatched" SortExpression="TimeDispatched" />
+                    <asp:BoundField DataField="DateDispatched" HeaderText="Date Dispatched" SortExpression="DateDispatched" />
+                    <asp:BoundField DataField="IndoorEmergency" HeaderText="Indoor Emergency" SortExpression="IndoorEmergency" />
+                    <asp:BoundField DataField="ToFill" HeaderText="To Fill" SortExpression="ToFill" />
+                    <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
+                </Columns>
+                <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
+                <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
+                <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
+                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                <SortedAscendingCellStyle BackColor="#F7F7F7" />
+                <SortedAscendingHeaderStyle BackColor="#FF5454" />
+                <SortedDescendingCellStyle BackColor="#F7F7F7" />
+                <SortedDescendingHeaderStyle BackColor="#FF5454" />
+            </asp:GridView>
+    </div>
+    <br /><br />
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
            <h4>Prescription ID:</h4> 
