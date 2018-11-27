@@ -18,7 +18,7 @@ namespace PharmaCare
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None; 
+            
         }
 
         protected void btnNursePatientSearch_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace PharmaCare
             {
                 string txtSearch = txtNursePatientSearch.Text.Trim();
 
-                if (!Regex.IsMatch(row.Cells[0].Text, txtSearch, RegexOptions.IgnoreCase))
+                if (!Regex.IsMatch(row.Cells[1].Text, txtSearch, RegexOptions.IgnoreCase))
                 {
                     {
                         row.Visible = false;
@@ -60,6 +60,18 @@ namespace PharmaCare
         {
             clearTextboxes();
             txtNursePatientSearch.Text = null; 
+        }
+
+        protected void dgvNursePrescriptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (GridViewRow row in dgvNursePrescriptions.Rows)
+            {
+                if (row.RowIndex == dgvNursePrescriptions.SelectedIndex)
+                {
+                    lblPrescriptionID.Text = row.Cells[0].Text;
+                }
+            }
+
         }
     }
 }
