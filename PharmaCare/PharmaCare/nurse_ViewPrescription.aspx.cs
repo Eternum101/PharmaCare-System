@@ -12,13 +12,13 @@ using System.Text.RegularExpressions;
 
 namespace PharmaCare
 {
-    
+
     public partial class nurse_ViewPrescription : System.Web.UI.Page
     {
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
         protected void btnNursePatientSearch_Click(object sender, EventArgs e)
@@ -59,7 +59,19 @@ namespace PharmaCare
         protected void btnClear_Click(object sender, EventArgs e)
         {
             clearTextboxes();
-            txtNursePatientSearch.Text = null; 
+            txtNursePatientSearch.Text = null;
+        }
+
+        protected override void Render(System.Web.UI.HtmlTextWriter textWriter)
+        {
+            foreach (GridViewRow gvRow in dgvNursePrescriptions.Rows)
+            {
+                if (gvRow.RowType == DataControlRowType.DataRow)
+                {
+                    gvRow.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(dgvNursePrescriptions, "Select$" + gvRow.RowIndex, true);
+                }
+            }
+            base.Render(textWriter);
         }
 
         protected void dgvNursePrescriptions_SelectedIndexChanged(object sender, EventArgs e)

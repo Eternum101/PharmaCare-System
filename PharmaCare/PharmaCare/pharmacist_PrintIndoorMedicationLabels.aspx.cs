@@ -23,9 +23,11 @@ namespace PharmaCare
         {
             using (SqlConnection con = new SqlConnection(Con))
             {
-                using (SqlCommand cmd = new SqlCommand("Select PrescriptionID, Prescriptions.PatientID, Prescriptions.DoctorID, Name, DoctorName, DrugName, Dose, TimesPerDay, " +
-                    "Type FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID " +
-                    "INNER JOIN Doctors ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID WHERE Patients.PatientID=" + txtPrescriptionIDInput.Text + " and Type='IN'"))
+                using (SqlCommand cmd = new SqlCommand("Select Patients.PatientID, Patients.Name, Doctors.DoctorName, PrescriptionsDetails.DrugName, " +
+                    "PrescriptionsDetails.DrugForm, PrescriptionsDetails.Dose, PrescriptionsDetails.TimesPerDay, Patients.Type FROM Doctors " +
+                    "INNER JOIN Patients ON Doctors.DoctorID = Patients.DoctorID INNER JOIN Prescriptions ON Doctors.DoctorID = Prescriptions.DoctorID AND " +
+                    "Patients.PatientID = Prescriptions.PatientID INNER JOIN PrescriptionsDetails ON Prescriptions.PrescriptionID = PrescriptionsDetails.LinkID " +
+                    "WHERE Patients.PatientID=" + txtPrescriptionIDInput.Text + " and Type='IN'"))
                 {
                     cmd.Connection = con;
                     cmd.CommandType = CommandType.Text;
