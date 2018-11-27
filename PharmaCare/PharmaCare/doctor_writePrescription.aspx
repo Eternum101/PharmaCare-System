@@ -33,6 +33,11 @@
             </ul>
         </div>
     </div>
+
+    <div class="cocktailWarning">
+        <asp:Label Text="" ID="lblCocktailWarning" CssClass="lblcocktailWarning" runat="server" />
+    </div>
+
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
@@ -206,9 +211,7 @@
     </div>
 
     <!-- END Bordered div -->
-    <div class="cocktailWarning">
-        <asp:Label Text="" ID="lblCocktailWarning" CssClass="lblcocktailWarning" runat="server" />
-    </div>
+    
     <!-- Bottom Div 
     <div class="extraSpace">
         <div class="bigTextBoxDiv">

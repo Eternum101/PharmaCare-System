@@ -7,11 +7,12 @@
      <div>
 
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
-                Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
-                Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
-                ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
-                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
+                SelectCommand="SELECT OPDPrescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Doctors.DoctorName, 
+                Prescriptions.StatusOfPrescription, OPDPrescriptions.FilledandDispatched, OPDPrescriptions.TimeDispatched, 
+                OPDPrescriptions.DateDispatched, OPDPrescriptions.IndoorEmergency, OPDPrescriptions.ToFill
+                FROM Patients INNER JOIN Prescriptions ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
+                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN OPDPrescriptions ON 
+                Prescriptions.PrescriptionID = OPDPrescriptions.PrescriptionID"></asp:SqlDataSource>
 
         <!-- Page Heading -->
         <h1 class="">OPD Prescription</h1>
@@ -39,7 +40,7 @@
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellSpacing="2" GridLines="Horizontal">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
-                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
+                <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="12px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
                 <RowStyle BackColor="#FFCBCB" ForeColor="#000000" />
                 <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />

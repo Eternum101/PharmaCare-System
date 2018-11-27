@@ -18,7 +18,12 @@
                     <asp:ControlParameter ControlID="txtPrescriptionID" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSourceOPD" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Doctors.DoctorName, OPDPrescriptions.[Filled&amp;Dispatched], OPDPrescriptions.TimeDispatched, OPDPrescriptions.DateDispatched, OPDPrescriptions.IndoorEmergency, OPDPrescriptions.ToFill, Patients.Type FROM Doctors INNER JOIN Patients ON Doctors.DoctorID = Patients.DoctorID INNER JOIN Prescriptions ON Doctors.DoctorID = Prescriptions.DoctorID AND Patients.PatientID = Prescriptions.PatientID INNER JOIN OPDPrescriptions ON Prescriptions.PrescriptionID = OPDPrescriptions.PrescriptionID"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceOPD" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+                SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Doctors.DoctorName, OPDPrescriptions.[FilledandDispatched], 
+                OPDPrescriptions.TimeDispatched, OPDPrescriptions.DateDispatched, OPDPrescriptions.IndoorEmergency, OPDPrescriptions.ToFill, 
+                Patients.Type FROM Doctors INNER JOIN Patients ON Doctors.DoctorID = Patients.DoctorID INNER JOIN Prescriptions ON 
+                Doctors.DoctorID = Prescriptions.DoctorID AND Patients.PatientID = Prescriptions.PatientID INNER JOIN OPDPrescriptions ON 
+                Prescriptions.PrescriptionID = OPDPrescriptions.PrescriptionID"></asp:SqlDataSource>
         </h1>
 
         <!--Prescription Search-->
@@ -111,7 +116,7 @@
                     <asp:BoundField DataField="PrescriptionID" HeaderText="Prescription ID" InsertVisible="False" ReadOnly="True" SortExpression="PrescriptionID" />
                     <asp:BoundField DataField="Name" HeaderText="Patient Name" SortExpression="Name" />
                     <asp:BoundField DataField="DoctorName" HeaderText="Doctor Name" SortExpression="DoctorName" />
-                    <asp:BoundField DataField="Filled&amp;Dispatched" HeaderText="Filled &amp; Dispatched" SortExpression="Filled&amp;Dispatched" />
+                    <asp:BoundField DataField="FilledandDispatched" HeaderText="Filled and Dispatched" SortExpression="FilledandDispatched" />
                     <asp:BoundField DataField="TimeDispatched" HeaderText="Time Dispatched" SortExpression="TimeDispatched" />
                     <asp:BoundField DataField="DateDispatched" HeaderText="Date Dispatched" SortExpression="DateDispatched" />
                     <asp:BoundField DataField="IndoorEmergency" HeaderText="Indoor Emergency" SortExpression="IndoorEmergency" />
