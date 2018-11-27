@@ -18,7 +18,7 @@
                 ON Doctors.DoctorID = Prescriptions.DoctorID"></asp:SqlDataSource>
 
             <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
-                SelectCommand="SELECT [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
+                SelectCommand="SELECT [PrescriptionDetailsID], [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="lblPrescriptionNumber" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
@@ -67,7 +67,7 @@
             <asp:GridView ID="dgvDrugDetails" runat="server"
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="1px" CellSpacing="2" GridLines="Horizontal"
-                OnRowDataBound="dgvDoctorPrescriptions_RowDataBound" OnSelectedIndexChanged="OnSelectedIndexChanged" >
+                OnRowDataBound="dgvDrugPrescription_RowDataBound" OnSelectedIndexChanged="OnSelectedDrugIndexChanged" >
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
                 <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="11px" ForeColor="#F7F7F7" />
@@ -135,7 +135,7 @@
     <div class="globalBorderRound">
         <!-- Left Div -->
        
-
+            <h4 class="lblPrescriptionNumber">Drug Details Number: &nbsp;<asp:Label Text="" ID="lblDrugID" runat="server" /> </h4><br />
         <!-- Right Div -->
         <div class="leftTextboxDiv">
 
@@ -226,7 +226,7 @@
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" OnClick="btnCheckCocktail_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" OnClick="btnCancel_Click" /></li>
-          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" ValidationGroup="PrescriptionValidation" OnClick="btnModify_Click" /></li>
+          <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Modify" runat="server" ID="btnModify" OnClick="btnModify_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Submit" runat="server" ID="btnSubmit2" OnClick="btnSubmit_Click" /></li>
         </ul>
     </div>

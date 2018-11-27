@@ -61,20 +61,6 @@ namespace PharmaCare
             }
         }
 
-        protected void dgvDoctorPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDoctorPrescriptions, "Select$" + e.Row.RowIndex);
-            }
-
-        }
-
-        public void OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            TableData();
-        }
-
         private void TableData()
         {
             string prescriptionID;
@@ -82,54 +68,114 @@ namespace PharmaCare
             {
                 prescriptionID = row.Cells[0].Text;
                 if (row.RowIndex == dgvDoctorPrescriptions.SelectedIndex)
-                    {
-                        lblPrescriptionNumber.Text = row.Cells[0].Text;
-                        txtPatientName.Text = row.Cells[1].Text;
-                        txtDate.Text = row.Cells[2].Text;
-                        txtDoctorName.Text = row.Cells[3].Text;
+                {
+                    dgvDrugDetails.SelectedIndex = -1;
+                    dgvDrugDetails.DataSource = null;
+                    dgvDrugDetails.DataBind();
+
+                    lblPrescriptionNumber.Text = row.Cells[0].Text;
+                    txtPatientName.Text = row.Cells[1].Text;
+                    txtDate.Text = row.Cells[2].Text;
+                    txtDoctorName.Text = row.Cells[3].Text;
+                    
+
+                    /*
+                    txtDrugName.Text = row.Cells[5].Text;
+                    txtStartDate.Text = row.Cells[6].Text;
+                    txtEndDate.Text = row.Cells[7].Text;
+                    txtTimePerDay.Text = row.Cells[8].Text;
+                    txtDose.Text = row.Cells[9].Text;
+                    txtDoseStatus.Text = row.Cells[10].Text;
+                    */
+                    if (row.Cells[4].Text != "&nbsp;")
+                      {
                         txtPrescriptionStatus.Text = row.Cells[4].Text;
-                       
-                        /*
-                        txtDrugName.Text = row.Cells[5].Text;
-                        txtStartDate.Text = row.Cells[6].Text;
-                        txtEndDate.Text = row.Cells[7].Text;
-                        txtTimePerDay.Text = row.Cells[8].Text;
-                        txtDose.Text = row.Cells[9].Text;
-                        txtDoseStatus.Text = row.Cells[10].Text;
-                        */
-                        /*  if (row.Cells[5].Text != "&nbsp;")
-                          {
-                              txtAdditionalInformation.Text = row.Cells[5].Text;
-                          }
-                          else if (row.Cells[5].Text == "&nbsp;")
-                          {
-                              txtAdditionalInformation.Text = null;
-                          }
-                          */
-                        txtPatientName.Enabled = false;
-                        btnSubmit2.Enabled = false;
-                        btnSubmit2.CssClass = "buttonVisuals_Spacing_Disabled";
-
-                        btnModify.Enabled = true;
-                        btnModify.CssClass = "buttonVisuals_Spacing";
-
-                        btnCancel.Enabled = true;
-                        btnCancel.CssClass = "buttonVisuals_Spacing";
-
-                        lblCocktailWarning.Text = null;
-
+                    }
+                      else if (row.Cells[4].Text == "&nbsp;")
+                      {
+                        txtPrescriptionStatus.Text = null;
+                      }
+                      
                     dgvDrugDetails.DataSource = SqlDataSourceDetails;
                     dgvDrugDetails.DataBind();
+
+                    txtPatientName.Enabled = false;
+                    btnSubmit2.Enabled = false;
+                    btnSubmit2.CssClass = "buttonVisuals_Spacing_Disabled";
+
+                    btnModify.Enabled = true;
+                    btnModify.CssClass = "buttonVisuals_Spacing";
+
+                    btnCancel.Enabled = true;
+                    btnCancel.CssClass = "buttonVisuals_Spacing";
+
+                    lblCocktailWarning.Text = null;
+
+                    
+
+
                 }
-                    
-                    
-                            
-                    
-                
+            }
+
+        }
+
+        protected void dgvDoctorPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDoctorPrescriptions, "Select$" + e.Row.RowIndex);
             }
         }
 
+        protected void dgvDrugPrescription_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDrugDetails, "Select$" + e.Row.RowIndex);
+            }
+        }
+
+        public void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            TableData();
+        }
+
+        public void OnSelectedDrugIndexChanged(object sender, EventArgs e)
+        {
+            TableDrugData();
+        }
+
         
+
+        private void TableDrugData()
+        {
+            foreach (GridViewRow row2 in dgvDrugDetails.Rows)
+            {
+                if (row2.RowIndex == dgvDrugDetails.SelectedIndex)
+                {
+                    lblDrugID.Text = row2.Cells[0].Text;
+                    txtDrugName.Text = row2.Cells[2].Text;
+                    txtDrugForm.Text = row2.Cells[3].Text;
+                    txtDose.Text = row2.Cells[4].Text;
+                    txtStartDate.Text = row2.Cells[5].Text;
+                    txtEndDate.Text = row2.Cells[6].Text;
+                    txtTimePerDay.Text = row2.Cells[7].Text;
+                    txtDoseStatus.Text = row2.Cells[8].Text;
+
+                    txtPatientName.Enabled = false;
+                    btnSubmit2.Enabled = false;
+                    btnSubmit2.CssClass = "buttonVisuals_Spacing_Disabled";
+
+                    btnModify.Enabled = true;
+                    btnModify.CssClass = "buttonVisuals_Spacing";
+
+                    btnCancel.Enabled = true;
+                    btnCancel.CssClass = "buttonVisuals_Spacing";
+
+                    lblCocktailWarning.Text = null;
+                }
+            }
+        }
 
         
         private void checkName()
@@ -201,23 +247,20 @@ namespace PharmaCare
             }
         }
 
-        private void Insert()
+        private void dgvDoctorPrescriptions_Insert()
         {
-            int drugID = 0;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
             int doctorID = 0;
             int patientID = 0;
 
-            
-
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
-
             conn.Open();
-            SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", conn);
-            SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
-            while (myReaderDrugID.Read())
+            SqlCommand cmdGetPatientID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPatientName.Text + "'", conn);
+            SqlDataReader myReaderPatientID = cmdGetPatientID.ExecuteReader();
+            while (myReaderPatientID.Read())
             {
-                drugID = myReaderDrugID.GetInt32(0);
+                patientID = myReaderPatientID.GetInt32(0);
             }
+
             conn.Close();
 
             conn.Open();
@@ -230,53 +273,90 @@ namespace PharmaCare
 
             conn.Close();
 
-            conn.Open();
-            SqlCommand cmdGetPatientID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPatientName.Text + "'", conn);
-            SqlDataReader myReaderPatientID = cmdGetPatientID.ExecuteReader();
-            while (myReaderPatientID.Read())
+            string sql = "INSERT INTO Prescriptions (PatientID, DoctorID, PrescriptionDate, StatusOfPrescription) " +
+                         "VALUES (@PatientID, @DoctorID, @PrescriptionDate, @StatusOfPrescription)";
+
+            try
             {
-                patientID = myReaderPatientID.GetInt32(0);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@PatientID", patientID);
+                cmd.Parameters.AddWithValue("@DoctorID", doctorID);
+                cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
+                cmd.Parameters.AddWithValue("@StatusOfPrescription", txtPrescriptionStatus.Text);
+                // cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                throw new Exception(msg);
+
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+        }
+
+        private void dgvDrugDetails_Insert()
+        {
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+
+            int prescriptionID = 0;
+
+            conn.Open();
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT MAX(PrescriptionID) FROM Prescriptions", conn);
+            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+            while (myReaderDoctorID.Read())
+            {
+                prescriptionID = myReaderDoctorID.GetInt32(0);
             }
 
             conn.Close();
 
-            string sql ="INSERT INTO Prescriptions (PatientID, DoctorID, DrugID, PrescriptionDate, PrescriptionStatus, DrugDose, " +
-                         "FirstTime, LastTime, TimesPerDay, StatusOfDose, AdditionalInformation) " +
-                         "VALUES (@PatientID, @DoctorID, @DrugID, @PrescriptionDate, @PrescriptionStatus, @DrugDose, @FirstTime, @LastTime, " +
-                         "@TimesPerDay, @StatusOfDose, @AdditionalInformation )";
 
-            if (!string.IsNullOrEmpty(txtPatientName.Text + txtDate.Text + txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text +
-                txtPrescriptionStatus.Text + txtDoctorName.Text + txtDrugName.Text + txtDose.Text + txtDoseStatus.Text))
+            string sql = "INSERT INTO PrescriptionsDetails (DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, LinkID) " +
+                         "VALUES (@DrugName, @DrugForm, @Dose, @FirstTime, @LastTime, @TimesPerDay, @StatusOfDose, @LinkID)";
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@PatientID", patientID);
-                    cmd.Parameters.AddWithValue("@DoctorID", doctorID);
-                    cmd.Parameters.AddWithValue("@DrugID", drugID);
-                    cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
-                    cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
-                    cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
-                    cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
-                    cmd.Parameters.AddWithValue("@DrugDose", txtDose.Text);
-                    cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
-                    cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
-                   // cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
-                    cmd.CommandType = CommandType.Text;
-                    cmd.ExecuteNonQuery();
-                }
-                catch (System.Data.SqlClient.SqlException ex)
-                {
-                    string msg = "Insert Error:";
-                    msg += ex.Message;
-                    throw new Exception(msg);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
+                cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
+                cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
+                cmd.Parameters.AddWithValue("@DrugForm", txtDrugForm.Text);
+                cmd.Parameters.AddWithValue("@Dose", txtDose.Text);
+                cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
+                cmd.Parameters.AddWithValue("@DrugName", txtDrugName.Text);
+                cmd.Parameters.AddWithValue("@LinkID", prescriptionID);
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                string msg = "Insert Error:";
+                msg += ex.Message;
+                throw new Exception(msg);
 
-                }
-                finally
-                {
-                    conn.Close();
-                }
+            }
+            finally
+            {
+                conn.Close();
+            }
+            
+        }
+
+        private void Insert()
+        {
+            if (!string.IsNullOrEmpty(txtPatientName.Text + txtDoctorName.Text + txtDate.Text + txtPrescriptionStatus.Text +
+                txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text + txtDrugForm.Text + txtDose.Text + txtDoseStatus.Text + txtDrugName.Text))
+            {
+                dgvDoctorPrescriptions_Insert();
+                dgvDrugDetails_Insert();
             }
             clearTextboxes();
         }
@@ -295,15 +375,22 @@ namespace PharmaCare
             txtEndDate.Text = null;
             txtDose.Text = null;
             txtDoseStatus.Text = null;
+            txtDrugForm.Text = null;
             //txtAdditionalInformation.Text = null;
 
             txtPatientName.Enabled = true;
 
             lblCocktailWarning.Text = null;
+            lblPrescriptionNumber.Text = null;
+            lblDrugID.Text = null;
 
             dgvDoctorPrescriptions.SelectedIndex = -1;
             dgvDoctorPrescriptions.DataSource = null;
             dgvDoctorPrescriptions.DataBind();
+
+            dgvDrugDetails.SelectedIndex = -1;
+            dgvDrugDetails.DataSource = null;
+            dgvDrugDetails.DataBind();
 
             btnSubmit2.Enabled = true;
             btnSubmit2.CssClass = "buttonVisuals_Spacing";
@@ -345,80 +432,87 @@ namespace PharmaCare
             clearTextboxes();
         }
 
-        private void getIDs()
+        private void dgvDoctorPrescriptions_ContentModify()
         {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
-           //int drugID = 0;
+            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+
             int doctorID = 0;
-            try
-            {
-                /*  con.Open();
-                  SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
-                  SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
-                  while (myReaderDrugID.Read())
-                  {
-                      drugID = myReaderDrugID.GetInt32(0);
-                  }
 
-                  con.Close();
-                  
-                con.Open();
-                SqlCommand cmdUpdateDrugID = new SqlCommand("UPDATE Prescriptions set DrugID = '" + drugID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", con);
-                cmdUpdateDrugID.ExecuteNonQuery();
-                con.Close();
-                */
-                con.Open();
-                SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", con);
-                SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
-                while (myReaderDoctorID.Read())
+            string query = "UPDATE Prescriptions SET " +
+                " PrescriptionDate = @PrescriptionDate, StatusOfPrescription = @PrescriptionStatus " +
+                " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
+
+            sqlConn.Open();
+            SqlCommand cmd = new SqlCommand(query, sqlConn);
+            foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
+            {
+                if (row.Cells[0].Text == lblPrescriptionNumber.Text)
                 {
-                    doctorID = myReaderDoctorID.GetInt32(0);
+                    cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
+                    cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
+                    //row.Cells[5].Text = txtAdditionalInformation.Text;
+                    //cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
+                    cmd.ExecuteNonQuery();
                 }
-
-                con.Close();
-                con.Open();
-                SqlCommand cmdUpdateDoctorID = new SqlCommand("UPDATE Prescriptions set DoctorID = '" + doctorID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", con);
-                cmdUpdateDoctorID.ExecuteNonQuery();
-                con.Close();
-
             }
-            catch (SqlException ex)
+            sqlConn.Close();
+
+            sqlConn.Open();
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", sqlConn);
+            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+            while (myReaderDoctorID.Read())
             {
-                string msg = "Insert Error:";
-                msg += ex.Message;
-                throw new Exception(msg);
+                doctorID = myReaderDoctorID.GetInt32(0);
             }
+
+            sqlConn.Close();
+
+            sqlConn.Open();
+            SqlCommand cmdUpdateDoctorID = new SqlCommand("UPDATE Prescriptions set DoctorID = '" + doctorID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", sqlConn);
+            cmdUpdateDoctorID.ExecuteNonQuery();
+            sqlConn.Close();
+        }
+
+        private void dgvDrugDetails_ContentModify()
+        {
+            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+            
+            string queryDetails = "UPDATE PrescriptionsDetails SET FirstTime = @FirstTime, " +
+                " LastTime = @LastTime, TimesPerDay = @TimesPerDay, DrugForm = @DrugForm, " +
+                " Dose = @Dose, StatusOfDose = @DoseStatus, DrugName = @DrugName " +
+                " WHERE PrescriptionDetailsID = '" + Convert.ToInt16(lblDrugID.Text).ToString() + "'";
+
+            sqlConn.Open();
+            SqlCommand cmdDetails = new SqlCommand(queryDetails, sqlConn);
+            foreach (GridViewRow row2 in dgvDrugDetails.Rows)
+            {
+                if (row2.Cells[0].Text == lblDrugID.Text)
+                {
+                    cmdDetails.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
+                    cmdDetails.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
+                    cmdDetails.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
+                    cmdDetails.Parameters.AddWithValue("@DrugForm", txtDrugForm.Text);
+                    cmdDetails.Parameters.AddWithValue("@Dose", txtDose.Text);
+                    cmdDetails.Parameters.AddWithValue("@DoseStatus", txtDoseStatus.Text);
+                    cmdDetails.Parameters.AddWithValue("@DrugName", txtDrugName.Text);
+
+                    cmdDetails.ExecuteNonQuery();
+                }
+            }
+            sqlConn.Close();
         }
 
         protected void btnModify_Click(object sender, EventArgs e)
         {
-            
-            SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
-                
-
-            string query = "UPDATE Prescriptions SET " +
-                " PrescriptionDate = @PrescriptionDate, PrescriptionStatus = @PrescriptionStatus, " +
-                " AdditionalInformation = @AdditionalInformation " +
-                " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
             try
             {
-                sqlConn.Open();
-                SqlCommand cmd = new SqlCommand(query, sqlConn);
-                    foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
-                    {
-                        if (row.Cells[0].Text == lblPrescriptionNumber.Text)
-                        {
-                            
-                            row.Cells[2].Text = txtDate.Text;
-                            cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
-                            row.Cells[3].Text = txtPrescriptionStatus.Text;
-                            cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
-                            //row.Cells[5].Text = txtAdditionalInformation.Text;
-                            //cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
-                            cmd.ExecuteNonQuery();
-                        }
-                    }                   
-                
+                dgvDoctorPrescriptions_ContentModify();
+
+                if (!string.IsNullOrEmpty(txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text + txtDrugForm.Text + txtDose.Text +
+                txtDoseStatus.Text + txtDrugName.Text))
+                {
+                    dgvDrugDetails_ContentModify();
+                }
             }
             catch (SqlException ex)
             {
@@ -426,11 +520,6 @@ namespace PharmaCare
                 msg += ex.Message;
                 throw new Exception(msg);
             }
-            finally
-            {
-                sqlConn.Close();
-            }
-            getIDs();
             clearTextboxes();
         }
 
