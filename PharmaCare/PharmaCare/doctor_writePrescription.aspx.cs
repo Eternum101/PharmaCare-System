@@ -85,17 +85,19 @@ namespace PharmaCare
                     txtDate.Text = row.Cells[2].Text;
                     txtPrescriptionStatus.Text = row.Cells[3].Text;
                     txtDoctorName.Text = row.Cells[4].Text;
+                    /*
                     txtDrugName.Text = row.Cells[5].Text;
                     txtStartDate.Text = row.Cells[6].Text;
                     txtEndDate.Text = row.Cells[7].Text;
                     txtTimePerDay.Text = row.Cells[8].Text;
                     txtDose.Text = row.Cells[9].Text;
                     txtDoseStatus.Text = row.Cells[10].Text;
-                    if (row.Cells[11].Text != "&nbsp;")
+                    */
+                    if (row.Cells[5].Text != "&nbsp;")
                     {
-                        txtAdditionalInformation.Text = row.Cells[11].Text;
+                        txtAdditionalInformation.Text = row.Cells[5].Text;
                     }
-                    else if (row.Cells[11].Text == "&nbsp;")
+                    else if (row.Cells[5].Text == "&nbsp;")
                     {
                         txtAdditionalInformation.Text = null;
                     }
@@ -331,24 +333,25 @@ namespace PharmaCare
         private void getIDs()
         {
             SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
-            int drugID = 0;
+           //int drugID = 0;
             int doctorID = 0;
             try
             {
-                con.Open();
-                SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
-                SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
-                while (myReaderDrugID.Read())
-                {
-                    drugID = myReaderDrugID.GetInt32(0);
-                }
+                /*  con.Open();
+                  SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
+                  SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
+                  while (myReaderDrugID.Read())
+                  {
+                      drugID = myReaderDrugID.GetInt32(0);
+                  }
 
-                con.Close();
+                  con.Close();
+                  
                 con.Open();
                 SqlCommand cmdUpdateDrugID = new SqlCommand("UPDATE Prescriptions set DrugID = '" + drugID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", con);
                 cmdUpdateDrugID.ExecuteNonQuery();
                 con.Close();
-
+                */
                 con.Open();
                 SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", con);
                 SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
@@ -379,9 +382,9 @@ namespace PharmaCare
                 
 
             string query = "UPDATE Prescriptions SET " +
-                "PrescriptionDate = @PrescriptionDate, PrescriptionStatus = @PrescriptionStatus, DrugDose = @DrugDose, FirstTIme = @FirstTime," +
-                "LastTime = @LastTime, TimesPerDay = @TimesPerDay, StatusOfDose = @StatusOfDose, AdditionalInformation = @AdditionalInformation " +
-                "WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
+                " PrescriptionDate = @PrescriptionDate, PrescriptionStatus = @PrescriptionStatus, " +
+                " AdditionalInformation = @AdditionalInformation " +
+                " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
             try
             {
                 sqlConn.Open();
@@ -395,18 +398,7 @@ namespace PharmaCare
                             cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
                             row.Cells[3].Text = txtPrescriptionStatus.Text;
                             cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
-                            
-                            row.Cells[6].Text = txtStartDate.Text;
-                            cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
-                            row.Cells[7].Text = txtEndDate.Text;
-                            cmd.Parameters.AddWithValue("@LastTime", txtEndDate.Text);
-                            row.Cells[8].Text = txtTimePerDay.Text;
-                            cmd.Parameters.AddWithValue("@TimesPerDay", txtTimePerDay.Text);
-                            row.Cells[9].Text = txtDose.Text;
-                            cmd.Parameters.AddWithValue("@DrugDose", txtDose.Text);
-                            row.Cells[10].Text = txtDoseStatus.Text;
-                            cmd.Parameters.AddWithValue("@StatusOfDose", txtDoseStatus.Text);
-                            row.Cells[11].Text = txtAdditionalInformation.Text;
+                            row.Cells[5].Text = txtAdditionalInformation.Text;
                             cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
                             cmd.ExecuteNonQuery();
                         }
