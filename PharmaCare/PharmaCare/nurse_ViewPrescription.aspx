@@ -9,11 +9,7 @@
     
     <div>
         <!-- Page Heading -->
-        <h1 class="writePrescriptionHeading">View Prescription<asp:SqlDataSource ID="SqlDataSourceNurse" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Patients.Name, Prescriptions.PrescriptionDate, Prescriptions.PrescriptionStatus, 
-                Doctors.DoctorName, Drugs.DrugName, Prescriptions.FirstTime, Prescriptions.LastTime, Prescriptions.TimesPerDay,
-                Prescriptions.DrugDose, Prescriptions.StatusOfDose, Prescriptions.AdditionalInformation FROM Patients INNER JOIN Prescriptions 
-                ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
-                ON Doctors.DoctorID = Prescriptions.DoctorID INNER JOIN Drugs ON Drugs.DrugID = Prescriptions.DrugID"></asp:SqlDataSource>
+        <h1 class="writePrescriptionHeading">View Prescription<asp:SqlDataSource ID="SqlDataSourceNurse" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" SelectCommand="SELECT Patients.Name, Doctors.DoctorName, PrescriptionsDetails.DrugName, PrescriptionsDetails.DrugForm, PrescriptionsDetails.Dose, PrescriptionsDetails.FirstTime, PrescriptionsDetails.LastTime, PrescriptionsDetails.TimesPerDay, PrescriptionsDetails.StatusOfDose, Prescriptions.PrescriptionDetails, Prescriptions.StatusOfPrescription FROM Doctors INNER JOIN Patients ON Doctors.DoctorID = Patients.DoctorID INNER JOIN Prescriptions ON Doctors.DoctorID = Prescriptions.DoctorID AND Patients.PatientID = Prescriptions.PatientID INNER JOIN PrescriptionsDetails ON Prescriptions.PrescriptionID = PrescriptionsDetails.LinkID"></asp:SqlDataSource>
         </h1>
 
         <!-- Patient Name lbl and txt -->
@@ -33,8 +29,21 @@
             <h4>Patient Prescriptions: </h4><br />
             <asp:GridView ID="dgvNursePrescriptions" runat="server" DataSourceID="SqlDataSourceNurse" 
                 AllowSorting="True" CellPadding="4" Width="1000px" BackColor="White" 
-                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal">
+                BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" AutoGenerateColumns="False">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
+                <Columns>
+                    <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                    <asp:BoundField DataField="DoctorName" HeaderText="DoctorName" SortExpression="DoctorName" />
+                    <asp:BoundField DataField="DrugName" HeaderText="DrugName" SortExpression="DrugName" />
+                    <asp:BoundField DataField="DrugForm" HeaderText="DrugForm" SortExpression="DrugForm" />
+                    <asp:BoundField DataField="Dose" HeaderText="Dose" SortExpression="Dose" />
+                    <asp:BoundField DataField="FirstTime" HeaderText="FirstTime" SortExpression="FirstTime" />
+                    <asp:BoundField DataField="LastTime" HeaderText="LastTime" SortExpression="LastTime" />
+                    <asp:BoundField DataField="TimesPerDay" HeaderText="TimesPerDay" SortExpression="TimesPerDay" />
+                    <asp:BoundField DataField="StatusOfDose" HeaderText="StatusOfDose" SortExpression="StatusOfDose" />
+                    <asp:BoundField DataField="PrescriptionDetails" HeaderText="PrescriptionDetails" SortExpression="PrescriptionDetails" />
+                    <asp:BoundField DataField="StatusOfPrescription" HeaderText="StatusOfPrescription" SortExpression="StatusOfPrescription" />
+                </Columns>
                 <FooterStyle BackColor="#B5C7DE" ForeColor="#000000" />
                 <HeaderStyle BackColor="#FF5454" Font-Bold="True" Font-Size="13px" ForeColor="#F7F7F7" />
                 <PagerStyle BackColor="#E7E7FF" ForeColor="#000000" HorizontalAlign="Right" />
