@@ -553,15 +553,18 @@ namespace PharmaCare
 
             CocktailService.CocktailServiceClient client = new CocktailService.CocktailServiceClient();
 
-            if (client.checkCocktail(txtDrugName.Text) == true)
+            for (int i = 0; i < dgvDrugDetails.Rows.Count; i++)
             {
-                lblCocktailWarning.CssClass = "lblcocktailWarning";
-                lblCocktailWarning.Text = "Warning! Dangerous Drug Used!";    
-            }
-            else if (client.checkCocktail(txtDrugName.Text) == false)
-            {
-                lblCocktailWarning.CssClass = "lblCocktailSafe";
-                lblCocktailWarning.Text = "Current Drug Used Is Safe!";
+                if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[3].Text) == true)
+                {
+                    lblCocktailWarning.CssClass = "lblcocktailWarning";
+                    lblCocktailWarning.Text = "Warning! Dangerous Drug Used!";
+                }
+                else if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[3].Text) == false)
+                {
+                    lblCocktailWarning.CssClass = "lblCocktailSafe";
+                    lblCocktailWarning.Text = "Current Drug Used Is Safe!";
+                }
             }
 
             client.Close();

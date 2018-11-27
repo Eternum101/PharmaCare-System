@@ -31,6 +31,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceDetails;
         
         /// <summary>
+        /// SqlDataSourceOPD control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceOPD;
+        
+        /// <summary>
         /// txtPharmacistPatientSearch control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvPrescriptionsDetails;
+        
+        /// <summary>
+        /// dgvOPDPrescriptions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvOPDPrescriptions;
         
         /// <summary>
         /// txtPrescriptionID control.
