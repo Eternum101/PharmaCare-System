@@ -54,8 +54,8 @@
                 <asp:BoundField DataField="RoomNumber" HeaderText="Room Number" />
                 <asp:BoundField DataField="WingNumber" HeaderText="Wing Number" />
                 <asp:BoundField DataField="FloorNumber" HeaderText="Floor Number" />
-                <asp:BoundField DataField="PrescriptionDate" HeaderText="Prescription Date" />
-                <asp:BoundField DataField="PrescriptionStatus" HeaderText="Prescription Status" />
+                <asp:BoundField DataField="PrescriptionDate" HeaderText="Prescription Expiry Date" />
+                <asp:BoundField DataField="PrescriptionDetails" HeaderText="Prescription Details" />
                 </Columns>
 
             </asp:GridView>
