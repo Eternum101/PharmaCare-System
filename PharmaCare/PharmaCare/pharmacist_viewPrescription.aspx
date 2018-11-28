@@ -6,16 +6,16 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
-
+    
     <div>
        
-        <h1 class="writePrescriptionHeading">View/Dispatch Prescription<asp:SqlDataSource ID="SqlDataSourcePharmacist" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
+        <h1 class="writePrescriptionHeading">View Prescription<asp:SqlDataSource ID="SqlDataSourcePharmacist" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
             SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Doctors.DoctorName, Prescriptions.PrescriptionDate, Prescriptions.StatusOfPrescription FROM Prescriptions INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID INNER JOIN Doctors ON Prescriptions.DoctorID = Doctors.DoctorID AND Patients.DoctorID = Doctors.DoctorID"></asp:SqlDataSource>
             
             <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="txtPrescriptionID" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
+                    <asp:ControlParameter ControlID="lblPrescriptionNumber" DefaultValue="1" Name="LinkID" PropertyName="Text" Type="Int32" />
                 </SelectParameters>
             </asp:SqlDataSource>
             <asp:SqlDataSource ID="SqlDataSourceOPD" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
@@ -71,7 +71,8 @@
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
             <div class="left">
-            <h4 class="lblPrescriptionTable">Prescription Details</h4><br />
+            <h4 class="lblPrescriptionTable">Prescription Details</h4>
+                <h4>Prescription Number: &nbsp;<asp:Label Text="" ID="lblPrescriptionNumber" runat="server" /> </h4><br />
 
             </div>
             <asp:GridView ID="dgvPrescriptionsDetails" runat="server" DataSourceId="SqlDataSourceDetails"
@@ -101,17 +102,16 @@
             </asp:GridView>
         </div>
     </div>
-    <div><h1 class="writePrescriptionHeading">Fill/Dispatch OPD Prescriptions</h1></div><br /><br />
+    <div><h1 class="writePrescriptionHeading">Print/Dispatch OPD Prescriptions</h1></div><br /><br />
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
             <div class="left">
             <h4 class="lblPrescriptionTable">Patient Outdoor Prescriptions:</h4><br />
              </div>
-            </div>
-        <asp:GridView ID="dgvOPDPrescriptions" runat="server" DataSourceId="SqlDataSourceOPD"
+        <asp:GridView ID="dgvOPDPrescription" runat="server" DataSourceId="SqlDataSourceOPD"
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
-                AutoGenerateColumns="False" ValidateRequestMode="Disabled" DataKeyNames="PrescriptionID">
+                AutoGenerateColumns="False" ValidateRequestMode="Disabled" DataKeyNames="PrescriptionID" OnRowDataBound="dgvOPDPrescription_RowDataBound" OnSelectedIndexChanged="dgvOPDPrescription_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="PrescriptionID" HeaderText="Prescription ID" InsertVisible="False" ReadOnly="True" SortExpression="PrescriptionID" />
                     <asp:BoundField DataField="Name" HeaderText="Patient Name" SortExpression="Name" />
@@ -133,6 +133,7 @@
                 <SortedDescendingCellStyle BackColor="#F7F7F7" />
                 <SortedDescendingHeaderStyle BackColor="#FF5454" />
             </asp:GridView>
+           </div>
     </div>
     <br /><br />
     <div class="globalBorderRound">
@@ -152,7 +153,7 @@
         </div>
             
         <div class="leftTextboxDiv">
-            <h4>Status:</h4>
+            <h4>Filled and Dispatched:</h4>
             <asp:TextBox ID="txtStatus"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group" CssClass="text-danger"></asp:RequiredFieldValidator>
             </div>
@@ -160,9 +161,12 @@
 
     <div class="float_center">
         <ul class="child">
+
             <li class="btn_li"><asp:Button ID="btnDispatch" class="buttonVisuals_Spacing" Text="Dispatch" runat="server" OnClick="btnDispatch_Click" ValidationGroup="group"/></li>
             <li class="btn_li"><asp:Button ID="btnRecall" class="buttonVisuals_Spacing" Text="Recall" runat="server" OnClick="btnRecall_Click" ValidationGroup="group"/></li>
-        </ul>
+            <li class="btn_li"><asp:Button ID="btnPrint" class="buttonVisuals_Spacing" Text="Print" runat="server" ValidationGroup="group" OnClick="btnPrint_Click"/></li>
+
+            </ul>
     </div>
 
 </asp:Content>
@@ -176,4 +180,5 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="body" runat="server">
+&nbsp;
 </asp:Content>

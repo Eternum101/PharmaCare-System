@@ -76,6 +76,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.GridView dgvPharmacistPrescriptions;
         
         /// <summary>
+        /// lblPrescriptionNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrescriptionNumber;
+        
+        /// <summary>
         /// dgvPrescriptionsDetails control.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.GridView dgvPrescriptionsDetails;
         
         /// <summary>
-        /// dgvOPDPrescriptions control.
+        /// dgvOPDPrescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvOPDPrescriptions;
+        protected global::System.Web.UI.WebControls.GridView dgvOPDPrescription;
         
         /// <summary>
         /// txtPrescriptionID control.
@@ -155,5 +164,14 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRecall;
+        
+        /// <summary>
+        /// btnPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrint;
     }
 }
