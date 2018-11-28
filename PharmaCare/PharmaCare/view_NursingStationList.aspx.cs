@@ -8,6 +8,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/*
+ *Author: Brayden Cantrill 
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the View Nursing Station page is to display a list of Nursing Station Details that is correspondant
+ * to the Nursing Station ID that is selected from a drop down list. 
+*/
+
 namespace PharmaCare
 {
     public partial class nurse_ViewNursingStation : System.Web.UI.Page
