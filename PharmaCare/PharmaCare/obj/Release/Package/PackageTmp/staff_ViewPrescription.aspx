@@ -1,11 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="staff_ViewPrescription.aspx.cs" Inherits="PharmaCare.staff_ViewPrescription" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+
+    <!-- 
+    Author: Jakob Farrow
+    Date: 27/11/18
+    Version: 1.0
+    Purpose: The purpose for the Staff View Prescription page is to view Outdoor prescriptions within the database and print out the contents
+    -->
+
      <div>
 
+         <!-- Get SQL connection for the Outdoor Prescription gridview -->
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT OPDPrescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Doctors.DoctorName, 
                 Prescriptions.StatusOfPrescription, OPDPrescriptions.FilledandDispatched, OPDPrescriptions.TimeDispatched, 
@@ -17,7 +27,7 @@
         <!-- Page Heading -->
         <h1 class="">OPD Prescription</h1>
 
-        <!-- Patient Name lbl and txt -->
+        <!-- Search Features -->
           <div class="searchContainer">
             <ul class="child2">
               <li class="searchPosition"><h3>Patient Name: </h3></li>
@@ -25,10 +35,14 @@
               <li class="searchPositionSmaller"><asp:Button ID="Button1" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPatientSearch_Click" ValidationGroup="SearchValidation" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
             </ul>
+
+              <div class="lblPatientNameErrorAlignment">
+                <asp:Label Text="" ID="lblPatientNameError" CssClass="lblcocktailWarning" runat="server" />
+            </div>
           </div>
     </div>
 
-    <!-- Bordered div -->
+    <!-- Outdoor Prescriptions Gridview -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
@@ -51,8 +65,8 @@
             </asp:GridView>
         </div>
     </div>
-    <!-- END Bordered div -->
 
+    <!-- Bottom Buttons -->
     <div class="float_center">
         <ul class="child">
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
@@ -63,12 +77,11 @@
         </ul>
     </div>
 
-    <!-- Bottom Div -->
-    
-    <!-- END Bottom Div -->
 </asp:Content>
 
+
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+    <!-- Footer Content -->
     <div class="float_center">
         <ul class="child">
           <li><p>27/11/18</p></li>

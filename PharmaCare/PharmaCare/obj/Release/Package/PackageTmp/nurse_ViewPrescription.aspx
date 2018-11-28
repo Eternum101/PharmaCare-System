@@ -6,6 +6,14 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+
+<!--
+ *Author: Brayden Cantrill 
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the View Prescription page is to display all the current patient prescriptions 
+ * and there prescription details. 
+-->
     
     <div>
         <!-- Page Heading -->
@@ -25,6 +33,10 @@
                 <li class="searchPositionSmaller"><asp:Button ID="btnPharmacistPatientSearch" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnNursePatientSearch_Click" ValidationGroup="SearchValidation" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtNursePatientSearch" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
             </ul>
+
+            <div class="lblPatientNameErrorAlignment">
+                <asp:Label Text="" ID="lblPatientNameError" CssClass="lblcocktailWarning" runat="server" />
+            </div>
         </div>
 
     </div>

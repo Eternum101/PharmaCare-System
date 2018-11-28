@@ -2,6 +2,14 @@
 
 <!DOCTYPE html>
 
+<!--
+ *Author: Jakob, Brayden 
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the login page is allow the user to successfully sign into the web application
+ * using there username and password. 
+--> 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!-- Title -->
@@ -51,18 +59,23 @@
                 <div class="login_contentContainer">
                     <div class="login_credentialsContainer">
                         <h4>Username: </h4>
-                        <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" 
-                            ErrorMessage="Please Enter Username" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" AutoPostBack="True" OnTextChanged="txtUsername_TextChanged" />
+                        <asp:Label Text="" ID="lblUserNameIncorrect" CssClass="lblLoginWarning" runat="server" />
+                        <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate="txtUsername" 
+                            ErrorMessage="Please Enter Username" ForeColor="#CC0000" ValidationGroup="SignIn"></asp:RequiredFieldValidator>
+
+                        
 
                         <h4>Password: </h4>
-                        <asp:TextBox ID="txtPassword" class="login_textboxes" Text="" runat="server" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" 
-                            ErrorMessage="Please Enter Password" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtPassword" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" />
+                        <asp:Label Text="" ID="lblPasswordIncorrect" CssClass="lblLoginWarning" runat="server" />
+                        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" 
+                            ErrorMessage="Please Enter Password" ForeColor="#CC0000" ValidationGroup="SignIn"></asp:RequiredFieldValidator>
+
                     </div>
                     
                     <div class="btnLogin">
-                        <input type="button" class="btnLoginVisuals" onclick="parent.location='doctor_writePrescription.aspx'" runat="server" value='Sign In'/>
+                        <asp:Button class="btnLoginVisuals" Text="Sign In" runat="server" ID="btnSignIn" ValidationGroup="SignIn" OnClick="btnSignIn_Click" />
                     </div>
 
                 </div>
@@ -73,8 +86,8 @@
                 <div class="float_center">
                     <ul class="child">
                       <li><p>14/11/18</p></li>
-                      <li><p>Jakob</p></li>
-                      <li><p>455089250</p></li>
+                      <li><p>Jakob | 455089250</p></li>
+                       <li><p>Brayden | 454657305</p></li>
                     </ul>
                     <div class="clear"></div>
                 </div>

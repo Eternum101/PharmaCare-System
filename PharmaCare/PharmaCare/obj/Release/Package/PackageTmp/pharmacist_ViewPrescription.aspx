@@ -34,6 +34,10 @@
               <li class="searchPositionSmaller"><asp:Button ID="btnPharmacistPatientSearch" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPharmacistPatientSearch_Click" ValidationGroup="SearchValidation" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPharmacistPatientSearch" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
             </ul>
+
+            <div class="lblPatientNameErrorAlignment">
+                <asp:Label Text="" ID="lblPatientNameError" CssClass="lblcocktailWarning" runat="server" />
+            </div>
           </div>
     </div>
 

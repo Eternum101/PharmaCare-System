@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="PharmaCare.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <!-- Title -->
+    <title>
+    <asp:ContentPlaceHolder ID="titile" runat="server">
+
+    </asp:ContentPlaceHolder>
+    </title>
+
+    <!-- Head Content -->
+    <meta name="viewport" content="width=device-width" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="Content/site.css" rel="stylesheet" />
+    <link href="Content/navigation.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- Site Content -->
+    <div class="container">
+        <form id="form1" runat="server" class="form-horizontal">
+
+            <!-- Navigation Panel -->
+            <nav>
+                
+                <div class="topnav" id="myTopnav">
+                    <!-- PharmaCare Label -->
+                    <p class="logo">PharmaCare</p>
+
+                    <!-- Doctor Button -->
+                    <div class="dropdownMain">
+                        <input type=button class="dropbtn" value='Doctor'>              
+                            <div class="dropdown-content">
+                              <a href="doctor_writePrescription.aspx">Write Prescription</a>
+                            </div>
+                    </div>
+
+                    <!-- Staff Button -->
+                    <div class="dropdownMain">
+                        <input type=button class="dropbtn" value='Staff'>
+                        <div class="dropdown-content">
+                          <a href="staff_ViewPrescription.aspx">View OPD Prescription</a>
+                        </div>
+                        </div>
+
+                    <!-- Pharmacist Button -->
+                    <div class="dropdownMain">
+                        <input type=button class="dropbtn" value='Pharmacist'>
+                        <div class="dropdown-content">
+                          <a href="pharmacist_viewPrescription.aspx">View Prescription</a>
+                          <a href="pharmacist_PrintIndoorMedicationLabels.aspx">Print Indoor Medication Labels</a>
+                          <a href="pharmacist_PreparationList.aspx">View Preparation List</a>
+                          <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
+                          <a href="view_NursingStationList.aspx">View List for Nursing Station</a>
+                        </div>
+                    </div>
+
+                    <!-- Nurse Button -->
+                    <div class="dropdownMain">
+                        <input type=button class="dropbtn" value='Nurse'>
+                            <div class="dropdown-content">
+                              <a href="nurse_ViewPrescription.aspx">View Prescription</a>
+                              <a href="view_DistributionSchedule.aspx">View Distribution Schedule</a>
+                              <a href="view_NursingStationList.aspx">View List for Nursing Station</a>
+                            </div>
+                    </div>
+
+                    <!-- HPCDS Button -->
+                    <div class="dropdownMain">
+                    <asp:Button ID="btnLogout" CssClass="dropbtn" runat="server" Text="Logout" OnClick="btnLogout_Click"></asp:Button>
+                    </div>
+
+
+                </div>
+            </nav>
+
+            
+            <!-- END Navigation Panel -->
+
+            <!-- Red bar -->
+            <asp:Panel ID="redBar" runat="server" CssClass="redBar">
+            </asp:Panel>
+
+            <!-- Content Container --> 
+            <div class="contentContainer">
+                <asp:ContentPlaceHolder ID="contentContainer" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- END Content Panel -->
+
+            <div class="footerContainer">
+                <asp:ContentPlaceHolder ID="footerContainer" runat="server">
+
+                </asp:ContentPlaceHolder>
+            </div>
+        
+            <asp:ContentPlaceHolder ID="body" runat="server">
+
+            </asp:ContentPlaceHolder>
+        
+        </form>
+    </div>
+</body>
+</html>

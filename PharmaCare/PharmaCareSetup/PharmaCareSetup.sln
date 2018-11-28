@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PharmaCareSetup", "PharmaCareSetup\PharmaCareSetup.vdproj", "{8906710E-9888-4307-8DCB-590E22D9E8EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8906710E-9888-4307-8DCB-590E22D9E8EE}.Debug|Default.ActiveCfg = Debug
+		{8906710E-9888-4307-8DCB-590E22D9E8EE}.Debug|Default.Build.0 = Debug
+		{8906710E-9888-4307-8DCB-590E22D9E8EE}.Release|Default.ActiveCfg = Release
+		{8906710E-9888-4307-8DCB-590E22D9E8EE}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E51FC4DD-34CF-4B55-BC07-C39244227C3D}
+	EndGlobalSection
+EndGlobal
