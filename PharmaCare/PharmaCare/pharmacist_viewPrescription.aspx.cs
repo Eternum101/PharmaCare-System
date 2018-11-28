@@ -122,9 +122,14 @@ namespace PharmaCare
         private void ClearTextBox()
         {
             txtPrescriptionID.Text = "";
-            txtDoctorName.Text = "";
             txtPatientName.Text = "";
-            txtStatus.Text = "";
+            txtDoctorName.Text = "";
+            txtFilledAndDispatched.Text = "";
+            txtTimeDispatched.Text = "";
+            txtDateDispatched.Text = "";
+            txtIndoorEmergency.Text = "";
+            txtToFill.Text = "";
+            txtType.Text = "";
         }
 
         protected void dgvOPDPrescription_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,10 +139,16 @@ namespace PharmaCare
                 if (row.RowIndex == dgvOPDPrescription.SelectedIndex)
                 {
                     txtPrescriptionID.Text = row.Cells[0].Text;
-                    lblPrescriptionNumber.Text = row.Cells[0].Text;
                     txtPatientName.Text = row.Cells[1].Text;
-                    txtDoctorName.Text = row.Cells[2].Text;
-                    txtStatus.Text = row.Cells[3].Text;
+                    txtDoctorName.Text = row.Cells[2].Text.ToString().Trim();
+                    txtFilledAndDispatched.Text = row.Cells[3].Text;
+                    txtTimeDispatched.Text = row.Cells[4].Text;
+                    txtDateDispatched.Text = row.Cells[5].Text;
+                    txtIndoorEmergency.Text = row.Cells[6].Text;
+                    txtToFill.Text = row.Cells[7].Text;
+                    txtType.Text = row.Cells[8].Text;
+
+                    lblPrescriptionNumber.Text = row.Cells[0].Text;
 
                 }
             }
