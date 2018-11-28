@@ -10,6 +10,13 @@ using System.Web.UI.WebControls;
 
 namespace PharmaCare
 {
+/*
+    Name: Jake Smith
+    StudentID: 461123739
+    Purpose: Produce Preparation List
+    Date: 22/11/18
+    Known Bugs: 
+*/
     public partial class pharmacist_preparationList : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
@@ -21,7 +28,7 @@ namespace PharmaCare
 
 
         }
-
+        //Selects a row in Datagrid
         protected void dgvPharmacistPreparation_SelectedIndexChanged(object sender, EventArgs e)
         {
             dgvPrescriptionsDetails.Visible = true;
@@ -36,7 +43,7 @@ namespace PharmaCare
             }
 
         }
-
+        //Binds a row in Datagrid
         protected void dgvPharmacistPreparation_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             dgvPrescriptionsDetails.Visible = true;
@@ -46,7 +53,7 @@ namespace PharmaCare
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(dgvPharmacistPreparation, "Select$" + e.Row.RowIndex);
             }
         }
-
+        //Search Button
         protected void btnPharmacistPrescriptionSearch_Click(object sender, EventArgs e)
         {
             ClearTextBox();
@@ -87,6 +94,7 @@ namespace PharmaCare
             }
         }
 
+        //Search Method
         protected void search_Prescription()
         {
             foreach (GridViewRow row in dgvPharmacistPreparation.Rows)
@@ -102,6 +110,7 @@ namespace PharmaCare
             }
         }
 
+        //Displays All Inactive Prescription Details
         protected void btnFill_Click(object sender, EventArgs e)
         {
             dgvPrescriptionsDetails.Visible = false;
@@ -109,6 +118,7 @@ namespace PharmaCare
             lblPrescriptionNumber.Text = "";
 
         }
+        //Clear TextBoxes
         private void ClearTextBox()
         {
             txtPrescriptionID.Text = "";
@@ -117,7 +127,7 @@ namespace PharmaCare
             TxtDrugForm.Text = "";
             lblPatientNameError.Text = null;
         }
-
+        //Selcts a row out of DataGrid
         protected void dgvPrescriptionsDetails_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (GridViewRow row in dgvPrescriptionsDetails.Rows)
@@ -132,7 +142,7 @@ namespace PharmaCare
                 }
             }
         }
-
+        //Binds a row out of DataGrid
         protected void dgvPrescriptionsDetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -141,6 +151,7 @@ namespace PharmaCare
             }
         }
 
+        //Selects a row out of DataGrid
         protected void dgvPrescriptionsDetails1_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (GridViewRow row in dgvPrescriptionsDetails1.Rows)
@@ -154,7 +165,7 @@ namespace PharmaCare
                 }
             }
         }
-
+        //Binds a row out of DataGrid
         protected void dgvPrescriptionsDetails1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -162,7 +173,7 @@ namespace PharmaCare
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(dgvPrescriptionsDetails1, "Select$" + e.Row.RowIndex);
             }
         }
-
+        //Downloads the Prescription List into a textfile
         protected void btnPrint_Click(object sender, EventArgs e)
         {
             string printString = "Preparation List: @ @ ";
@@ -197,6 +208,7 @@ namespace PharmaCare
 
         }
 
+        // Changes A medication detail to Active from Inactive
         protected void btnPrepare_Click(object sender, EventArgs e)
         {
             try

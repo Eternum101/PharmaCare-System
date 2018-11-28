@@ -6,12 +6,17 @@
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+    <!--Name: Jake Smith
+    StudentID: 461123739
+    Purpose: Preparation List
+    Date: 22/11/18
+    Known Bugs: -->
     
     <div>
-       
+       <!--Header -->
         <h1 class="writePrescriptionHeading">View Prescription<asp:SqlDataSource ID="SqlDataSourcePharmacist" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
             SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Doctors.DoctorName, Prescriptions.PrescriptionDate, Prescriptions.StatusOfPrescription FROM Prescriptions INNER JOIN Patients ON Prescriptions.PatientID = Patients.PatientID INNER JOIN Doctors ON Prescriptions.DoctorID = Doctors.DoctorID AND Patients.DoctorID = Doctors.DoctorID"></asp:SqlDataSource>
-            
+            <!--Data Source for dataGrids -->
             <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
                 <SelectParameters>
@@ -40,7 +45,7 @@
             </div>
           </div>
     </div>
-
+    <!--Priscription List -->
      <div class="globalBorderRound">
         <div class="leftTextboxDiv">
             <div class="left">
@@ -72,6 +77,7 @@
             </asp:GridView>
         </div>
     </div>
+    <!--Priscription Details -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
             <div class="left">
@@ -106,7 +112,9 @@
             </asp:GridView>
         </div>
     </div>
+    <!--Print Prescriptions Header -->
     <div><h1 class="writePrescriptionHeading">Print/Dispatch OPD Prescriptions</h1></div><br /><br />
+    <!--DataGrid For OPD Prescriptions -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
             <div class="left">
@@ -141,6 +149,7 @@
            </div>
     </div>
     <br /><br />
+    <!--Text Boxes for Prescription Information -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
            <h4>Prescription ID:</h4> 
@@ -188,7 +197,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group" CssClass="text-danger"></asp:RequiredFieldValidator>
             </div>
     </div>
-
+       <!--Buttons -->
     <div class="float_center">
         <ul class="child">
 
@@ -201,6 +210,7 @@
 
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
+    <!--Details -->
     <div class="float_center">
         <ul class="child">
           <li><p>14/11/18</p></li>

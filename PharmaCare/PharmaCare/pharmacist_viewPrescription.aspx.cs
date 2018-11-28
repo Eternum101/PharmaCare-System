@@ -9,6 +9,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/*
+    Name: Jake Smith
+    StudentID: 461123739
+    Purpose: View and Dispatch Prescirption
+    Date: 22/11/18
+    Known Bugs: 
+*/
+
 namespace PharmaCare
 {
     public partial class pharmacist_viewPrescription : System.Web.UI.Page
@@ -61,7 +69,7 @@ namespace PharmaCare
                 return;
             }
         }
-
+        //Search Method
         protected void search_Prescription()
         {
             foreach (GridViewRow row in dgvPharmacistPrescriptions.Rows)
@@ -77,6 +85,7 @@ namespace PharmaCare
             }
         }
 
+        //Binds row in datagrid
         protected void dgvPharmacistPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -85,7 +94,7 @@ namespace PharmaCare
             }
 
         }
-
+        //Selects row in datagrid
         protected void dgvPharmacistPrescriptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (GridViewRow row in dgvPharmacistPrescriptions.Rows)
@@ -98,7 +107,7 @@ namespace PharmaCare
             }
 
         }
-
+        //Updates OPDPrescription to Fill and dispatch Prescription
         protected void btnDispatch_Click(object sender, EventArgs e)
         {
             try
@@ -122,7 +131,7 @@ namespace PharmaCare
                 Console.WriteLine(ex.Message);
             }
         }
-
+        //Updates OPDPrescription to Recall dispatch Prescription
         protected void btnRecall_Click(object sender, EventArgs e)
         {
             try
@@ -146,7 +155,7 @@ namespace PharmaCare
                 Console.WriteLine(ex.Message);
             }
         }
-
+        //Clear TextBoxes
         private void ClearTextBox()
         {
             txtPrescriptionID.Text = "";
@@ -160,7 +169,7 @@ namespace PharmaCare
             txtType.Text = "";
             lblPatientNameError.Text = null;
         }
-
+        //Selects row in datagrid
         protected void dgvOPDPrescription_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (GridViewRow row in dgvOPDPrescription.Rows)
@@ -183,6 +192,7 @@ namespace PharmaCare
             }
         }
 
+        //Binds row in datagrid
         protected void dgvOPDPrescription_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
