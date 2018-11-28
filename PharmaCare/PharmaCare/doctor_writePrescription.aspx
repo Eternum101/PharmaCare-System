@@ -1,22 +1,33 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="doctor_writePrescription.aspx.cs" Inherits="PharmaCare.writePrescription" EnableEventValidation = "false" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server"> Write Prescriptions
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+    <!--
+    Author: Jakob, Brayden, Jake
+    Date: 27/11/18
+    Version: 1.0
+    Purpose: The purpose for the Write Prescription page is to create, modify, and remove prescriptions 
+             within the database and to check if the cocktails of drugs are dangerous or not
+    -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div>
         <!-- Page Heading -->
         <h1 class="writePrescriptionHeading">Write Prescription</h1>
 
+            <!-- Get SQL connection for the Prescription gridview -->
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Doctors.DoctorName, 
                 Prescriptions.PrescriptionDetails, Prescriptions.StatusOfPrescription FROM Patients INNER JOIN Prescriptions 
                 ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
                 ON Doctors.DoctorID = Prescriptions.DoctorID"></asp:SqlDataSource>
 
+            <!-- Get SQL connection for the Drug Details gridview -->
             <asp:SqlDataSource ID="SqlDataSourceDetails" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT [PrescriptionDetailsID], [LinkID], [DrugName], [DrugForm], [Dose], [FirstTime], [LastTime], [TimesPerDay], [StatusOfDose] FROM [PrescriptionsDetails] WHERE ([LinkID] = @LinkID)">
                 <SelectParameters>
@@ -24,6 +35,7 @@
                 </SelectParameters>
             </asp:SqlDataSource>
    
+        <!-- Search Features -->
         <div class="searchContainer">
             <ul class="childSearch">
               <li class="searchPosition"><h3>Patient Name: </h3></li>
@@ -37,10 +49,12 @@
         </div>
     </div>
 
+    <!-- Cocktail waring Label -->
     <div class="cocktailWarning">
         <asp:Label Text="" ID="lblCocktailWarning" CssClass="lblcocktailWarning" runat="server" />
     </div>
 
+    <!-- Prescription Gridview -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
@@ -66,6 +80,7 @@
         </div>
     </div>
 
+    <!-- Drug Details Gridview -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
@@ -91,7 +106,7 @@
         </div>
     </div>
 
-    <!-- Bordered div -->
+    <!-- Prescription Information Textboxes -->
     <div class="globalBorderRound">
 
                 <h4 class="lblPrescriptionNumber">Prescription Number: &nbsp;<asp:Label Text="" ID="lblPrescriptionNumber" runat="server" /> </h4><br />
@@ -117,8 +132,7 @@
                     ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
             
         </div>
-        <!-- Middle Div -->
-
+    
         <div class="leftTextboxDiv">
             <h4>Date: </h4>
             <asp:TextBox ID="txtDate" CssClass="entry_textboxes" Width="150px" runat="server" />
@@ -151,6 +165,7 @@
 
     </div>
 
+    <!-- Drug Details Information Textboxes -->
     <div class="globalBorderRound">
         <!-- Left Div -->
        
@@ -158,7 +173,7 @@
         
             <asp:Button class="btnSubmitNewDrugDetail" Text="New Details" runat="server" ID="btnSubmitNewDrugDetail" OnClick="btnSubmitNewDrugDetail_Click"/>
             
-        <!-- Right Div -->
+        
         <div class="leftTextboxDiv">
 
             <h4>First Time: </h4>
@@ -173,9 +188,6 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtEndDate" 
                 CssClass="validatorText" ErrorMessage="Last Time Required" 
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
-
-            
-            
         </div>
 
         <div class="leftTextboxDiv">
@@ -217,35 +229,11 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtDrugName" 
                 CssClass="validatorText" ErrorMessage="First Time Required" 
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
-            
-            
-            
         </div>
-
     </div>
-
-    <!-- END Bordered div -->
-    
-    <!-- Bottom Div 
-    <div class="extraSpace">
-        <div class="bigTextBoxDiv">
-            <div class="left">
-                <h4>Additional Information:</h4>
-            </div>
-            <asp:TextBox ID="txtAdditionalInformation" class="bigTextBox" runat="server" />
-        </div>
-    </div>-->
-    <!-- END Bottom Div -->
-    
-
+    <!-- Bottom Buttons -->
     <div class="float_center">
         <ul class="child">
-            <!--
-          <li><p>14/11/18</p></li>  
-          <li><p>Jakob Farrow</p></li>
-          <li><p>455089250</p></li>
-            -->
-          
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Check Cocktail" runat="server" ID="btnCheckCocktail" OnClick="btnCheckCocktail_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Cancel" runat="server" ID="btnCancel" OnClick="btnCancel_Click" /></li>
@@ -255,6 +243,7 @@
     </div>
 </asp:Content>
 
+    <!-- Footer Content -->
     <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
         <div class="float_center">
             <ul class="child">

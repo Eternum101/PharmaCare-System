@@ -5,9 +5,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+    <!--
+    Author: Rani
+    Date: 28/11/18
+    Version: 1.0
+    Purpose: The purpose for the Pharmacist Indoor Medication is to display certain indoor prescriptions after the user 
+           has searched for the patient ID. Pharmacists can then print the selected rows within the gridview
+    -->
     <div>
         <h1 class="writePrescriptionHeading">Indoor Medication</h1>
         
+        <!-- Search Features -->
         <div class="searchContainer">
             <ul class="childSearch">
               <li class="searchPosition"><h3>Patient ID: </h3></li>
@@ -18,6 +26,7 @@
         </div>
     </div>
 
+    <!-- Indoor prescription gridview -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
@@ -56,6 +65,7 @@
     </div>
     </div>
 
+    <!-- Bottom Buttons -->
     <div class="float_center">
         <ul class="child">
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Print" runat="server" ID="btnPrint" OnClientClick="PrintGridViewSelectedRows()" /></li>
@@ -100,6 +110,8 @@
 
     </script>
 </asp:Content>
+
+<!-- Footer Content -->
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
     <div class="float_center">
         <ul class="child">

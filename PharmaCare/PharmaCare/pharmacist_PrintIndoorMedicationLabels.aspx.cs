@@ -10,15 +10,25 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/*
+ *Author: Rani
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the Pharmacist Indoor Medication is to display certain indoor prescriptions after the user 
+           has searched for the patient ID. Pharmacists can then print the selected rows within the gridview
+*/
+
 namespace PharmaCare
 {
     public partial class PrintIndoorMedicationLabels : System.Web.UI.Page
     {
+        // Make connection to the database
         string Con = ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
+        // Select the content from the tables within the database 
         private DataTable GetData()
         {
             using (SqlConnection con = new SqlConnection(Con))
@@ -40,8 +50,10 @@ namespace PharmaCare
                 }
             }
         }
+        // Display the content within the database in the gridview
         protected void Button1_Click(object sender, EventArgs e)
         {
+            // If the search textbox has been filled
             if (txtPrescriptionIDInput.Text!="")
             {
                 DataTable ds = GetData();
@@ -53,6 +65,7 @@ namespace PharmaCare
                         GridView1.DataBind();
                         GridView1.Visible = true;
                     }
+                    // If patient ID is incorrect or non-existent
                     else
                     {
                         GridView1.Visible = false;
@@ -68,6 +81,7 @@ namespace PharmaCare
                     }
                 }
             }
+            // If the search textbox has not been filled
             else
             {
                 string message = "Please Enter Valid Patient ID!";

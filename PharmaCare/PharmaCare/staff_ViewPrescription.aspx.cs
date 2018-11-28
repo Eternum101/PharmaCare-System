@@ -8,6 +8,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+/*
+ *Author: Jakob Farrow
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the Staff View Prescription page is to view Outdoor prescriptions within the database and print out the contents
+*/
+
 namespace PharmaCare
 {
     public partial class staff_ViewPrescription : System.Web.UI.Page
@@ -73,16 +80,19 @@ namespace PharmaCare
                 }
             }
         }
-
+        //Clear textbx method
         private void clearTextboxes()
         {
+            //Reset the page
             dgvStaffPrescriptions.DataSource = null;
             dgvStaffPrescriptions.DataBind();
             lblPatientNameError.Text = null;
         }
 
+        //Clear button Event
         protected void btnClear_Click(object sender, EventArgs e)
         {
+
             clearTextboxes();
             txtPatientNameInput.Text = null;
         }
