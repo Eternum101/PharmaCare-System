@@ -73,9 +73,8 @@
                 <div class="float_center">
                     <ul class="child">
                       <li><p>14/11/18</p></li>
-                      <li><p>Billy Bob</p></li>
-                      <li><p>John Doe</p></li>
-                      <li><p>Silly Sam</p></li>
+                      <li><p>Jakob</p></li>
+                      <li><p>455089250</p></li>
                     </ul>
                     <div class="clear"></div>
                 </div>
