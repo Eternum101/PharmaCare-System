@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="PharmaCare_Publish" />
+  <setParameter name="Dbconnection-Web.config Connection String" value="Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True" />
+  <setParameter name="ConnectionString-Web.config Connection String" value="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security=True" />
+</parameters>

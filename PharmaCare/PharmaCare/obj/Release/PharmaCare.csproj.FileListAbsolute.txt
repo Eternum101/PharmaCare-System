@@ -1,0 +1,17 @@
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\PharmaCare.dll.config
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\PharmaCare.dll
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\PharmaCare.pdb
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\csc.exe.config
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\csc.rsp
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\csi.exe.config
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\csi.rsp
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\vbc.exe.config
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\vbc.rsp
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\obj\Release\PharmaCare.csprojAssemblyReference.cache
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\obj\Release\PharmaCare.csproj.CoreCompileInputs.cache
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\obj\Release\PharmaCare.dll
+C:\Users\Jakob\Documents\PharmaCare\PharmaCare\PharmaCare\obj\Release\PharmaCare.pdb
