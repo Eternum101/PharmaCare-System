@@ -46,7 +46,6 @@
             <asp:GridView ID="dgvPharmacistPrescriptions" runat="server" DataSourceID="SqlDataSourcePharmacist" 
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
-                OnRowDataBound="dgvPharmacistPrescriptions_RowDataBound" OnSelectedIndexChanged="dgvPharmacistPrescriptions_SelectedIndexChanged" 
                 AutoGenerateColumns="False" DataKeyNames="PrescriptionID" ValidateRequestMode="Disabled">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
@@ -111,7 +110,7 @@
         <asp:GridView ID="dgvOPDPrescriptions" runat="server" DataSourceId="SqlDataSourceOPD"
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
-                AutoGenerateColumns="False" ValidateRequestMode="Disabled" DataKeyNames="PrescriptionID">
+                AutoGenerateColumns="False" ValidateRequestMode="Disabled" DataKeyNames="PrescriptionID" OnRowDataBound="dgvOPDPrescriptions_RowDataBound" OnSelectedIndexChanged="dgvOPDPrescriptions_SelectedIndexChanged">
                 <Columns>
                     <asp:BoundField DataField="PrescriptionID" HeaderText="Prescription ID" InsertVisible="False" ReadOnly="True" SortExpression="PrescriptionID" />
                     <asp:BoundField DataField="Name" HeaderText="Patient Name" SortExpression="Name" />
@@ -140,6 +139,11 @@
            <h4>Prescription ID:</h4> 
             <asp:TextBox ID="txtPrescriptionID" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
             </div>
+
+    <div class="leftTextboxDiv">
+        <h4>Patient Name:</h4> 
+            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
+            </div>
             
          <div class="leftTextboxDiv">
             <h4>Doctor Name:</h4>
@@ -147,14 +151,34 @@
          </div>
 
         <div class="leftTextboxDiv">
-           <h4>Patient Name:</h4> 
-            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+           <h4>Filled And Dispatched:</h4> 
+            <asp:TextBox ID="txtFilledAndDispatched" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+        </div>
+
+        <div class="leftTextboxDiv">
+           <h4>Time Dispatched:</h4> 
+            <asp:TextBox ID="txtTimeDispatched" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+        </div>
+
+        <div class="leftTextboxDiv">
+           <h4>Date Dispatched:</h4> 
+            <asp:TextBox ID="txtDateDispatched" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+        </div>
+
+        <div class="leftTextboxDiv">
+           <h4>Indoor Emergency:</h4> 
+            <asp:TextBox ID="txtIndoorEmergency" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
         </div>
             
         <div class="leftTextboxDiv">
-            <h4>Status:</h4>
-            <asp:TextBox ID="txtStatus"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group" CssClass="text-danger"></asp:RequiredFieldValidator>
+            <h4>To Fill:</h4>
+            <asp:TextBox ID="txtToFill"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
+            </div>
+
+        <div class="leftTextboxDiv">
+            <h4>Type:</h4>
+            <asp:TextBox ID="txtType"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group" CssClass="text-danger"></asp:RequiredFieldValidator>
             </div>
     </div>
 
