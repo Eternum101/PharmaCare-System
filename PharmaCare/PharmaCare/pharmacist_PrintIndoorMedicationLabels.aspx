@@ -100,5 +100,14 @@
 
     </script>
 </asp:Content>
+<asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+    <div class="float_center">
+        <ul class="child">
+          <li><p>22/11/18</p></li>
+          <li><p>Rani</p></li>
+          <li><p>452441249</p></li>
+        </ul>
+    </div>
+</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">
 </asp:Content>
