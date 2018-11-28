@@ -13,7 +13,7 @@
 
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT Prescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Doctors.DoctorName, 
-                Prescriptions.StatusOfPrescription FROM Patients INNER JOIN Prescriptions 
+                Prescriptions.PrescriptionDetails, Prescriptions.StatusOfPrescription FROM Patients INNER JOIN Prescriptions 
                 ON Patients.PatientID = Prescriptions.PatientID INNER JOIN Doctors 
                 ON Doctors.DoctorID = Prescriptions.DoctorID"></asp:SqlDataSource>
 
@@ -31,6 +31,9 @@
               <li class="searchPositionSmaller"><asp:Button ID="btnPatientSearch" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPatientSearch_Click" ValidationGroup="SearchValidation" />
                 <asp:RequiredFieldValidator ID="rfvSearch" runat="server" ControlToValidate="txtPatientNameInput" CssClass="text-danger" ErrorMessage="Patient Name Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
             </ul>
+            <div class="lblPatientNameErrorAlignment">
+                <asp:Label Text="" ID="lblPatientNameError" CssClass="lblcocktailWarning" runat="server" />
+            </div>
         </div>
     </div>
 
@@ -125,6 +128,17 @@
                 ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
             
         </div>
+
+        <div class="leftTextboxDiv">
+            <h4>Details: </h4>
+            <asp:TextBox ID="txtPrescriptionDetails" CssClass="entry_textboxes" Width="150px" runat="server" />
+
+            <asp:RequiredFieldValidator ID="rfvDetails" runat="server" ControlToValidate="txtPrescriptionDetails" 
+                CssClass="validatorText" ErrorMessage="Date Required" 
+                ValidationGroup="PrescriptionValidation"></asp:RequiredFieldValidator>
+            
+        </div>
+
         <div class="leftTextboxDiv">
             <h4>Status: </h4>
             <asp:TextBox ID="txtPrescriptionStatus" CssClass="entry_textboxes" Width="150px" runat="server" />
@@ -241,16 +255,15 @@
     </div>
 </asp:Content>
 
-<asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
-    <div class="float_center">
-        <ul class="child">
-          <li><p>14/11/18</p></li>
-          <li><p>Jakob Farrow</p></li>
-          <li><p>Brayden Cantrill</p></li>
-          <li><p>Silly Sam</p></li>
-        </ul>
-    </div>
-</asp:Content>
+    <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+        <div class="float_center">
+            <ul class="child">
+              <li><p>27/11/18</p></li>
+              <li><p>Jakob</p></li>
+              <li><p>455089250</p></li>
+            </ul>
+        </div>
+    </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="body" runat="server">
 </asp:Content>

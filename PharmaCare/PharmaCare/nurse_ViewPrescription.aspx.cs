@@ -24,12 +24,39 @@ namespace PharmaCare
         protected void btnNursePatientSearch_Click(object sender, EventArgs e)
         {
             clearTextboxes();
-            if (txtNursePatientSearch.Text != "" && txtNursePatientSearch.Text != null)
+
+            // Make connection to the database
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+            int patientID = 0;
+
+            // Get PatientID and apply that value to the patientID int. 
+            conn.Open();
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtNursePatientSearch.Text + "'", conn);
+            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+            while (myReaderDoctorID.Read())
             {
-                search_GridViewNames();
+                patientID = myReaderDoctorID.GetInt32(0);
             }
-            else
+
+            conn.Close();
+
+            // If patientID has been found and is not 0
+            if (patientID != 0)
             {
+                lblPatientNameError.Text = null;
+                if (txtNursePatientSearch.Text != "" && txtNursePatientSearch.Text != null)
+                {
+                    search_GridViewNames();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            // If patientID has been not been found and remains 0
+            else if (patientID == 0)
+            {
+                lblPatientNameError.Text = "Patient Name Doesnt Exist";
                 return;
             }
         }
@@ -54,6 +81,7 @@ namespace PharmaCare
             dgvNursePrescriptions.SelectedIndex = -1;
             dgvNursePrescriptions.DataSource = null;
             dgvNursePrescriptions.DataBind();
+            lblPatientNameError.Text = null;
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
