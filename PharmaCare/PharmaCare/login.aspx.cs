@@ -49,5 +49,10 @@ namespace PharmaCare
             }
             conn.Close();
         }
+
+        protected void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            lblUserNameIncorrect.Text = null;
+        }
     }
 }

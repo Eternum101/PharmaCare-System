@@ -11,7 +11,7 @@ using System.Configuration;
 using System.Text.RegularExpressions;
 
 /*
- *Author: Jakob Farrow
+ *Author: Jakob, Brayden, Jake
  *Date: 28/11/18
  *Version: 1.0
  *Purpose: The purpose for the Write Prescription page is to create, modify, and remove prescriptions 
@@ -96,6 +96,7 @@ namespace PharmaCare
             }
         }
 
+        // Grab the Prescription GridView Information and display them within the corresponding textboxes
         private void TableData()
         {
             string prescriptionID;
@@ -149,34 +150,7 @@ namespace PharmaCare
 
         }
 
-        protected void dgvDoctorPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDoctorPrescriptions, "Select$" + e.Row.RowIndex);
-            }
-        }
-
-        protected void dgvDrugPrescription_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDrugDetails, "Select$" + e.Row.RowIndex);
-            }
-        }
-
-        public void OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            TableData();
-        }
-
-        public void OnSelectedDrugIndexChanged(object sender, EventArgs e)
-        {
-            TableDrugData();
-        }
-
-        
-
+        // Grab the Drug Data GridView Information and display them within the corresponding textboxes 
         private void TableDrugData()
         {
             foreach (GridViewRow row2 in dgvDrugDetails.Rows)
@@ -209,77 +183,34 @@ namespace PharmaCare
                 }
             }
         }
-        
-        
-        private void checkName()
+
+        protected void dgvDoctorPrescriptions_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            
-        }
-        private void InsertIDs()
-        {
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
-            int drugID = 0;
-            int doctorID = 0;
-            int patientID = 0;
-            try
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                con.Open();
-                SqlCommand cmdGetDrugID = new SqlCommand("SELECT DrugID FROM Drugs WHERE DrugName = '" + txtDrugName.Text + "'", con);
-                SqlDataReader myReaderDrugID = cmdGetDrugID.ExecuteReader();
-                while (myReaderDrugID.Read())
-                {
-                    drugID = myReaderDrugID.GetInt32(0);
-                }
-
-                con.Close();
-                con.Open();
-                SqlCommand cmdUpdateDrugID = new SqlCommand("INSERT INTO Prescriptions (DrugID) VALUES (@DrugID)", con) ;
-                cmdUpdateDrugID.Parameters.AddWithValue("@DrugID", drugID);
-                cmdUpdateDrugID.CommandType = CommandType.Text;
-                cmdUpdateDrugID.ExecuteNonQuery();
-                con.Close();
-
-                con.Open();
-                SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", con);
-                SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
-                while (myReaderDoctorID.Read())
-                {
-                    doctorID = myReaderDoctorID.GetInt32(0);
-                }
-
-                con.Close();
-                con.Open();
-                SqlCommand cmdUpdateDoctorID = new SqlCommand("INSERT INTO Prescriptions (DoctorID) VALUES (@DoctorID)", con);
-                cmdUpdateDoctorID.Parameters.AddWithValue("@DoctorID", doctorID);
-                cmdUpdateDoctorID.CommandType = CommandType.Text;
-                cmdUpdateDoctorID.ExecuteNonQuery();
-                con.Close();
-
-                con.Open();
-                SqlCommand cmdGetPatientID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPatientName.Text + "'", con);
-                SqlDataReader myReaderPatientID = cmdGetPatientID.ExecuteReader();
-                while (myReaderPatientID.Read())
-                {
-                    patientID = myReaderPatientID.GetInt32(0);
-                }
-
-                con.Close();
-                con.Open();
-                SqlCommand cmdUpdatePatientID = new SqlCommand("INSERT INTO Prescriptions (PatientID) VALUES (@PatientID)", con);
-                cmdUpdatePatientID.Parameters.AddWithValue("@PatientID", patientID);
-                cmdUpdatePatientID.CommandType = CommandType.Text;
-                cmdUpdatePatientID.ExecuteNonQuery();
-                con.Close();
-
-            }
-            catch (SqlException ex)
-            {
-                string msg = "Insert Error:";
-                msg += ex.Message;
-                throw new Exception(msg);
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDoctorPrescriptions, "Select$" + e.Row.RowIndex);
             }
         }
 
+        protected void dgvDrugPrescription_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.dgvDrugDetails, "Select$" + e.Row.RowIndex);
+            }
+        }
+        // Run TableData method on gridview row click
+        public void OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            TableData();
+        }
+
+        // Run TableDrugData method on gridview row click
+        public void OnSelectedDrugIndexChanged(object sender, EventArgs e)
+        {
+            TableDrugData();
+        }
+        
         // Prescription Insert Method
         private void dgvDoctorPrescriptions_Insert()
         {
@@ -287,6 +218,7 @@ namespace PharmaCare
             int doctorID = 0;
             int patientID = 0;
 
+            // Get and Insert the PatientID within the database
             conn.Open();
             SqlCommand cmdGetPatientID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPatientName.Text + "'", conn);
             SqlDataReader myReaderPatientID = cmdGetPatientID.ExecuteReader();
@@ -297,6 +229,7 @@ namespace PharmaCare
 
             conn.Close();
 
+            // Get and Insert the DoctorID within the database
             conn.Open();
             SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", conn);
             SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
@@ -312,6 +245,7 @@ namespace PharmaCare
 
             try
             {
+                // Add Textbox and ID values into the database
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@PatientID", patientID);
@@ -327,7 +261,6 @@ namespace PharmaCare
                 string msg = "Insert Error:";
                 msg += ex.Message;
                 throw new Exception(msg);
-
             }
             finally
             {
@@ -339,6 +272,7 @@ namespace PharmaCare
         // Drug Details Insert Method
         private void dgvDrugDetails_Insert()
         {
+            // Connect to the Dbconnection database
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
             int prescriptionID = 0;
@@ -358,6 +292,7 @@ namespace PharmaCare
                          "VALUES (@DrugName, @DrugForm, @Dose, @FirstTime, @LastTime, @TimesPerDay, @StatusOfDose, @LinkID)";
             try
             {
+                // Add Textbox and ID values into the database
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
@@ -385,6 +320,7 @@ namespace PharmaCare
             
         }
 
+        // Insert the methods which are getting the textbox values and run them if the textboxes are not empty
         private void Insert()
         {
             if (!string.IsNullOrEmpty(txtPatientName.Text + txtDoctorName.Text + txtDate.Text + txtPrescriptionStatus.Text +
@@ -412,7 +348,6 @@ namespace PharmaCare
             txtDose.Text = null;
             txtDoseStatus.Text = null;
             txtDrugForm.Text = null;
-            //txtAdditionalInformation.Text = null;
             txtPatientName.Enabled = true;
 
             // Label clear
@@ -448,7 +383,6 @@ namespace PharmaCare
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             Insert();
-            checkName();
             clearTextboxes();
         }
 
@@ -462,19 +396,18 @@ namespace PharmaCare
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             
-
+            // Connect to the Dbconnection Database
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
+            // Delete PrescriptionDetails row where the Link = the label value
             sqlConn.Open();
-
             SqlCommand cmd2 = new SqlCommand(
                 " DELETE FROM PrescriptionsDetails WHERE LinkID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
             cmd2.ExecuteNonQuery();
             sqlConn.Close();
 
-
+            // Delete Prescriptions row where the PrescriptionID = the label value
             sqlConn.Open();
-
             SqlCommand cmd = new SqlCommand(
                 " DELETE FROM Prescriptions WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'", sqlConn);
             cmd.ExecuteNonQuery();
@@ -488,14 +421,17 @@ namespace PharmaCare
         // Prescriptions Modify Method 
         private void Prescriptions_ContentModify()
         {
+            // Connect to Dbconnection database
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
             int doctorID = 0;
 
+            // Define what must be updated within the database
             string query = "UPDATE Prescriptions SET " +
                 " PrescriptionDate = @PrescriptionDate, PrescriptionDetails = @PrescriptionDetails , StatusOfPrescription = @PrescriptionStatus " +
                 " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
 
+            // Update the database values with the textbox text
             sqlConn.Open();
             SqlCommand cmd = new SqlCommand(query, sqlConn);
             foreach (GridViewRow row in dgvDoctorPrescriptions.Rows)
@@ -510,6 +446,7 @@ namespace PharmaCare
             }
             sqlConn.Close();
 
+            // Select the DoctorID within the database that matches the doctor name entered
             sqlConn.Open();
             SqlCommand cmdGetDoctorID = new SqlCommand("SELECT DoctorID FROM Doctors WHERE DoctorName = '" + txtDoctorName.Text + "'", sqlConn);
             SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
@@ -520,6 +457,7 @@ namespace PharmaCare
 
             sqlConn.Close();
 
+            // Update the DoctorID within the database that matches the doctor name entered
             sqlConn.Open();
             SqlCommand cmdUpdateDoctorID = new SqlCommand("UPDATE Prescriptions set DoctorID = '" + doctorID + "' WHERE PrescriptionID ='" + Convert.ToInt16(lblPrescriptionNumber.Text) + "'", sqlConn);
             cmdUpdateDoctorID.ExecuteNonQuery();
@@ -529,13 +467,16 @@ namespace PharmaCare
         // Drug Detail Modify Method 
         private void DrugDetails_ContentModify()
         {
+            // Connect to the Dbconnection database
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
-            
+
+            // Define what must be updated within the database
             string queryDetails = "UPDATE PrescriptionsDetails SET FirstTime = @FirstTime, " +
                 " LastTime = @LastTime, TimesPerDay = @TimesPerDay, DrugForm = @DrugForm, " +
                 " Dose = @Dose, StatusOfDose = @DoseStatus, DrugName = @DrugName " +
                 " WHERE PrescriptionDetailsID = '" + Convert.ToInt16(lblDrugID.Text).ToString() + "'";
 
+            // Update the database values with the textbox text
             sqlConn.Open();
             SqlCommand cmdDetails = new SqlCommand(queryDetails, sqlConn);
             foreach (GridViewRow row2 in dgvDrugDetails.Rows)
@@ -563,6 +504,7 @@ namespace PharmaCare
             {
                 Prescriptions_ContentModify();
 
+                // if textboxes are not empty or null run DrugDetails_ContentModify Method
                 if (!string.IsNullOrEmpty(txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text + txtDrugForm.Text + txtDose.Text +
                 txtDoseStatus.Text + txtDrugName.Text))
                 {
@@ -581,16 +523,18 @@ namespace PharmaCare
         // Check Cocktail Button Event 
         protected void btnCheckCocktail_Click(object sender, EventArgs e)
         {
-
+            // Connect to the cocktail web service 
             CocktailService.CocktailServiceClient client = new CocktailService.CocktailServiceClient();
 
             for (int i = 0; i < dgvDrugDetails.Rows.Count; i++)
             {
+                // If a drug within the gridview is dangerous run
                 if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[3].Text) == true)
                 {
                     lblCocktailWarning.CssClass = "lblcocktailWarning";
                     lblCocktailWarning.Text = "Warning! Dangerous Cocktail!";
                 }
+                // If a drug within the gridview is not dangerous run
                 else if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[3].Text) == false)
                 {
                     lblCocktailWarning.CssClass = "lblCocktailSafe";
@@ -607,6 +551,7 @@ namespace PharmaCare
             // Make connection with the Dbconnection Database
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
+            // Define what must be updated within the database
             string sql = "INSERT INTO PrescriptionsDetails (DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, LinkID) " +
                          "VALUES (@DrugName, @DrugForm, @Dose, @FirstTime, @LastTime, @TimesPerDay, @StatusOfDose, @LinkID)";
 

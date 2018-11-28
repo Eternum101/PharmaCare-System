@@ -1,4 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="staff_ViewPrescription.aspx.cs" Inherits="PharmaCare.staff_ViewPrescription" %>
+
+<!--
+    Author: Jakob Farrow
+    Date: 27/11/18
+    Version: 1.0
+    Purpose: The purpose for the Staff View Prescription page is to view Outdoor prescriptions within the database and print out the contents
+-->
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
@@ -6,6 +14,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
      <div>
 
+         <!-- Get SQL connection for the Outdoor Prescription gridview -->
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Dbconnection %>" 
                 SelectCommand="SELECT OPDPrescriptions.PrescriptionID, Patients.Name, Prescriptions.PrescriptionDate, Doctors.DoctorName, 
                 Prescriptions.StatusOfPrescription, OPDPrescriptions.FilledandDispatched, OPDPrescriptions.TimeDispatched, 
@@ -17,7 +26,7 @@
         <!-- Page Heading -->
         <h1 class="">OPD Prescription</h1>
 
-        <!-- Patient Name lbl and txt -->
+        <!-- Search Features -->
           <div class="searchContainer">
             <ul class="child2">
               <li class="searchPosition"><h3>Patient Name: </h3></li>
@@ -32,7 +41,7 @@
           </div>
     </div>
 
-    <!-- Bordered div -->
+    <!-- Outdoor Prescriptions Gridview -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
         <div class="left">
@@ -55,8 +64,8 @@
             </asp:GridView>
         </div>
     </div>
-    <!-- END Bordered div -->
 
+    <!-- Bottom Buttons -->
     <div class="float_center">
         <ul class="child">
           <li class="btn_li"><asp:Button class="buttonVisuals_Spacing" Text="Clear" runat="server" ID="btnClear" OnClick="btnClear_Click" /></li>
@@ -67,12 +76,11 @@
         </ul>
     </div>
 
-    <!-- Bottom Div -->
-    
-    <!-- END Bottom Div -->
 </asp:Content>
 
+
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+    <!-- Footer Content -->
     <div class="float_center">
         <ul class="child">
           <li><p>27/11/18</p></li>
