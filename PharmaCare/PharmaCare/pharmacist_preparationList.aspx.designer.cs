@@ -31,6 +31,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceDetails;
         
         /// <summary>
+        /// SqlDataSourceDetails1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceDetails1;
+        
+        /// <summary>
         /// txtPharmacistPrescriptionSearch control.
         /// </summary>
         /// <remarks>
@@ -85,6 +94,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.GridView dgvPrescriptionsDetails;
         
         /// <summary>
+        /// dgvPrescriptionsDetails1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvPrescriptionsDetails1;
+        
+        /// <summary>
         /// txtPrescriptionID control.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtDrugName;
         
         /// <summary>
+        /// TxtDrugForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtDrugForm;
+        
+        /// <summary>
         /// RequiredFieldValidatorPrescription control.
         /// </summary>
         /// <remarks>
@@ -121,12 +148,30 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPrescription;
         
         /// <summary>
-        /// btnFill control.
+        /// btnViewAll control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnFill;
+        protected global::System.Web.UI.WebControls.Button btnViewAll;
+        
+        /// <summary>
+        /// btnPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrint;
+        
+        /// <summary>
+        /// btnPrepare control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrepare;
     }
 }

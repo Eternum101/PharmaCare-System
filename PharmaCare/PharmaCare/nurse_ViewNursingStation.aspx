@@ -8,21 +8,13 @@
         <!-- Page Heading -->
         <h1 class="">Nursing Station List</h1><br />
 
-        <!-- Patient Name lbl and txt -->
+        <!-- Nursing Station Header & DropDownList -->
         <h3>Select Nursing Station: 
             <asp:DropDownList CssClass="dropdownRoundStation" ID="ddlNursingStation" runat="server" Height="30px" AutoPostBack="True" DataTextField="NursingStationID" 
                 DataValueField="NursingStationID" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="ddlNursingStation_SelectedIndexChanged1" AppendDataBoundItems="true">
                 <asp:ListItem Value="" Text=""></asp:ListItem>
             </asp:DropDownList>
         </h3>
-        <div>
-
-        </div>
-
-        <!-- Top Buttons -->
-        
-        <!-- END Top Buttons -->
-
     </div>
 
     <!-- Bordered div -->
