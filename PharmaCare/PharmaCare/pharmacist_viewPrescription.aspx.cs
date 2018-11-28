@@ -178,7 +178,7 @@ namespace PharmaCare
 
             Response.AppendHeader("Content-Length", printString.Length.ToString());
             Response.ContentType = "text/plain";
-            Response.AppendHeader("Content-Disposition", "attachment;filename=\"output.txt\"");
+            Response.AppendHeader("Content-Disposition", "attachment;filename=\"PrintPrescription.txt\"");
 
             Response.Write(printString);
             Response.End();
