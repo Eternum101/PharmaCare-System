@@ -112,7 +112,8 @@
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
                 AutoGenerateColumns="False" ValidateRequestMode="Disabled" DataKeyNames="PrescriptionID" OnRowDataBound="dgvOPDPrescription_RowDataBound" OnSelectedIndexChanged="dgvOPDPrescription_SelectedIndexChanged">
-                <Columns>
+               <AlternatingRowStyle BackColor="#F7F7F7" />
+            <Columns>
                     <asp:BoundField DataField="PrescriptionID" HeaderText="Prescription ID" InsertVisible="False" ReadOnly="True" SortExpression="PrescriptionID" />
                     <asp:BoundField DataField="Name" HeaderText="Patient Name" SortExpression="Name" />
                     <asp:BoundField DataField="DoctorName" HeaderText="Doctor Name" SortExpression="DoctorName" />

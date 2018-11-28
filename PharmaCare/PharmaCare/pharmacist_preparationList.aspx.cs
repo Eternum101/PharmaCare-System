@@ -18,17 +18,6 @@ namespace PharmaCare
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
-            foreach (GridViewRow row in dgvPharmacistPreparation.Rows)
-            {
-
-                if (!Regex.IsMatch(row.Cells[2].Text, "Hold", RegexOptions.IgnoreCase))
-                {
-                    {
-                        row.Visible = false;
-                    }
-                }
-            }
-
         }
 
         protected void dgvPharmacistPreparation_SelectedIndexChanged(object sender, EventArgs e)
