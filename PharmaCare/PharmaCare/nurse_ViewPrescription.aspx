@@ -6,6 +6,14 @@
     
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+
+<!--
+ *Author: Brayden Cantrill 
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the View Prescription page is to display all the current patient prescriptions 
+ * and there prescription details. 
+-->
     
     <div>
         <!-- Page Heading -->

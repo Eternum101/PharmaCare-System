@@ -4,6 +4,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+
+  
+<!-- 
+ *Author: Brayden Cantrill 
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the View Nursing Station page is to display a list of Nursing Station Details that is correspondant
+ * to the Nursing Station ID that is selected from a drop down list. 
+-->
+
     <div>
         <!-- Page Heading -->
         <h1 class="">Nursing Station List</h1><br />

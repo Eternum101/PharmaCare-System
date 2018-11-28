@@ -2,6 +2,14 @@
 
 <!DOCTYPE html>
 
+<!--
+ *Author: Jakob, Brayden 
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the login page is allow the user to successfully sign into the web application
+ * using there username and password. 
+--> 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!-- Title -->

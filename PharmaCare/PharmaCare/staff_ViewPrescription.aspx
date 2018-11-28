@@ -1,17 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="staff_ViewPrescription.aspx.cs" Inherits="PharmaCare.staff_ViewPrescription" %>
 
-<!--
-    Author: Jakob Farrow
-    Date: 27/11/18
-    Version: 1.0
-    Purpose: The purpose for the Staff View Prescription page is to view Outdoor prescriptions within the database and print out the contents
--->
-
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
+
+    <!-- 
+    Author: Jakob Farrow
+    Date: 27/11/18
+    Version: 1.0
+    Purpose: The purpose for the Staff View Prescription page is to view Outdoor prescriptions within the database and print out the contents
+    -->
+
      <div>
 
          <!-- Get SQL connection for the Outdoor Prescription gridview -->

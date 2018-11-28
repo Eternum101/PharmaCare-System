@@ -13,7 +13,6 @@ using System.Configuration;
  *Version: 1.0
  *Purpose: The purpose for the login page is allow the user to successfully sign into the web application
  * using there username and password. 
- 
 */
 
 namespace PharmaCare
