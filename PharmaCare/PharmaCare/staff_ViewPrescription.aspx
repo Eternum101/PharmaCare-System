@@ -78,8 +78,9 @@
 
 </asp:Content>
 
-<!-- Footer Content -->
+
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server"> 
+    <!-- Footer Content -->
     <div class="float_center">
         <ul class="child">
           <li><p>27/11/18</p></li>

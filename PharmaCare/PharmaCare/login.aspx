@@ -51,16 +51,19 @@
                 <div class="login_contentContainer">
                     <div class="login_credentialsContainer">
                         <h4>Username: </h4>
-                        <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" />
+                        <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" AutoPostBack="True" OnTextChanged="txtUsername_TextChanged" />
+                        <asp:Label Text="" ID="lblUserNameIncorrect" CssClass="lblLoginWarning" runat="server" />
                         <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate="txtUsername" 
                             ErrorMessage="Please Enter Username" ForeColor="#CC0000" ValidationGroup="SignIn"></asp:RequiredFieldValidator>
-                        <asp:Label Text="" ID="lblUserNameIncorrect" CssClass="lblcocktailWarning" runat="server" />
+
+                        
 
                         <h4>Password: </h4>
                         <asp:TextBox ID="txtPassword" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" />
+                        <asp:Label Text="" ID="lblPasswordIncorrect" CssClass="lblLoginWarning" runat="server" />
                         <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" 
                             ErrorMessage="Please Enter Password" ForeColor="#CC0000" ValidationGroup="SignIn"></asp:RequiredFieldValidator>
-                        <asp:Label ID="lblPasswordIncorrect" CssClass="lblcocktailWarning" runat="server" />
+
                     </div>
                     
                     <div class="btnLogin">
@@ -75,8 +78,8 @@
                 <div class="float_center">
                     <ul class="child">
                       <li><p>14/11/18</p></li>
-                      <li><p>Jakob</p></li>
-                      <li><p>455089250</p></li>
+                      <li><p>Jakob | 455089250</p></li>
+                       <li><p>Brayden | 454657305</p></li>
                     </ul>
                     <div class="clear"></div>
                 </div>
