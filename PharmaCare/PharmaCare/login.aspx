@@ -64,7 +64,7 @@
                     </div>
                     
                     <div class="btnLogin">
-                        <asp:Button class="btnLoginVisuals" Text="Sign In" runat="server" ID="btnSignIn" OnClick="btnSignIn_Click" ValidationGroup="SignIn" />
+                        <asp:Button class="btnLoginVisuals" Text="Sign In" runat="server" ID="btnSignIn" ValidationGroup="SignIn" OnClick="btnSignIn_Click" />
                     </div>
 
                 </div>

@@ -36,7 +36,7 @@ namespace PharmaCare
                 if (password == txtPassword.Text)
                 {
                     Session["New"] = txtPassword.Text;
-                    Response.Redirect("doctor_writePrescription.aspx"); 
+                    Response.Redirect("doctor_writePrescription.aspx");
                 }
                 else
                 {
