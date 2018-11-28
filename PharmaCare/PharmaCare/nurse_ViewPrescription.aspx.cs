@@ -69,6 +69,7 @@ namespace PharmaCare
             }
         }
 
+        // Method that searches names in the grid view using a textbox
         protected void search_GridViewNames()
         {
             foreach (GridViewRow row in dgvNursePrescriptions.Rows)
@@ -84,6 +85,7 @@ namespace PharmaCare
             }
         }
 
+        // Methods that clears the textboxes 
         private void clearTextboxes()
         {
             dgvNursePrescriptions.SelectedIndex = -1;
@@ -92,12 +94,14 @@ namespace PharmaCare
             lblPatientNameError.Text = null;
         }
 
+        // Button that uses the clearTextboxes method
         protected void btnClear_Click(object sender, EventArgs e)
         {
             clearTextboxes();
             txtNursePatientSearch.Text = null;
         }
 
+        // Allows for the rows in the grid view to be selected by clicking on the row 
         protected override void Render(System.Web.UI.HtmlTextWriter textWriter)
         {
             foreach (GridViewRow gvRow in dgvNursePrescriptions.Rows)
@@ -110,6 +114,7 @@ namespace PharmaCare
             base.Render(textWriter);
         }
 
+        // Grabs the prescription grid view information after being selected and displays a specfic row within a label 
         protected void dgvNursePrescriptions_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (GridViewRow row in dgvNursePrescriptions.Rows)

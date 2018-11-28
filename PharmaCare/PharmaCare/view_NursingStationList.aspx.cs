@@ -20,14 +20,19 @@ namespace PharmaCare
 {
     public partial class nurse_ViewNursingStation : System.Web.UI.Page
     {
+        // Connects to the database
         string Con = ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
+        // Populate Grid View Method
         private void PopulateGridView()
         {
+            // Uses the connection to the database and selects many columns from various databases using INNER JOIN
+            // and assigns NursingStationID to the drop down list  
             using (SqlConnection con = new SqlConnection(Con))
             {
                 string sql = "SELECT IndoorPrescriptions.NursingStationID, IndoorPrescriptions.PrescriptionID, Patients.Name, Patients.WardID," +
@@ -39,6 +44,7 @@ namespace PharmaCare
             }
         }
 
+        // Creates a new data table and binds the data table to the grid view
         private DataTable GetData(string sql)
         {
             using (SqlConnection con = new SqlConnection(Con))
@@ -56,6 +62,7 @@ namespace PharmaCare
             }
         }
 
+        // When a NursingStationID has been selected from the drop down list, it populates the grid view 
         protected void ddlNursingStation_SelectedIndexChanged1(object sender, EventArgs e)
         {
             PopulateGridView();
