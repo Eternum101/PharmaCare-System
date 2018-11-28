@@ -10,16 +10,24 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Text.RegularExpressions;
 
+/*
+ *Author: Jakob Farrow
+ *Date: 28/11/18
+ *Version: 1.0
+ *Purpose: The purpose for the Write Prescription page is to create, modify, and remove prescriptions 
+           within the database and to check if the cocktails of drugs are dangerous or not 
+*/
+
 namespace PharmaCare
 {
     
     public partial class writePrescription : System.Web.UI.Page
     {
-        string Con = ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
 
+            // On Load Set the modify, cancel and submit buttons to be disabled 
             btnModify.Enabled = false;
             btnModify.CssClass = "buttonVisuals_Spacing_Disabled";
 
@@ -30,25 +38,49 @@ namespace PharmaCare
             btnSubmitNewDrugDetail.CssClass = "btnSubmitNewDrugDetailDisabled";
         }
 
-        protected void TextBox13_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-       
-
+        // Search button Event
         protected void btnPatientSearch_Click(object sender, EventArgs e)
         {
             clearTextboxes();
-            if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
+
+            // Make connection to the database
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+            int patientID = 0;
+
+            // Get PatientID and apply that value to the patientID int. 
+            conn.Open();
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPatientNameInput.Text + "'", conn);
+            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+            while (myReaderDoctorID.Read())
             {
-                search_GridViewNames();
+                patientID = myReaderDoctorID.GetInt32(0);
             }
-            else
+
+            conn.Close();
+
+            // If patientID has been found and is not 0
+            if (patientID != 0)
             {
+                lblPatientNameError.Text = null;
+                if (txtPatientNameInput.Text != "" && txtPatientNameInput.Text != null)
+                {
+                    search_GridViewNames();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            // If patientID has been not been found and remains 0
+            else if (patientID == 0)
+            {
+                lblPatientNameError.Text = "Patient Name Doesnt Exist";
                 return;
             }
+            
         }
 
+        // Search and filter patient Names in the GridView
         protected void search_GridViewNames()
         {
             foreach(GridViewRow row in dgvDoctorPrescriptions.Rows)
@@ -80,24 +112,16 @@ namespace PharmaCare
                     txtPatientName.Text = row.Cells[1].Text;
                     txtDate.Text = row.Cells[2].Text;
                     txtDoctorName.Text = row.Cells[3].Text;
+                    txtPrescriptionDetails.Text = row.Cells[4].Text;
                     
-
-                    /*
-                    txtDrugName.Text = row.Cells[5].Text;
-                    txtStartDate.Text = row.Cells[6].Text;
-                    txtEndDate.Text = row.Cells[7].Text;
-                    txtTimePerDay.Text = row.Cells[8].Text;
-                    txtDose.Text = row.Cells[9].Text;
-                    txtDoseStatus.Text = row.Cells[10].Text;
-                    */
-                    if (row.Cells[4].Text != "&nbsp;")
-                      {
-                        txtPrescriptionStatus.Text = row.Cells[4].Text;
+                    if (row.Cells[5].Text != "&nbsp;")
+                    {
+                        txtPrescriptionStatus.Text = row.Cells[5].Text;
                     }
-                      else if (row.Cells[4].Text == "&nbsp;")
-                      {
+                    else if (row.Cells[5].Text == "&nbsp;")
+                    {
                         txtPrescriptionStatus.Text = null;
-                      }
+                    }
                       
                     dgvDrugDetails.DataSource = SqlDataSourceDetails;
                     dgvDrugDetails.DataBind();
@@ -256,6 +280,7 @@ namespace PharmaCare
             }
         }
 
+        // Prescription Insert Method
         private void dgvDoctorPrescriptions_Insert()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
@@ -282,8 +307,8 @@ namespace PharmaCare
 
             conn.Close();
 
-            string sql = "INSERT INTO Prescriptions (PatientID, DoctorID, PrescriptionDate, StatusOfPrescription) " +
-                         "VALUES (@PatientID, @DoctorID, @PrescriptionDate, @StatusOfPrescription)";
+            string sql = "INSERT INTO Prescriptions (PatientID, DoctorID, PrescriptionDate, PrescriptionDetails, StatusOfPrescription) " +
+                         "VALUES (@PatientID, @DoctorID, @PrescriptionDate, @PrescriptionDetails, @StatusOfPrescription)";
 
             try
             {
@@ -292,8 +317,8 @@ namespace PharmaCare
                 cmd.Parameters.AddWithValue("@PatientID", patientID);
                 cmd.Parameters.AddWithValue("@DoctorID", doctorID);
                 cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
+                cmd.Parameters.AddWithValue("@PrescriptionDetails", txtPrescriptionDetails.Text);
                 cmd.Parameters.AddWithValue("@StatusOfPrescription", txtPrescriptionStatus.Text);
-                // cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -311,6 +336,7 @@ namespace PharmaCare
             
         }
 
+        // Drug Details Insert Method
         private void dgvDrugDetails_Insert()
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
@@ -371,9 +397,10 @@ namespace PharmaCare
         }
 
       
-
+        /* Main Clear Method */
         private void clearTextboxes()
         {
+            // Textbox clear
             txtDate.Text = null;
             txtDrugName.Text = null;
             txtDoctorName.Text = null;
@@ -386,13 +413,15 @@ namespace PharmaCare
             txtDoseStatus.Text = null;
             txtDrugForm.Text = null;
             //txtAdditionalInformation.Text = null;
-
             txtPatientName.Enabled = true;
 
+            // Label clear
             lblCocktailWarning.Text = null;
             lblPrescriptionNumber.Text = null;
             lblDrugID.Text = null;
+            lblPatientNameError.Text = null;
 
+            // GridView clear
             dgvDoctorPrescriptions.SelectedIndex = -1;
             dgvDoctorPrescriptions.DataSource = null;
             dgvDoctorPrescriptions.DataBind();
@@ -401,6 +430,7 @@ namespace PharmaCare
             dgvDrugDetails.DataSource = null;
             dgvDrugDetails.DataBind();
 
+            // Button clear
             btnSubmit2.Enabled = true;
             btnSubmit2.CssClass = "buttonVisuals_Spacing";
 
@@ -414,6 +444,7 @@ namespace PharmaCare
             btnSubmitNewDrugDetail.CssClass = "btnSubmitNewDrugDetail";
         }
 
+        // Submit Button Event
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             Insert();
@@ -421,16 +452,13 @@ namespace PharmaCare
             clearTextboxes();
         }
 
+        // Clear Button Event
         protected void btnClear_Click(object sender, EventArgs e)
         {
             clearTextboxes();
         }
 
-        protected void txtPatientNameInput_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        // Cancel Button Event
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             
@@ -457,14 +485,15 @@ namespace PharmaCare
 
         }
 
-        private void dgvDoctorPrescriptions_ContentModify()
+        // Prescriptions Modify Method 
+        private void Prescriptions_ContentModify()
         {
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
             int doctorID = 0;
 
             string query = "UPDATE Prescriptions SET " +
-                " PrescriptionDate = @PrescriptionDate, StatusOfPrescription = @PrescriptionStatus " +
+                " PrescriptionDate = @PrescriptionDate, PrescriptionDetails = @PrescriptionDetails , StatusOfPrescription = @PrescriptionStatus " +
                 " WHERE PrescriptionID = '" + Convert.ToInt16(lblPrescriptionNumber.Text).ToString() + "'";
 
             sqlConn.Open();
@@ -475,8 +504,7 @@ namespace PharmaCare
                 {
                     cmd.Parameters.AddWithValue("@PrescriptionDate", txtDate.Text);
                     cmd.Parameters.AddWithValue("@PrescriptionStatus", txtPrescriptionStatus.Text);
-                    //row.Cells[5].Text = txtAdditionalInformation.Text;
-                    //cmd.Parameters.AddWithValue("@AdditionalInformation", txtAdditionalInformation.Text);
+                    cmd.Parameters.AddWithValue("@PrescriptionDetails", txtPrescriptionDetails.Text);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -498,7 +526,8 @@ namespace PharmaCare
             sqlConn.Close();
         }
 
-        private void dgvDrugDetails_ContentModify()
+        // Drug Detail Modify Method 
+        private void DrugDetails_ContentModify()
         {
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
             
@@ -527,16 +556,17 @@ namespace PharmaCare
             sqlConn.Close();
         }
 
+        // Modify Button Event 
         protected void btnModify_Click(object sender, EventArgs e)
         {
             try
             {
-                dgvDoctorPrescriptions_ContentModify();
+                Prescriptions_ContentModify();
 
                 if (!string.IsNullOrEmpty(txtStartDate.Text + txtEndDate.Text + txtTimePerDay.Text + txtDrugForm.Text + txtDose.Text +
                 txtDoseStatus.Text + txtDrugName.Text))
                 {
-                    dgvDrugDetails_ContentModify();
+                    DrugDetails_ContentModify();
                 }
             }
             catch (SqlException ex)
@@ -548,6 +578,7 @@ namespace PharmaCare
             clearTextboxes();
         }
 
+        // Check Cocktail Button Event 
         protected void btnCheckCocktail_Click(object sender, EventArgs e)
         {
 
@@ -570,8 +601,10 @@ namespace PharmaCare
             client.Close();
         }
 
+        // New Details Button Event 
         protected void btnSubmitNewDrugDetail_Click(object sender, EventArgs e)
         {
+            // Make connection with the Dbconnection Database
             SqlConnection sqlConn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
 
             string sql = "INSERT INTO PrescriptionsDetails (DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, LinkID) " +
@@ -579,6 +612,7 @@ namespace PharmaCare
 
             try
             {
+                // Insert textbox text into database
                 sqlConn.Open();
                 SqlCommand cmd = new SqlCommand(sql, sqlConn);
                 cmd.Parameters.AddWithValue("@FirstTime", txtStartDate.Text);
@@ -594,6 +628,7 @@ namespace PharmaCare
             }
             catch (System.Data.SqlClient.SqlException ex)
             {
+                // Report any errors 
                 string msg = "Insert Error:";
                 msg += ex.Message;
                 throw new Exception(msg);
@@ -603,6 +638,7 @@ namespace PharmaCare
             {
                 sqlConn.Close();
             }
+            // Reset page
             dgvDrugDetails.DataSource = SqlDataSourceDetails;
             dgvDrugDetails.DataBind();
             clearTextboxes();

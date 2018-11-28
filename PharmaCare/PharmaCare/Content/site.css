@@ -51,9 +51,21 @@ h4 {
     font-family: Arial;
 }
 
-.validatorText{
+.lblPatientNameErrorAlignment{
+    margin-top: 6px;
+}
+
+@media only screen and (max-width: 991px) {
+    /* For mobile phones: */
+    [class*="lblPatientNameErrorAlignment"] {
+        float: left;
+        margin-left: 40px;
+    }
+}
+
+.validatorText {
     color: red;
-    position:absolute;
+    position: absolute;
 }
 
 .leftTextboxDiv {

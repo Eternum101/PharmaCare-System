@@ -24,12 +24,40 @@ namespace PharmaCare
 
         protected void btnPharmacistPatientSearch_Click(object sender, EventArgs e)
         {
-            if (txtPharmacistPatientSearch.Text != "" && txtPharmacistPatientSearch.Text != null)
+            ClearTextBox();
+
+            // Make connection to the database
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+            int patientID = 0;
+
+            // Get PatientID and apply that value to the patientID int. 
+            conn.Open();
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPharmacistPatientSearch.Text + "'", conn);
+            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+            while (myReaderDoctorID.Read())
             {
-                search_Prescription();
+                patientID = myReaderDoctorID.GetInt32(0);
             }
-            else
+
+            conn.Close();
+
+            // If patientID has been found and is not 0
+            if (patientID != 0)
             {
+                lblPatientNameError.Text = null;
+                if (txtPharmacistPatientSearch.Text != "" && txtPharmacistPatientSearch.Text != null)
+                {
+                    search_Prescription();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            // If patientID has been not been found and remains 0
+            else if (patientID == 0)
+            {
+                lblPatientNameError.Text = "Patient Name Doesnt Exist";
                 return;
             }
         }
@@ -130,6 +158,7 @@ namespace PharmaCare
             txtIndoorEmergency.Text = "";
             txtToFill.Text = "";
             txtType.Text = "";
+            lblPatientNameError.Text = null;
         }
 
         protected void dgvOPDPrescription_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,7 +207,7 @@ namespace PharmaCare
 
             Response.AppendHeader("Content-Length", printString.Length.ToString());
             Response.ContentType = "text/plain";
-            Response.AppendHeader("Content-Disposition", "attachment;filename=\"output.txt\"");
+            Response.AppendHeader("Content-Disposition", "attachment;filename=\"PrintPrescription.txt\"");
 
             Response.Write(printString);
             Response.End();
