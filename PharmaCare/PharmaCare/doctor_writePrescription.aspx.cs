@@ -529,17 +529,12 @@ namespace PharmaCare
             for (int i = 0; i < dgvDrugDetails.Rows.Count; i++)
             {
                 // If a drug within the gridview is dangerous run
-                if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[3].Text) == true)
+                if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[2].Text) == true)
                 {
                     lblCocktailWarning.CssClass = "lblcocktailWarning";
                     lblCocktailWarning.Text = "Warning! Dangerous Cocktail!";
                 }
-                // If a drug within the gridview is not dangerous run
-                else if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[3].Text) == false)
-                {
-                    lblCocktailWarning.CssClass = "lblCocktailSafe";
-                    lblCocktailWarning.Text = "Current Drug Cocktail Is Safe!";
-                }
+                
             }
 
             client.Close();
