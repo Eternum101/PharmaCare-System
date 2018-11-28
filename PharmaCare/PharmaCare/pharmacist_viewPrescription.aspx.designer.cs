@@ -76,6 +76,15 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.GridView dgvPharmacistPrescriptions;
         
         /// <summary>
+        /// lblPrescriptionNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrescriptionNumber;
+        
+        /// <summary>
         /// dgvPrescriptionsDetails control.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,13 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.GridView dgvPrescriptionsDetails;
         
         /// <summary>
-        /// dgvOPDPrescriptions control.
+        /// dgvOPDPrescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvOPDPrescriptions;
+        protected global::System.Web.UI.WebControls.GridView dgvOPDPrescription;
         
         /// <summary>
         /// txtPrescriptionID control.
@@ -103,15 +112,6 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtPrescriptionID;
         
         /// <summary>
-        /// txtDoctorName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDoctorName;
-        
-        /// <summary>
         /// txtPatientName control.
         /// </summary>
         /// <remarks>
@@ -121,13 +121,67 @@ namespace PharmaCare {
         protected global::System.Web.UI.WebControls.TextBox txtPatientName;
         
         /// <summary>
-        /// txtStatus control.
+        /// txtDoctorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStatus;
+        protected global::System.Web.UI.WebControls.TextBox txtDoctorName;
+        
+        /// <summary>
+        /// txtFilledAndDispatched control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilledAndDispatched;
+        
+        /// <summary>
+        /// txtTimeDispatched control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTimeDispatched;
+        
+        /// <summary>
+        /// txtDateDispatched control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateDispatched;
+        
+        /// <summary>
+        /// txtIndoorEmergency control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIndoorEmergency;
+        
+        /// <summary>
+        /// txtToFill control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtToFill;
+        
+        /// <summary>
+        /// txtType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtType;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -155,5 +209,14 @@ namespace PharmaCare {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRecall;
+        
+        /// <summary>
+        /// btnPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrint;
     }
 }
