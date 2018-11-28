@@ -563,7 +563,7 @@ namespace PharmaCare
                 else if (client.checkCocktail(dgvDrugDetails.Rows[i].Cells[3].Text) == false)
                 {
                     lblCocktailWarning.CssClass = "lblCocktailSafe";
-                    lblCocktailWarning.Text = "Current Drug Used Is Safe!";
+                    lblCocktailWarning.Text = "Current Drug Cocktail Is Safe!";
                 }
             }
 
