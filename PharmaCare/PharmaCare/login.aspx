@@ -51,18 +51,20 @@
                 <div class="login_contentContainer">
                     <div class="login_credentialsContainer">
                         <h4>Username: </h4>
-                        <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUsername" 
-                            ErrorMessage="Please Enter Username" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" />
+                        <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate="txtUsername" 
+                            ErrorMessage="Please Enter Username" ForeColor="#CC0000" ValidationGroup="SignIn"></asp:RequiredFieldValidator>
+                        <asp:Label Text="" ID="lblUserNameIncorrect" CssClass="lblcocktailWarning" runat="server" />
 
                         <h4>Password: </h4>
-                        <asp:TextBox ID="txtPassword" class="login_textboxes" Text="" runat="server" />
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" 
-                            ErrorMessage="Please Enter Password" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="txtPassword" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" />
+                        <asp:RequiredFieldValidator ID="rfvPassword" runat="server" ControlToValidate="txtPassword" 
+                            ErrorMessage="Please Enter Password" ForeColor="#CC0000" ValidationGroup="SignIn"></asp:RequiredFieldValidator>
+                        <asp:Label ID="lblPasswordIncorrect" CssClass="lblcocktailWarning" runat="server" />
                     </div>
                     
                     <div class="btnLogin">
-                        <input type="button" class="btnLoginVisuals" onclick="parent.location='doctor_writePrescription.aspx'" runat="server" value='Sign In'/>
+                        <asp:Button class="btnLoginVisuals" Text="Sign In" runat="server" ID="btnSignIn" ValidationGroup="SignIn" OnClick="btnSignIn_Click" />
                     </div>
 
                 </div>
