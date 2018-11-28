@@ -245,8 +245,8 @@
     <div class="float_center">
         <ul class="child">
           <li><p>14/11/18</p></li>
-          <li><p>Billy Bob</p></li>
-          <li><p>John Doe</p></li>
+          <li><p>Jakob Farrow</p></li>
+          <li><p>Brayden Cantrill</p></li>
           <li><p>Silly Sam</p></li>
         </ul>
     </div>

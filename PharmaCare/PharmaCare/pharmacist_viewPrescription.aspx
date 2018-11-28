@@ -142,6 +142,11 @@
            <h4>Prescription ID:</h4> 
             <asp:TextBox ID="txtPrescriptionID" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
             </div>
+
+    <div class="leftTextboxDiv">
+        <h4>Patient Name:</h4> 
+            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>
+            </div>
             
          <div class="leftTextboxDiv">
             <h4>Doctor Name:</h4>
@@ -149,13 +154,33 @@
          </div>
 
         <div class="leftTextboxDiv">
-           <h4>Patient Name:</h4> 
-            <asp:TextBox ID="txtPatientName" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+           <h4>Filled And Dispatched:</h4> 
+            <asp:TextBox ID="txtFilledAndDispatched" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+        </div>
+
+        <div class="leftTextboxDiv">
+           <h4>Time Dispatched:</h4> 
+            <asp:TextBox ID="txtTimeDispatched" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+        </div>
+
+        <div class="leftTextboxDiv">
+           <h4>Date Dispatched:</h4> 
+            <asp:TextBox ID="txtDateDispatched" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
+        </div>
+
+        <div class="leftTextboxDiv">
+           <h4>Indoor Emergency:</h4> 
+            <asp:TextBox ID="txtIndoorEmergency" CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True"/>    
         </div>
             
         <div class="leftTextboxDiv">
-            <h4>Filled and Dispatched:</h4>
-            <asp:TextBox ID="txtStatus"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
+            <h4>To Fill:</h4>
+            <asp:TextBox ID="txtToFill"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
+            </div>
+
+        <div class="leftTextboxDiv">
+            <h4>Type:</h4>
+            <asp:TextBox ID="txtType"  CssClass="entry_textboxes" Width="150px" runat="server" ReadOnly="True" />
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPatientName" Text="Prescription Not Selected" ValidationGroup="group" CssClass="text-danger"></asp:RequiredFieldValidator>
             </div>
     </div>
