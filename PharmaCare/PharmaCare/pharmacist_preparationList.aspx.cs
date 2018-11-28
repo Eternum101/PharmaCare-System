@@ -49,12 +49,40 @@ namespace PharmaCare
 
         protected void btnPharmacistPrescriptionSearch_Click(object sender, EventArgs e)
         {
-            if (txtPharmacistPrescriptionSearch.Text != "" && txtPharmacistPrescriptionSearch.Text != null)
+            ClearTextBox();
+
+            // Make connection to the database
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+            int patientID = 0;
+
+            // Get PatientID and apply that value to the patientID int. 
+            conn.Open();
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPharmacistPrescriptionSearch.Text + "'", conn);
+            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+            while (myReaderDoctorID.Read())
             {
-                search_Prescription();
+                patientID = myReaderDoctorID.GetInt32(0);
             }
-            else
+
+            conn.Close();
+
+            // If patientID has been found and is not 0
+            if (patientID != 0)
             {
+                lblPatientNameError.Text = null;
+                if (txtPharmacistPrescriptionSearch.Text != "" && txtPharmacistPrescriptionSearch.Text != null)
+                {
+                    search_Prescription();
+                }
+                else
+                {
+                    return;
+                }
+            }
+            // If patientID has been not been found and remains 0
+            else if (patientID == 0)
+            {
+                lblPatientNameError.Text = "Patient Name Doesnt Exist";
                 return;
             }
         }
@@ -65,7 +93,7 @@ namespace PharmaCare
             {
                 string txtSearch = txtPharmacistPrescriptionSearch.Text.Trim();
 
-                if (!Regex.IsMatch(row.Cells[0].Text, txtSearch, RegexOptions.IgnoreCase))
+                if (!Regex.IsMatch(row.Cells[1].Text, txtSearch, RegexOptions.IgnoreCase))
                 {
                     {
                         row.Visible = false;
@@ -87,6 +115,7 @@ namespace PharmaCare
             txtDrugName.Text = "";
             txtDrugDose.Text = "";
             TxtDrugForm.Text = "";
+            lblPatientNameError.Text = null;
         }
 
         protected void dgvPrescriptionsDetails_SelectedIndexChanged(object sender, EventArgs e)

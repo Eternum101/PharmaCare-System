@@ -78,6 +78,7 @@ namespace PharmaCare
         {
             dgvStaffPrescriptions.DataSource = null;
             dgvStaffPrescriptions.DataBind();
+            lblPatientNameError.Text = null;
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
