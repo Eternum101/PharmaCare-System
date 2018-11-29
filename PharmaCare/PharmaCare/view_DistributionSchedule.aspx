@@ -92,6 +92,8 @@ Bugs : None -->
             <Columns>
                 <asp:BoundField DataField="LinkID" HeaderText="Prescription ID"/>
 
+                <asp:BoundField DataField="RoomNumber" HeaderText="Ward"/>
+
                 <asp:BoundField DataField="DrugName" HeaderText="Drug Name"/>
 
                 <asp:BoundField DataField="DrugForm" HeaderText="Drug Form"/>
