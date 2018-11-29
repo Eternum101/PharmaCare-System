@@ -61,7 +61,7 @@
                         <h4>Username: </h4>
                         <asp:TextBox ID="txtUsername" class="login_textboxes" Text="" runat="server" ValidationGroup="SignIn" AutoPostBack="True" OnTextChanged="txtUsername_TextChanged" />
                         <asp:Label Text="" ID="lblUserNameIncorrect" CssClass="lblLoginWarning" runat="server" />
-                        <asp:RequiredFieldValidator ID="rfvUsername" runat="server" ControlToValidate="txtUsername" 
+                        <asp:RequiredFieldValidator ID="rfvUsername" CssClass="ValidateTest" runat="server" ControlToValidate="txtUsername" 
                             ErrorMessage="Please Enter Username" ForeColor="#CC0000" ValidationGroup="SignIn"></asp:RequiredFieldValidator>
 
                         

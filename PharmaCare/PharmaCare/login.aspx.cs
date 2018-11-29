@@ -57,7 +57,7 @@ namespace PharmaCare
             // If the username is not correct then prevent redirecting to the next page and change the label text
             else
             {
-                lblUserNameIncorrect.Text = "Username Is Incorrect";
+                lblUserNameIncorrect.Text = "Username & Password Is Incorrect";
             }
             conn.Close();
         }

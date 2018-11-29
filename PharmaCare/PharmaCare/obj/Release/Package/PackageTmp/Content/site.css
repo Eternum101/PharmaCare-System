@@ -627,12 +627,17 @@ ul .btnSearchPosition {
     font-size: 18px;
 }
 
+.ValidateTest{
+    margin-bottom: -50px;
+}
+
 .lblLoginWarning {
     color: red;
     font-family: Arial;
     font-size: 16px;
-    text-align: center;
-    position: absolute;
+    margin-top: -10px;
+
+    float: left;
 }
 
 /* Modify Prescription */

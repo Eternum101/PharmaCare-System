@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/jakob" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\2101560216\\Documents\\PharmaCare-System\\PharmaCare\\PharmaCare\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\2101560216\\Documents\\PharmaCare-System\\PharmaCare\\PharmaCare\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="Default Web Site/jakob/App_Data" tags="Hidden">
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\2101560216\\Documents\\PharmaCare-System\\PharmaCare\\PharmaCare\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
+  </parameter>
+  <parameter name="ConnectionString-Web.config Connection String" description="" value="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\2101560216\\Documents\\PharmaCare-System\\PharmaCare\\PharmaCare\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="Dbconnection-Web.config Connection String" description="" value="Data Source = (LocalDB)\MSSQLLocalDB;Initial Catalog=PharmaCare_DB;AttachDbFilename=|DataDirectory|\PharmaCare_DB.mdf;Integrated Security = True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\2101560216\\Documents\\PharmaCare-System\\PharmaCare\\PharmaCare\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Dbconnection']/@connectionString" />
+  </parameter>
+</parameters>

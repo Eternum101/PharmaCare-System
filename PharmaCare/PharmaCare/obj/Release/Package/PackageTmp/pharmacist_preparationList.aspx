@@ -1,8 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="pharmacist_preparationList.aspx.cs" Inherits="PharmaCare.pharmacist_preparationList"  enableEventValidation="false"%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="titile" runat="server">
     Preparation List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="head" runat="server">
+    <!--Name: Jake Smith
+    StudentID: 461123739
+    Purpose: Preparation List
+    Date: 22/11/18
+    Known Bugs: -->
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="contentContainer" runat="server">
@@ -33,16 +39,14 @@
                 <asp:Label Text="" ID="lblPatientNameError" CssClass="lblcocktailWarning" runat="server" />
             </div>
         </div>
-
     </div>
-
+       <!--Prescription List -->
      <div class="globalBorderRound">
-
         <div class="leftTextboxDiv">
             <div class="left">
             <h4 class="lblPrescriptionTable">Prescription List</h4><br />
-
             </div>
+
             <asp:GridView ID="dgvPharmacistPreparation" runat="server" DataSourceID="SqlDataSourcePharmaList" 
                 AllowSorting="True" CellPadding="3" Width="1000px" BackColor="White" 
                 BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" GridLines="Horizontal" 
@@ -68,7 +72,7 @@
             </asp:GridView>
         </div>
     </div>
-
+       <!--Prescription Details -->
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
             <div class="left">
@@ -131,6 +135,7 @@
             </asp:GridView>
         </div>
     </div>
+       <!--Prescription Drug Info -->
 
     <div class="globalBorderRound">
         <div class="leftTextboxDiv">
@@ -151,7 +156,7 @@
             <asp:RequiredFieldValidator ID="RequiredFieldValidatorPrescription" runat="server" ErrorMessage="Prescription Not Selected" ValidationGroup="group" ControlToValidate="txtPrescriptionID" SetFocusOnError="True" CssClass="text-danger"></asp:RequiredFieldValidator>
         </div>
     </div>
-
+       <!--Buttons-->
     <div class="float_center">
         <ul class="child">
             <li class="btn_li"><asp:Button ID="btnViewAll" class="buttonVisuals_Spacing" Text="View All" runat="server" OnClick="btnFill_Click"/></li>
@@ -163,6 +168,8 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="footerContainer" runat="server">
+       <!--Details -->
+
     <div class="float_center">
         <ul class="child">
           <li><p>14/11/18</p></li>

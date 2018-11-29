@@ -5,17 +5,24 @@
 </asp:Content>
 
 <asp:Content ID="Head" ContentPlaceHolderID="head" runat="server">
+<!-- Author : Dion Bird 463416289
+Date : 29/11/18
+Version : 1
+Purpose : View Distribution Schedule for Nurse and Pharmastist
+Bugs : None -->
+ 
     <style>
         .SelectBtn {
             margin-left: 4%;
         }
     </style>
 </asp:Content>
-
 <asp:Content ID="Container" ContentPlaceHolderID="contentContainer" runat="server">
+    <!-- This Section Is the Body-->
     <h1 class="DistributionHeader">View Distribution Schedule</h1>
     <div>
-        <br />        
+        <br />
+        <!-- This Is the Drop-Down Menu -->
         <asp:DropDownList ID="SelectButton" CssClass="dropdownRoundDistribution" runat="server" >
             <asp:ListItem Text="1" Value="1"/>
             <asp:ListItem Text="2" Value="2"/>
@@ -24,6 +31,7 @@
             <asp:ListItem Text="5" Value="5"/>
             <asp:ListItem Text="6" Value="6"/>
         </asp:DropDownList>
+        <!-- This is the Display Ward Button -->
         <asp:Button ID="DisplayButton" CssClass="displayWard" runat="server" OnClick="Button1_Click" Text="Display Wing" />
     </div>
     <div>
@@ -35,6 +43,7 @@
          <h4 class="lblPrescriptionTable">Indoor Prescriptions</h4><br />
 
         </div>
+            <!-- This is the First DataGridView -->
         <asp:GridView ID="dgvViewDistributionSchedule" enablePaging="true" class="gridviewProperties" runat="server" CellPadding="2" ForeColor="Black" 
             AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="WingNumber" ShowHeaderWhenEmpty="True" 
             AllowPaging="True" AllowSorting="True" GridLines="Vertical" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" Width="1000px">
@@ -74,6 +83,7 @@
          <h4 class="lblPrescriptionTable">Distribution Schedule for Selected Wing</h4><br />
 
         </div>
+            <!-- This is the Second DataGridView -->
         <asp:GridView ID="dgvViewDistributionSchedule2" enablePaging="true" class="gridviewProperties" runat="server" CellPadding="2" ForeColor="Black" 
             AutoGenerateColumns="False" ShowFooter="True" DataKeyNames="WingNumber" ShowHeaderWhenEmpty="True" 
             AllowPaging="True" AllowSorting="True" GridLines="Vertical" BorderColor="Black" BorderStyle="Solid" BorderWidth="2px" CellSpacing="2" Width="1000px">
@@ -108,6 +118,7 @@
         </asp:GridView>
     </div>
         </div>
+    <!-- This is the Print Button -->
     <div class="float_center">
         <ul class="child">         
           <li class="btn_li">
@@ -120,6 +131,7 @@
 </asp:Content>
 
 <asp:Content ID="footer" ContentPlaceHolderID="footerContainer" runat="server">
+    <!-- This is the Footer -->
     <div class="float_center">
         <ul class="child">
             <li>
