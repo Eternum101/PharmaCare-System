@@ -51,11 +51,12 @@ namespace PharmaCare
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
                     dgvViewDistributionSchedule.DataBind();
                     //The Below SQL String Utilises the PrescriptionsDetails Table and the IndoorPrescriptions Table
-                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber " +
+                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber, " +
+                        "IndoorPrescriptions.RoomNumber " +
                         "FROM PrescriptionsDetails " +
                         "LEFT JOIN IndoorPrescriptions ON PrescriptionsDetails.LinkID = IndoorPrescriptions.PrescriptionID " +
                         "WHERE IndoorPrescriptions.WingNumber = 1 " +
-                        "ORDER BY LinkID";
+                        "ORDER BY IndoorPrescriptions.RoomNumber";
                     dgvViewDistributionSchedule2.DataSource = this.GetData(sql2);
                     dgvViewDistributionSchedule2.DataBind();
                 }
@@ -73,11 +74,12 @@ namespace PharmaCare
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
                     dgvViewDistributionSchedule.DataBind();
                     //The Below SQL String Utilises the PrescriptionsDetails Table and the IndoorPrescriptions Table
-                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber " +
+                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber, " +
+                        "IndoorPrescriptions.RoomNumber " +
                         "FROM PrescriptionsDetails " +
                         "LEFT JOIN IndoorPrescriptions ON PrescriptionsDetails.LinkID = IndoorPrescriptions.PrescriptionID " +
                         "WHERE IndoorPrescriptions.WingNumber = 2 " +
-                        "ORDER BY LinkID";
+                        "ORDER BY IndoorPrescriptions.RoomNumber";
                     dgvViewDistributionSchedule2.DataSource = this.GetData(sql2);
                     dgvViewDistributionSchedule2.DataBind();
                 }
@@ -95,11 +97,12 @@ namespace PharmaCare
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
                     dgvViewDistributionSchedule.DataBind();
                     //The Below SQL String Utilises the PrescriptionsDetails Table and the IndoorPrescriptions Table
-                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber " +
+                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber, " +
+                        "IndoorPrescriptions.RoomNumber " +
                         "FROM PrescriptionsDetails " +
                         "LEFT JOIN IndoorPrescriptions ON PrescriptionsDetails.LinkID = IndoorPrescriptions.PrescriptionID " +
                         "WHERE IndoorPrescriptions.WingNumber = 3 " +
-                        "ORDER BY LinkID";
+                        "ORDER BY IndoorPrescriptions.RoomNumber";
                     dgvViewDistributionSchedule2.DataSource = this.GetData(sql2);
                     dgvViewDistributionSchedule2.DataBind();
                 }
@@ -117,11 +120,12 @@ namespace PharmaCare
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
                     dgvViewDistributionSchedule.DataBind();
                     //The Below SQL String Utilises the PrescriptionsDetails Table and the IndoorPrescriptions Table
-                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber " +
+                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber, " +
+                        "IndoorPrescriptions.RoomNumber " +
                         "FROM PrescriptionsDetails " +
                         "LEFT JOIN IndoorPrescriptions ON PrescriptionsDetails.LinkID = IndoorPrescriptions.PrescriptionID " +
                         "WHERE IndoorPrescriptions.WingNumber = 4 " +
-                        "ORDER BY LinkID";
+                        "ORDER BY IndoorPrescriptions.RoomNumber";
                     dgvViewDistributionSchedule2.DataSource = this.GetData(sql2);
                     dgvViewDistributionSchedule2.DataBind();
                 }
@@ -139,11 +143,12 @@ namespace PharmaCare
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
                     dgvViewDistributionSchedule.DataBind();
                     //The Below SQL String Utilises the PrescriptionsDetails Table and the IndoorPrescriptions Table
-                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber " +
+                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber, " +
+                        "IndoorPrescriptions.RoomNumber " +
                         "FROM PrescriptionsDetails " +
                         "LEFT JOIN IndoorPrescriptions ON PrescriptionsDetails.LinkID = IndoorPrescriptions.PrescriptionID " +
                         "WHERE IndoorPrescriptions.WingNumber = 5 " +
-                        "ORDER BY LinkID";
+                        "ORDER BY IndoorPrescriptions.RoomNumber";
                     dgvViewDistributionSchedule2.DataSource = this.GetData(sql2);
                     dgvViewDistributionSchedule2.DataBind();
                 }
@@ -161,11 +166,12 @@ namespace PharmaCare
                     dgvViewDistributionSchedule.DataSource = this.GetData(sql);
                     dgvViewDistributionSchedule.DataBind();
                     //The Below SQL String Utilises the PrescriptionsDetails Table and the IndoorPrescriptions Table
-                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber " +
+                    string sql2 = "SELECT LinkID, DrugName, DrugForm, Dose, FirstTime, LastTime, TimesPerDay, StatusOfDose, IndoorPrescriptions.WingNumber, " +
+                        "IndoorPrescriptions.RoomNumber " +
                         "FROM PrescriptionsDetails " +
                         "LEFT JOIN IndoorPrescriptions ON PrescriptionsDetails.LinkID = IndoorPrescriptions.PrescriptionID " +
                         "WHERE IndoorPrescriptions.WingNumber = 6 " +
-                        "ORDER BY LinkID";
+                        "ORDER BY IndoorPrescriptions.RoomNumber";
                     dgvViewDistributionSchedule2.DataSource = this.GetData(sql2);
                     dgvViewDistributionSchedule2.DataBind();
                 }
