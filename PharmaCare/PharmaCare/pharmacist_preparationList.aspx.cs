@@ -57,39 +57,48 @@ namespace PharmaCare
         protected void btnPharmacistPrescriptionSearch_Click(object sender, EventArgs e)
         {
             ClearTextBox();
-
-            // Make connection to the database
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
-            int patientID = 0;
-
-            // Get PatientID and apply that value to the patientID int. 
-            conn.Open();
-            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PrescriptionID FROM Prescriptions WHERE PrescriptionID = '" + txtPharmacistPrescriptionSearch.Text + "'", conn);
-            SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
-            while (myReaderDoctorID.Read())
+            int outParse;
+            if (Int32.TryParse(txtPharmacistPrescriptionSearch.Text, out outParse))
             {
-                patientID = myReaderDoctorID.GetInt32(0);
-            }
 
-            conn.Close();
-
-            // If patientID has been found and is not 0
-            if (patientID != 0)
-            {
-                lblPatientNameError.Text = null;
-                if (txtPharmacistPrescriptionSearch.Text != "" && txtPharmacistPrescriptionSearch.Text != null)
+                // Make connection to the database
+                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbconnection"].ConnectionString);
+                int patientID = 0;
+            
+                // Get PatientID and apply that value to the patientID int. 
+                conn.Open();
+                SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PrescriptionID FROM Prescriptions WHERE PrescriptionID = '" + Convert.ToInt32(txtPharmacistPrescriptionSearch.Text) + "'", conn);
+                SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
+                while (myReaderDoctorID.Read())
                 {
-                    search_Prescription();
+                    patientID = myReaderDoctorID.GetInt32(0);
                 }
-                else
+
+                conn.Close();
+
+                // If patientID has been found and is not 0
+                if (patientID != 0)
                 {
+                    lblPatientNameError.Text = null;
+                    if (txtPharmacistPrescriptionSearch.Text != "" && txtPharmacistPrescriptionSearch.Text != null)
+                    {
+                        search_Prescription();
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                // If patientID has been not been found and remains 0
+                else if (patientID == 0)
+                {
+                    lblPatientNameError.Text = "Patient ID Doesnt Exist";
                     return;
                 }
             }
-            // If patientID has been not been found and remains 0
-            else if (patientID == 0)
+            else
             {
-                lblPatientNameError.Text = "Patient Name Doesnt Exist";
+                lblPatientNameError.Text = "Only Enter Numbers";
                 return;
             }
         }
