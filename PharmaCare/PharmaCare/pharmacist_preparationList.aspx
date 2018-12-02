@@ -32,7 +32,7 @@
               <li class="searchPosition"><h3>Prescription ID: </h3></li>
               <li class="searchPosition"><asp:TextBox ID="txtPharmacistPrescriptionSearch" class="search_textboxes2" runat="server"/></li>
               <li class="searchPositionSmaller"><asp:Button ID="btnPharmacistPrescriptionSearch" class="btnSearchPosition" Text="Search" runat="server" OnClick="btnPharmacistPrescriptionSearch_Click" ValidationGroup="SearchValidation" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPharmacistPrescriptionSearch" CssClass="text-danger" ErrorMessage="Patient ID Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
+                <asp:RequiredFieldValidator ID="rfvPrescriptionID" runat="server" ControlToValidate="txtPharmacistPrescriptionSearch" CssClass="text-danger" ErrorMessage="Prescription ID Required" ValidationGroup="SearchValidation"></asp:RequiredFieldValidator></li>
             </ul>
 
              <div class="lblPatientNameErrorAlignment">
@@ -87,7 +87,7 @@
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="PrescriptionDetailsID" HeaderText="DetailsID" SortExpression="PrescriptionDetailsID" InsertVisible="False" ReadOnly="True" />
-                    <asp:BoundField DataField="LinkID" HeaderText="PrescriptionID" SortExpression="LinkID" />
+                    <asp:BoundField DataField="LinkID" HeaderText="LinkID" SortExpression="LinkID" />
                     <asp:BoundField DataField="DrugName" HeaderText="DrugName" SortExpression="DrugName" />
                     <asp:BoundField DataField="DrugForm" HeaderText="DrugForm" SortExpression="DrugForm" />
                     <asp:BoundField DataField="Dose" HeaderText="Dose" SortExpression="Dose" />
@@ -114,7 +114,7 @@
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
                     <asp:BoundField DataField="PrescriptionDetailsID" HeaderText="DetailsID" SortExpression="PrescriptionDetailsID" InsertVisible="False" ReadOnly="True" />
-                    <asp:BoundField DataField="LinkID" HeaderText="PrescriptionID" SortExpression="LinkID" />
+                    <asp:BoundField DataField="LinkID" HeaderText="LinkID" SortExpression="LinkID" />
                     <asp:BoundField DataField="DrugName" HeaderText="DrugName" SortExpression="DrugName" />
                     <asp:BoundField DataField="DrugForm" HeaderText="DrugForm" SortExpression="DrugForm" />
                     <asp:BoundField DataField="Dose" HeaderText="Dose" SortExpression="Dose" />

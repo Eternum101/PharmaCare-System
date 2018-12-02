@@ -64,7 +64,7 @@ namespace PharmaCare
 
             // Get PatientID and apply that value to the patientID int. 
             conn.Open();
-            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PatientID FROM Patients WHERE Name = '" + txtPharmacistPrescriptionSearch.Text + "'", conn);
+            SqlCommand cmdGetDoctorID = new SqlCommand("SELECT PrescriptionID FROM Prescriptions WHERE PrescriptionID = '" + txtPharmacistPrescriptionSearch.Text + "'", conn);
             SqlDataReader myReaderDoctorID = cmdGetDoctorID.ExecuteReader();
             while (myReaderDoctorID.Read())
             {
@@ -101,7 +101,7 @@ namespace PharmaCare
             {
                 string txtSearch = txtPharmacistPrescriptionSearch.Text.Trim();
 
-                if (!Regex.IsMatch(row.Cells[1].Text, txtSearch, RegexOptions.IgnoreCase))
+                if (!Regex.IsMatch(row.Cells[0].Text, txtSearch, RegexOptions.IgnoreCase))
                 {
                     {
                         row.Visible = false;
@@ -126,6 +126,10 @@ namespace PharmaCare
             txtDrugDose.Text = "";
             TxtDrugForm.Text = "";
             lblPatientNameError.Text = null;
+
+            dgvPharmacistPreparation.SelectedIndex = -1;
+            dgvPharmacistPreparation.DataSource = null;
+            dgvPharmacistPreparation.DataBind();
         }
         //Selcts a row out of DataGrid
         protected void dgvPrescriptionsDetails_SelectedIndexChanged(object sender, EventArgs e)
